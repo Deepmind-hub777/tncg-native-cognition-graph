@@ -3,10 +3,11 @@ import { pathToFileURL } from 'node:url';
 
 const CONTENT_FIELDS = ['traditionalText', 'pinyin', 'simplifiedMeaning', 'englishNote', 'illustration', 'audio', 'strokeData'];
 
-export function validateLessons(entries, { expectedCount = 250 } = {}) {
+export function validateLessons(entries, { expectedCount = 250, pageSize = 4 } = {}) {
   const errors = [];
   if (!Array.isArray(entries)) return ['lessons must be an array'];
   if (entries.length !== expectedCount) errors.push(`expected ${expectedCount} lessons, received ${entries.length}`);
+  if (Math.ceil(expectedCount / pageSize) !== Math.ceil(entries.length / pageSize)) errors.push(`expected ${Math.ceil(expectedCount / pageSize)} pages at ${pageSize} lessons per page`);
   const ids = new Set();
   const sequences = new Set();
   for (const [index, entry] of entries.entries()) {
@@ -15,7 +16,7 @@ export function validateLessons(entries, { expectedCount = 250 } = {}) {
     if (typeof entry.id !== 'string' || !entry.id.trim()) errors.push(`${label} missing id`);
     else if (ids.has(entry.id)) errors.push(`${label} duplicate id ${entry.id}`);
     else ids.add(entry.id);
-    if (!Number.isInteger(entry.sequence) || entry.sequence < 1) errors.push(`${label} invalid sequence`);
+    if (!Number.isInteger(entry.sequence) || entry.sequence < 1 || entry.sequence > expectedCount) errors.push(`${label} invalid sequence`);
     else if (sequences.has(entry.sequence)) errors.push(`${label} duplicate sequence ${entry.sequence}`);
     else sequences.add(entry.sequence);
     for (const field of CONTENT_FIELDS) {
@@ -27,6 +28,9 @@ export function validateLessons(entries, { expectedCount = 250 } = {}) {
       if (field === 'traditionalText' && (typeof item.value !== 'string' || [...item.value].length !== 4)) errors.push(`${label} traditionalText must contain exactly four characters`);
       if (field === 'pinyin' && (!Array.isArray(item.value) || item.value.length !== 4 || item.value.some((v) => typeof v !== 'string' || !v.trim()))) errors.push(`${label} pinyin must contain four non-empty syllables`);
     }
+  }
+  if (entries.length === expectedCount) {
+    for (let sequence = 1; sequence <= expectedCount; sequence++) if (!sequences.has(sequence)) errors.push(`missing sequence ${sequence}`);
   }
   return errors;
 }

@@ -43,7 +43,7 @@ TNCG is an emerging research framework, not an established or universally accept
 - `06-pilot-studies/` — pilot protocols and evaluation
 - `07-community/` — collaboration proposals and discussions
 - `08-archive/` — superseded materials and historical versions
-- `09-learning-library/` — planned learning-resource archive; currently contains directory guidance only, with no published lessons
+- `09-learning-library/` — learning-resource archive, including the first interactive Qianziwen sample module
 
 ## Roadmap
 
@@ -66,4 +66,4 @@ Unless otherwise noted, original documentation and educational materials are lic
 
 The repository currently contains 16 files: directory READMEs, project governance and contribution documents, the license, and one adult workshop session template. These are scaffolding documents only. **No stories, vocabulary sets, lesson plans, classroom materials, or learner corpora have been published yet.** The learning-library directories define an intended archive structure; they do not indicate that teaching materials are already present.
 
-Open research project. Definitions, evidence, methods, and implementation details are versioned and subject to community review.
+Open research project. Definitions, evidence, methods, and implementation details are versioned and subject to community review.\n

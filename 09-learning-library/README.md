@@ -17,3 +17,7 @@ This section stores reusable learning materials generated for the TNCG program.
 6. Do not publish identifiable learner details, private conversations, or sensitive information.
 7. If a session contains personal speaking attempts, archive only the teaching content and generalized learning notes unless explicit permission is given for more.
 8. Use stable filenames and avoid overwriting earlier lessons; corrections should be versioned or committed as a new revision.
+
+## 《千字文》互动教学
+
+- qianziwen/ — Android 优先的静态数据驱动样板模块；首组与真机测试记录见模块说明。
