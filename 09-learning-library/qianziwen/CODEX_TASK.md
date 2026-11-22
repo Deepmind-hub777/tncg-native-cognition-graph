@@ -6,6 +6,10 @@
 
 ## 本轮范围（只做这三项，做完即停）
 
+> 本轮三项都与释义底本无关，**不要等商务印书馆的译注扫描件**。释义终审留在后续轮次，等用户提供资料或明确授权。
+
+试稿输入：`C:\Users\User\Documents\Codex\2026-11-22\github-codex-250-1-2-3\outputs\qianziwen-illustration-pilot\`（002/025/121 三张 1536×1024 JPG，各 <300KB），可用它来测导入器。
+
 ### 1. 插图导入器 `tools/import-illustrations.mjs`
 
 豆包已把 249 张插图交给 ChatGPT 生成（第 2–250 组，命名 `qzw-002.jpg … qzw-250.jpg`，1536×1024，≤300KB）。你需要：
