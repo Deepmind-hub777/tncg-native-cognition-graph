@@ -85,3 +85,10 @@ npm run serve                            # 默认 4173；局域网访问用电�
 
 - 继续依据豆包草稿或通用二手释文升 `verified` 会违反底本核对要求。请提供《千字文（普及版）》ISBN 978-7-100-12521-5 中「天地玄黄，宇宙洪荒」及后续段落的译注页照片/扫描，或提供可访问的正版电子版页面；收到后按顺序逐组审校。
 - 在实际释文可核对前，不提交、不推送任何内容状态变更；所有相关字段维持 `needs_review`。
+
+## 插画试稿（2026-11-23）
+
+- 按用户指定仅生成 3 张风格试稿：002「宇宙洪荒」、025「弔民伐罪」、121「杜稿鍾隸」。第 1 组 `qzw-001.png` 只作为风格参考，没有修改。
+- 文件与完整提示词在 Codex 输出目录 `C:\Users\User\Documents\Codex\2026-11-22\github-codex-250-1-2-3\outputs\qianziwen-illustration-pilot\`：`qzw-002.jpg`、`qzw-025.jpg`、`qzw-121.jpg`、`pilot-manifest.csv`、`pilot-prompts.log`。三张输出均为 1536×1024，JPEG 文件均小于 300 KB。
+- 这三张仅供用户检查画风与题材克制度，不代表教学审核通过；尚未复制进正式 assets，也未改写任何 lessons 字段。等待用户确认后再开始 246 张余稿。
+- 本轮没有创建 249 行正式 `manifest.csv`，也没有创建或声称完成 `qianziwen-illustrations-002-250.zip`。
