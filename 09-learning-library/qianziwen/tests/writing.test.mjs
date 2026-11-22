@@ -38,8 +38,3 @@ test('pointer capture separates strokes; clear, undo, hide and resize retain the
   c.setGuideVisible(false); assert.equal(svg.style.visibility,'hidden');
   c.clear(); c.setMode('free'); c.destroy();
 });
-
-
-
-
-

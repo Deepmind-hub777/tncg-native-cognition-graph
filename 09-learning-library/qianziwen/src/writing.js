@@ -63,4 +63,3 @@ export function createWritingSurface({ root, character, strokeData, mode = 'trac
     destroy() { destroyed = true; observer?.disconnect(); canvas.removeEventListener('pointerdown',down); canvas.removeEventListener('pointermove',move); canvas.removeEventListener('pointerup',finish); canvas.removeEventListener('pointercancel',finish); canvas.removeEventListener('lostpointercapture',finish); win?.removeEventListener?.('resize',resize); win?.removeEventListener?.('orientationchange',resize); }
   };
 }
-

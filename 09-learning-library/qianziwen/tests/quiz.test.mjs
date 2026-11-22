@@ -12,5 +12,3 @@ test('quiz creates four unique options containing the correct answer and applies
   assert.equal(answerQuiz(round, 'wrong').delta, -2);
   assert.equal(answerQuiz(round, 'wrong').score, -2);
 });
-
-

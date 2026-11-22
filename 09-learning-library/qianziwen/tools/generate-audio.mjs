@@ -33,6 +33,3 @@ for (const clip of targets) {
 await mkdir(resolve(root, 'data'), { recursive: true });
 await writeFile(resolve(root, 'data/audio-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
 console.log(`generated ${targets.length} sample clips using ${manifest.voice}; no account, project, or billing configuration was created or changed.`);
-
-
-

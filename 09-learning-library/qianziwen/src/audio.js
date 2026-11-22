@@ -72,5 +72,3 @@ export function resumeClip(audioElement, speechApi = globalThis.speechSynthesis,
   speechApi?.resume?.();
   emit(onState, 'playing');
 }
-
-

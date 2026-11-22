@@ -16,4 +16,3 @@ export function answerQuiz(round, selectedId, score = 0) {
   const delta = correct ? 10 : -2;
   return { correct, delta, score: score + delta, feedback: correct ? '答对了，继续闯关！' : `再听一次，正确答案是「${round.answer.character}」。` };
 }
-

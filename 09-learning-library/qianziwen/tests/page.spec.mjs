@@ -42,6 +42,3 @@ test('mobile portrait and landscape layouts keep writing canvases square and con
   expect(await page.locator('.writing-grid').evaluate((el)=>getComputedStyle(el).gridTemplateColumns.split(' ').length)).toBe(4);
   await expect(page.getByRole('button', { name:'正常速度' })).toBeVisible();
 });
-
-
-

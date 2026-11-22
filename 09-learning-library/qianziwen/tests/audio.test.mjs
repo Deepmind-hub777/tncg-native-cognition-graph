@@ -35,4 +35,3 @@ test('TTS unavailable produces an actionable error and pause/resume/replay are s
   pauseClip(audio, speech); assert.equal(speech.paused, true);
   resumeClip(audio, speech); assert.equal(speech.paused, false);
 });
-
