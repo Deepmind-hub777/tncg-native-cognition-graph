@@ -8,7 +8,7 @@ export function redrawStrokes(context, strokes, dpr = 1, viewport = { width: 102
   const width = viewport.width || logicalWidth, height = viewport.height || logicalHeight;
   context.setTransform(dpr * width / logicalWidth, 0, 0, dpr * height / logicalHeight, 0, 0);
   context.clearRect(0, 0, logicalWidth, logicalHeight);
-  context.lineWidth = 7; context.lineCap = 'round'; context.lineJoin = 'round'; context.strokeStyle = '#2d241d';
+  context.lineWidth = 10 * logicalWidth / width; context.lineCap = 'round'; context.lineJoin = 'round'; context.strokeStyle = '#2d241d';
   for (const points of strokes) {
     if (!points.length) continue;
     context.beginPath(); context.moveTo(points[0].x, points[0].y);

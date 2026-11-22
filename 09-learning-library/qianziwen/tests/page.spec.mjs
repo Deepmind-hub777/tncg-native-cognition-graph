@@ -10,6 +10,15 @@ test('first lesson presents all eight learning sections in the approved sequence
   await expect(page.getByRole('button', { name:'暂停语音' })).toBeVisible(); await expect(page.locator('#quiz-options button')).toHaveCount(4);
 });
 
+test('normal playback loads the pre-generated Mandarin sample MP3', async ({ page }) => {
+  const mp3Requests = [];
+  page.on('request', (request) => { if (request.url().endsWith('.mp3')) mp3Requests.push(request.url()); });
+  await page.goto('/'); await expect(page.locator('#lesson')).toHaveAttribute('aria-busy','false');
+  await page.getByRole('button', { name:'正常速度' }).click();
+  await expect.poll(() => mp3Requests.some((url) => url.endsWith('/assets/audio/qzw-001-normal.mp3'))).toBe(true);
+  await expect(page.locator('#audio-status')).toContainText('標準錄音');
+});
+
 test('stroke guide aligns with drawing surface and tracing controls work in browser', async ({ page }) => {
   await page.goto('/'); await expect(page.locator('#lesson')).toHaveAttribute('aria-busy','false');
   expect(await page.evaluate(() => typeof window.HanziWriter?.create)).toBe('function');

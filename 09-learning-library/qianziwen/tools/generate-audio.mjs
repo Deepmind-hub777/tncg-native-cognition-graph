@@ -4,12 +4,18 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, '..');
-const gcloud = process.env.GCLOUD_CMD || 'gcloud';
+const gcloud = process.env.GCLOUD_CMD || (process.platform === 'win32' && process.env.LOCALAPPDATA
+  ? resolve(process.env.LOCALAPPDATA, 'Google', 'Cloud SDK', 'google-cloud-sdk', 'bin', 'gcloud.cmd')
+  : 'gcloud');
 const runGcloud = (args) => process.platform === 'win32'
-  ? execFileSync('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command', '& $env:GCLOUD_CMD ' + args.join(' ')], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })
+  ? execFileSync('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command', '& $env:GCLOUD_CMD ' + args.join(' ')], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], env: { ...process.env, GCLOUD_CMD: gcloud } })
   : execFileSync(gcloud, args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
-const token = runGcloud(['auth', 'application-default', 'print-access-token']).trim();
-if (!token) throw new Error('Google application-default credentials returned no token.');
+let token;
+try { token = runGcloud(['auth', 'print-access-token']).trim(); } catch { token = ''; }
+if (!token) {
+  try { token = runGcloud(['auth', 'application-default', 'print-access-token']).trim(); } catch { token = ''; }
+}
+if (!token) throw new Error('No gcloud CLI or application-default access token is available.');
 const project = runGcloud(['config', 'get-value', 'project']).trim();
 if (!project || project === '(unset)') throw new Error('No active Google Cloud project is configured.');
 const lesson = JSON.parse(await readFile(resolve(root, 'data/lessons.json'), 'utf8'))[0];
@@ -30,6 +36,7 @@ for (const clip of targets) {
   manifest.clips[clip.key] = { path: clip.path.replaceAll('\\', '/'), text: clip.text, pinyin: clip.key.startsWith('character-') ? pinyin[Number(clip.key.at(-1)) - 1] : pinyin.join(' '), speakingRate: clip.speakingRate, status: 'needs_review' };
   console.log(`generated ${clip.key}: ${clip.path}`);
 }
+manifest.generationStatus = 'generated';
 await mkdir(resolve(root, 'data'), { recursive: true });
 await writeFile(resolve(root, 'data/audio-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
 console.log(`generated ${targets.length} sample clips using ${manifest.voice}; no account, project, or billing configuration was created or changed.`);

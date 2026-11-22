@@ -1,18 +1,20 @@
 import { createWritingSurface } from './writing.js';
-import { detectAudioEnvironment, pauseClip, playClip, resolveAudioClip } from './audio.js';
+import { detectAudioEnvironment, pauseClip, playClip, selectAudioAsset } from './audio.js';
 import { createQuiz, answerQuiz } from './quiz.js';
 
 const $ = (selector) => document.querySelector(selector);
 const audio = $('#audio-player');
-let lesson; let activeClip = null; let score = 0; let quizRound; const writers = new Map();
-const setAudioState = (state) => {
-  const messages = { idle: '點擊按鈕播放', loading: '正在載入語音…', playing: '正在播放', paused: '已暫停', ended: '播放完成，可重播', error: '播放失敗，請檢查音量或重試。' };
-  $('#audio-status').textContent = messages[state] ?? state;
+let lesson; let audioManifest = null; let activeClip = null; let score = 0; let quizRound; const writers = new Map();
+const setAudioState = (state, details = {}) => {
+  const messages = { idle: '點擊按鈕播放', loading: '正在啟動語音…', playing: '正在播放', paused: '已暫停', ended: '播放完成，可重播', error: '播放失敗，請檢查音量或重試。' };
+  const source = details.source === 'browser-tts' ? '（設備普通話語音）' : details.source === 'recorded-audio' ? '（標準錄音）' : '';
+  $('#audio-status').textContent = state === 'error' ? `語音錯誤：${details.message ?? messages.error}` : `${messages[state] ?? state}${state === 'playing' ? source : ''}`;
 };
 async function speak(text, mode, index = null) {
   activeClip = { text, mode, index };
-  const url = mode === 'quiz' ? resolveAudioClip(lesson.sequence, 'character', index) : resolveAudioClip(lesson.sequence, mode, index);
-  try { await playClip({ audioElement: audio, assetUrl: url, fallbackText: text, speechApi: window.speechSynthesis, onState: setAudioState }); }
+  const assetMode = mode === 'quiz' ? 'character' : mode;
+  const url = selectAudioAsset(audioManifest, assetMode, index);
+  try { await playClip({ audioElement: audio, assetUrl: url, fallbackText: text, speakingRate: mode === 'slow' ? 0.72 : 1, speechApi: window.speechSynthesis, onState: setAudioState }); }
   catch (error) { $('#audio-status').textContent = error.message; }
 }
 
@@ -63,6 +65,7 @@ function renderQuiz() {
 }
 
 try {
+  try { const manifestResponse = await fetch('data/audio-manifest.json'); if (manifestResponse.ok) audioManifest = await manifestResponse.json(); } catch { audioManifest = null; }
   const response = await fetch('data/lessons.json'); if (!response.ok) throw new Error('教學內容無法載入。');
   lesson = (await response.json())[0];
   $('#traditional-text').textContent = lesson.traditionalText.value;
@@ -88,7 +91,11 @@ try {
   $('#quiz-next').addEventListener('click', renderQuiz);
   await buildWriting(); renderQuiz();
   const env = detectAudioEnvironment({ userAgent: navigator.userAgent, protocol: location.protocol, speechApi: window.speechSynthesis });
-  if (env.androidChrome) $('#audio-status').textContent = 'Android Chrome 已就緒，點擊按鈕播放。';
+  if (env.androidChrome && audioManifest?.generationStatus !== 'generated') {
+    $('#audio-status').textContent = env.mandarinVoiceAvailable
+      ? '目前使用手機內建普通話語音；點擊播放。'
+      : '未檢測到手機普通話語音。點擊播放後會顯示備用音訊錯誤。';
+  }
   $('#lesson').setAttribute('aria-busy', 'false');
 } catch (error) {
   $('#lesson').setAttribute('aria-busy', 'false');
