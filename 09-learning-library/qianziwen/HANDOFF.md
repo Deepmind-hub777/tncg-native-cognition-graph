@@ -1,0 +1,58 @@
+# 交接说明：千字文模块（豆包 → Codex 终审）
+
+日期：2026-11-22 ｜ 分支：`feature/qianziwen-module` ｜ 目录：`09-learning-library/qianziwen`
+
+## 我这轮做完的事
+
+1. **补齐 249 组释义与英文短注**（第 2–250 组，第 1 组沿用已验收样板）
+   - 草稿源文件：`data/meaning-drafts.part1.json`、`part2.json`、`part3.json`（每组含 `sequence`、`meaning`、`en`）
+   - 合并脚本：`tools/apply-meaning-drafts.mjs`（读三份草稿 → 调用 `tools/align-pinyin.py` 生成逐字拼音 → 写回 `data/lessons.json`）
+   - 拼音对齐器：`tools/align-pinyin.py`（`pypinyin==0.55.0`，`Style.TONE`，汉字槽位给拼音，标点槽位留空，一对一）
+2. **状态一律保持 `needs_review`**：释义/拼音/英文注的 `source` 字段改写为“豆包起草，待终审”，没有把任何条目谎报成 `verified`。
+3. **校验与测试**
+   - `node tools/validate-content.mjs` → `Content validation passed: 250 lessons, 63 pages.`
+   - 6 个测试文件逐个跑全绿：`audio` / `content` / `page.spec` / `pagination` / `quiz` / `writing`
+   - 注意：`node --test tests` 在 Windows 上会把目录当模块路径报 `MODULE_NOT_FOUND`，要逐个文件跑或 `node --test tests/*.mjs`
+4. README「全篇扩展状态」已同步真实状态（释义/插画到底做到哪一步）。
+
+## 现在的真实状态
+
+| 项目 | 数量 | 状态 |
+| --- | --- | --- |
+| 正文四字组 | 250 组 / 1000 字 | 已录入，底本待逐项校订 |
+| 拼音（正文） | 250 组 | 自动草稿 + 序列覆盖，待校订 |
+| 简体释义 | 250 组 | 第 1 组样板 + 249 组豆包起草，待终审 |
+| 释义逐字拼音 | 250 组 | 与释义字符严格对齐，待终审（多音字需人核） |
+| 英文短注 | 250 组 | 豆包起草，待终审 |
+| 插画 | 1 / 250 | 仅第 1 组有图，其余只有提示词 |
+| 慢速音频 | 250 / 250 | 已生成，未试听 |
+| 常速整句音频 | 1 / 250 | 仅第 1 组 |
+| 单字音频 | 1000 / 1000 | 已生成 |
+| 笔顺数据 | 990 / 1000 字 | 缺 爲、凊、羣、磻、寔、俶、輶、煒、牀、絃 |
+
+## 交给 Codex 的待办（建议顺序）
+
+1. **释义终审**：逐组对照 `data/corpus-source.txt` 与所引底本，改订后把 `simplifiedMeaning.status` 升为 `verified`，并在 `source` 写明出处与校订人。豆包稿件只作初稿，不作依据。
+2. **释义拼音终审**：重点看多音字与文白异读（如 爲、長、行、重、與、說、數、樂、好）。`tools/align-pinyin.py` 是按字查默认读音，不辨语境。
+3. **正文拼音终审**：`tools/build-corpus.py` 里的 sequence-specific override 需与《新华字典》第 13 版逐条比对。
+4. **补 10 个缺笔顺字**：缺字一律不画假笔画（现有约定）；要么补数据，要么在 UI 明确提示“该字暂无笔顺”。
+5. **音频**：先抽样试听 250 条慢速音频；常速整句仍缺 249 条。任何新生成都要先确认 gcloud TTS 授权条款。
+6. **插画**：249 组只有提示词；若要出图，先定统一画风与无字规范（第 1 组 `ink-wash` 为基准）。
+7. **Android 真机复测**：分页、单字音频、触控多笔、清除、自由书写显隐范字、旋转适配。桌面测试不能替代真机结论。
+8. **第 1 组状态**：它是用户已验收样板，但 8 个字段仍是 `needs_review`；是否升 `verified` 由你与用户确认后决定。
+9. **分页与徽标**：页面徽标仍显示“部分內容待校訂”，与数据一致。全部字段升级后需同步改 `src/main.js` 的判定与文案。
+
+## 复现命令
+
+```bash
+cd 09-learning-library/qianziwen
+node tools/apply-meaning-drafts.mjs     # 需要 python + pypinyin==0.55.0
+node tools/validate-content.mjs
+node --test tests/*.mjs
+npm run serve                            # 默认 4173；局域网访问用电脑内网地址
+```
+
+## 边界声明
+
+- 本轮没有生成图片、没有调用 TTS、没有做真机测试，也没有把任何 `needs_review` 改成 `verified`。
+- 释义是**教学初稿**，凡与底本冲突，以底本与用户判定为准。
