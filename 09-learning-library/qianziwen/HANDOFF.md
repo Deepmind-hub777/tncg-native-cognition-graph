@@ -92,3 +92,14 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 文件与完整提示词在 Codex 输出目录 `C:\Users\User\Documents\Codex\2026-11-22\github-codex-250-1-2-3\outputs\qianziwen-illustration-pilot\`：`qzw-002.jpg`、`qzw-025.jpg`、`qzw-121.jpg`、`pilot-manifest.csv`、`pilot-prompts.log`。三张输出均为 1536×1024，JPEG 文件均小于 300 KB。
 - 这三张仅供用户检查画风与题材克制度，不代表教学审核通过；尚未复制进正式 assets，也未改写任何 lessons 字段。等待用户确认后再开始 246 张余稿。
 - 本轮没有创建 249 行正式 `manifest.csv`，也没有创建或声称完成 `qianziwen-illustrations-002-250.zip`。
+
+## 本轮进展 / 验收（2026-11-23）
+
+| 做了什么 | 文件路径 | 验证命令与结果 | 没做什么及原因 |
+| --- | --- | --- | --- |
+| 新增插图导入器：默认 dry-run，核查补零、范围、重复与缺号；`--write` 写相对图片路径并强制保留 `needs_review` 与指定来源；统计总大小并在超过 75 MB 时警告。 | `tools/import-illustrations.mjs` | `node tools/import-illustrations.mjs --dry-run` 正常运行；扫描仓库内 1 张图片，合计 2,823,849 bytes（2.69 MB），缺少 002–250 共 249 张。 | 没有导入试稿或运行 `--write`：任务给出的 pilot 目录不在当前工作区可读范围内；现有资产计量低于 75 MB，未改 `.gitignore` 或采用 Git LFS。 |
+| 新增拼音复核说明，逐组列出 250 组正文、当前读音和候选风险，解释 sequence-specific override。 | `data/pinyin-review.md` | 人工结构检查：正文表 250 行；脚本 override 实际仅第 10、37、188 组，其余组没有拼音 override；第 1 组由构建脚本保留。 | 没有改 `lessons.json` 的拼音或任何数据状态，读音裁定留待人工核对。 |
+| 新增缺笔顺生成器，并在 README 链接清单、说明缺字 UI 应显示“暂无笔顺”，不得绘制伪造笔画。 | `tools/stroke-gaps.mjs`、`data/stroke-gaps.json`、`README.md` | `node tools/stroke-gaps.mjs` → 10 字：爲、凊、羣、磻、寔、俶、輶、煒、牀、絃；`node tools/validate-content.mjs` → 通过（250 lessons、63 pages）。 | 没有补造笔画数据。 |
+| 完成回归自检。 | 本模块 `tests/` | Node 单测 20/20 通过；Playwright 浏览器用例单独运行 7/7 通过。按字面运行 `node --test tests/*.mjs` 会把 `page.spec.mjs` 交给错误 runner，出现 Playwright runner 冲突（20 pass、1 fail）；因此 Node 与 Playwright 分开运行。 | 没有做安卓真机复测。 |
+
+本轮未改任何字段 `status`，未改第 1 组内容，未生成图片/TTS，也未执行 git push。验收要求的本地提交未能完成：当前执行环境将 `.git` 元数据目录设为只读，Git 创建 `index.lock` 时收到 `Permission denied`；工作区改动仍未提交。
