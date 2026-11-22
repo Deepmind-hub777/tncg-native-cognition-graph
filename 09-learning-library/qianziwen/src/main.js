@@ -77,7 +77,6 @@ try {
     const button = document.createElement('button'); button.type = 'button'; button.textContent = character;
     button.setAttribute('aria-label', `播放${character}`); button.addEventListener('click', () => speak(character, 'character', index)); $('#char-audio').append(button);
   });
-  $('#play-normal').addEventListener('click', () => speak(lesson.traditionalText.value, 'normal'));
   $('#play-slow').addEventListener('click', () => speak(lesson.traditionalText.value, 'slow'));
   $('#pause-audio').addEventListener('click', () => pauseClip(audio, window.speechSynthesis, setAudioState));
   $('#repeat-audio').addEventListener('click', () => activeClip && speak(activeClip.text, activeClip.mode, activeClip.index));

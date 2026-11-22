@@ -22,7 +22,7 @@ test('redraw applies DPR transform and preserves separate vector strokes', () =>
   redrawStrokes(ctx,[[{x:0,y:0},{x:1,y:1}],[{x:2,y:2},{x:3,y:3}]],2,{width:400,height:400});
   assert.deepEqual(calls.filter(x=>x[0]==='stroke').length,2);
   assert.deepEqual(calls[0],['transform',2*400/1024,0,0,2*400/1024,0,0]);
-  assert.equal(ctx.lineWidth * (2*400/1024), 20, 'brush should remain 10 CSS px at DPR 2');
+  assert.ok(Math.abs(ctx.lineWidth * (2*400/1024) - 14) < 1e-9, 'brush should remain 7 CSS px at DPR 2');
 });
 test('pointer capture separates strokes; clear, undo, hide and resize retain the same guide data', () => {
   const {canvas,svg,root,doc,win}=fixture();

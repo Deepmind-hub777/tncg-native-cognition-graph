@@ -8,14 +8,16 @@ test('first lesson presents all eight learning sections in the approved sequence
   await expect(page.locator('#pinyin-list .pinyin-item')).toHaveCount(4); await expect(page.locator('#char-audio button')).toHaveCount(4);
   await expect(page.locator('#writing-grid .writing-card')).toHaveCount(4); await expect(page.getByRole('button', { name:'播放筆順' })).toHaveCount(4);
   await expect(page.getByRole('button', { name:'暂停语音' })).toBeVisible(); await expect(page.locator('#quiz-options button')).toHaveCount(4);
+  await expect(page.getByRole('button', { name:'正常速度' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name:'慢速聽' })).toBeVisible();
 });
 
-test('normal playback loads the pre-generated Mandarin sample MP3', async ({ page }) => {
+test('slow playback loads the pre-generated slow Mandarin sample MP3', async ({ page }) => {
   const mp3Requests = [];
   page.on('request', (request) => { if (request.url().endsWith('.mp3')) mp3Requests.push(request.url()); });
   await page.goto('/'); await expect(page.locator('#lesson')).toHaveAttribute('aria-busy','false');
-  await page.getByRole('button', { name:'正常速度' }).click();
-  await expect.poll(() => mp3Requests.some((url) => url.endsWith('/assets/audio/qzw-001-normal.mp3'))).toBe(true);
+  await page.getByRole('button', { name:'慢速聽' }).click();
+  await expect.poll(() => mp3Requests.some((url) => url.endsWith('/assets/audio/qzw-001-slow.mp3'))).toBe(true);
   await expect(page.locator('#audio-status')).toContainText('標準錄音');
 });
 
@@ -48,5 +50,5 @@ test('mobile portrait and landscape layouts retain vector writing and usable con
   const before=await canvas.evaluate((el)=>el.getContext('2d').getImageData(0,0,el.width,el.height).data.filter((v,i)=>i%4===3&&v>0).length); expect(before).toBeGreaterThan(0);
   await page.setViewportSize({width:844,height:390}); expect(await page.locator('.writing-grid').evaluate((el)=>getComputedStyle(el).gridTemplateColumns.split(' ').length)).toBe(4);
   await expect.poll(()=>canvas.evaluate((el)=>el.getContext('2d').getImageData(0,0,el.width,el.height).data.filter((v,i)=>i%4===3&&v>0).length)).toBeGreaterThan(0);
-  await expect(page.getByRole('button',{name:'正常速度'})).toBeVisible();
+  await expect(page.getByRole('button',{name:'慢速聽'})).toBeVisible();
 });
