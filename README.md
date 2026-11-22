@@ -43,7 +43,7 @@ TNCG is an emerging research framework, not an established or universally accept
 - `06-pilot-studies/` — pilot protocols and evaluation
 - `07-community/` — collaboration proposals and discussions
 - `08-archive/` — superseded materials and historical versions
-- `09-learning-library/` — learning-resource archive, including the first interactive Qianziwen sample module
+- `09-learning-library/` — learning-resource archive, including the data-driven Qianziwen lesson module
 
 ## Roadmap
 
@@ -64,6 +64,6 @@ Unless otherwise noted, original documentation and educational materials are lic
 
 ## Project status
 
-The repository currently contains 16 files: directory READMEs, project governance and contribution documents, the license, and one adult workshop session template. These are scaffolding documents only. **No stories, vocabulary sets, lesson plans, classroom materials, or learner corpora have been published yet.** The learning-library directories define an intended archive structure; they do not indicate that teaching materials are already present.
+The learning library contains trilingual story materials, adult Thai speaking workshops, and an interactive Qianziwen learning module. The Qianziwen module includes a 250-group, 63-page draft corpus; its remaining pinyin, explanations, English notes, images, audio, and stroke-order data retain their review statuses. See [`09-learning-library/qianziwen/README.md`](09-learning-library/qianziwen/README.md) for the detailed status and local run instructions.
 
 Open research project. Definitions, evidence, methods, and implementation details are versioned and subject to community review.\n

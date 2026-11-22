@@ -68,7 +68,7 @@ test('mobile portrait and landscape layouts retain vector writing and usable con
 });
 
 test('phone, tablet and desktop widths have no horizontal overflow', async ({ page }) => {
-  for (const [width, height, columns] of [[320, 740, 2], [390, 844, 2], [768, 1024, 4], [1440, 1000, 4]]) {
+  for (const [width, height, columns] of [[320, 740, 2], [375, 812, 2], [390, 844, 2], [768, 1024, 4], [1024, 900, 4], [1440, 1000, 4]]) {
     await page.setViewportSize({ width, height }); await page.goto('/'); await expect(page.locator('#lesson')).toHaveAttribute('aria-busy','false');
     const layout = await page.evaluate(() => ({ overflow: document.documentElement.scrollWidth > innerWidth, columns: getComputedStyle(document.querySelector('.writing-grid')).gridTemplateColumns.split(' ').length }));
     expect(layout.overflow, `horizontal overflow at ${width}px`).toBe(false);
@@ -91,4 +91,29 @@ test('listening quiz ends after ten answered questions', async ({ page }) => {
   await expect(page.getByRole('button', { name:'下一題' })).toBeDisabled();
   await expect(page.getByRole('button', { name:'播放題目' })).toBeDisabled();
   await expect(page.locator('#quiz-options button:enabled')).toHaveCount(0);
+});
+
+test('the corpus has 63 navigable pages with four selectable lessons and a final two', async ({ page }) => {
+  await page.goto('/'); await expect(page.locator('#lesson')).toHaveAttribute('aria-busy','false');
+  await expect(page.locator('#page-indicator')).toHaveText('第 1 / 63 頁');
+  await expect(page.locator('#page-groups button')).toHaveCount(4);
+  await expect(page.locator('#page-groups button').first()).toHaveAttribute('aria-current','true');
+  await expect(page.locator('#page-groups')).toContainText('天地玄黃');
+  await page.getByRole('button', { name:'下一頁' }).click();
+  await expect(page.locator('#page-indicator')).toHaveText('第 2 / 63 頁');
+  await page.locator('#page-groups button').first().click();
+  await expect(page.locator('#traditional-text')).toHaveText('寒來暑往');
+  await page.getByRole('button', { name:'最後一頁' }).click();
+  await expect(page.locator('#page-indicator')).toHaveText('第 63 / 63 頁');
+  await expect(page.locator('#page-groups button')).toHaveCount(2);
+  await page.goBack();
+  await expect(page.locator('#page-indicator')).toHaveText('第 2 / 63 頁');
+  await expect(page.locator('#traditional-text')).toHaveText('寒來暑往');
+  const targetSize = await page.getByRole('button', { name:'下一頁' }).evaluate((button) => button.getBoundingClientRect().height);
+  expect(targetSize).toBeGreaterThanOrEqual(48);
+  await page.locator('#page-select').selectOption('3');
+  await page.locator('#page-groups button').nth(1).click();
+  await expect(page.locator('#traditional-text')).toHaveText('露結爲霜');
+  await expect(page.locator('.writing-card')).toHaveCount(3);
+  await expect(page.locator('#writing-status')).toContainText('爲');
 });

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { detectAudioEnvironment, resolveAudioClip, selectAudioAsset, playClip } from '../src/audio.js';
+import { buildAudioTargets } from '../tools/audio-targets.mjs';
 
 class SpeechStub {
   constructor() { this.spoken = []; this.paused = false; this.onvoiceschanged = null; }
@@ -63,4 +64,18 @@ test('only selects pre-generated clips from a completed asset manifest', () => {
   assert.equal(selectAudioAsset({generationStatus:'blocked',clips:{normal:{path:'clip.mp3'}}},'normal'),null);
   assert.equal(selectAudioAsset({generationStatus:'generated',clips:{normal:{path:'clip.mp3'}}},'normal'),'clip.mp3');
   assert.equal(selectAudioAsset({generationStatus:'generated',clips:{'character-3':{path:'char.mp3'}}},'character',2),'char.mp3');
+});
+
+test('batch audio targets create one slow group clip per lesson and deduplicate character clips', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const lessons = JSON.parse(await readFile(new URL('../data/lessons.json', import.meta.url), 'utf8'));
+  const targets = buildAudioTargets(lessons, { start: 2, end: 250 });
+  const groupTargets = targets.filter((target) => target.key.startsWith('qzw-'));
+  const characterTargets = targets.filter((target) => target.key.startsWith('char-'));
+  assert.equal(groupTargets.length, 249);
+  assert.equal(groupTargets[0].key, 'qzw-002-slow');
+  assert.equal(groupTargets.at(-1).key, 'qzw-250-slow');
+  assert.equal(characterTargets.length, new Set(characterTargets.map((target) => target.key)).size);
+  assert.equal(characterTargets.length, 996);
+  assert.equal(characterTargets.some((target) => target.path === 'assets/audio/chars/9EC3.mp3'), false);
 });
