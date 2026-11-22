@@ -24,7 +24,7 @@ test('redraw applies DPR transform and preserves separate vector strokes', () =>
   assert.deepEqual(calls[0],['transform',2*400/1024,0,0,2*400/1024,0,0]);
   assert.ok(Math.abs(ctx.lineWidth * (2*400/1024) - 14) < 1e-9, 'brush should remain 7 CSS px at DPR 2');
 });
-test('pointer capture separates strokes; clear, undo, hide and resize retain the same guide data', () => {
+test('pointer capture separates strokes; writing mode controls the guide and clear removes marks', () => {
   const {canvas,svg,root,doc,win}=fixture();
   const c=createWritingSurface({root,character:'天',strokeData:{strokes:['M 1 1L 2 2'],medians:[[[0,0],[100,100]]]},mode:'trace',document:doc,window:win});
   canvas.listeners.pointerdown({pointerId:7,clientX:10,clientY:20,preventDefault(){}});
@@ -35,7 +35,7 @@ test('pointer capture separates strokes; clear, undo, hide and resize retain the
   assert.equal(canvas.captured[0],7);
   assert.equal(c.strokes.length,2);
   assert.equal(c.strokes[0].length,2);
-  assert.equal(c.undo(),true); assert.equal(c.undo(),true);
-  c.setGuideVisible(false); assert.equal(svg.style.visibility,'hidden');
-  c.clear(); c.setMode('free'); c.destroy();
+  c.setMode('free'); assert.equal(svg.style.visibility,'hidden');
+  c.setMode('trace'); assert.equal(svg.style.visibility,'visible');
+  c.clear(); assert.equal(c.strokes.length,0); c.destroy();
 });

@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
-const CONTENT_FIELDS = ['traditionalText', 'pinyin', 'simplifiedMeaning', 'englishNote', 'illustration', 'audio', 'strokeData'];
+const CONTENT_FIELDS = ['traditionalText', 'pinyin', 'simplifiedMeaning', 'simplifiedMeaningPinyin', 'englishNote', 'illustration', 'audio', 'strokeData'];
 
 export function validateLessons(entries, { expectedCount = 250, pageSize = 4 } = {}) {
   const errors = [];
@@ -27,6 +27,7 @@ export function validateLessons(entries, { expectedCount = 250, pageSize = 4 } =
       }
       if (field === 'traditionalText' && (typeof item.value !== 'string' || [...item.value].length !== 4)) errors.push(`${label} traditionalText must contain exactly four characters`);
       if (field === 'pinyin' && (!Array.isArray(item.value) || item.value.length !== 4 || item.value.some((v) => typeof v !== 'string' || !v.trim()))) errors.push(`${label} pinyin must contain four non-empty syllables`);
+      if (field === 'simplifiedMeaningPinyin' && (typeof item.value !== 'string' || !item.value.trim())) errors.push(`${label} simplifiedMeaningPinyin must be a non-empty string`);
     }
   }
   if (entries.length === expectedCount) {

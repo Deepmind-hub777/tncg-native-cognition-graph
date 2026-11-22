@@ -22,7 +22,7 @@ export function createWritingSurface({ root, character, strokeData, mode = 'trac
   if (!guide || !canvas || !strokeData?.strokes || !strokeData?.medians) throw new TypeError('A guide surface, writing canvas and standard stroke data are required');
   const ctx = canvas.getContext('2d'); const viewBox = { x: 0, y: 0, width: 1024, height: 1024 };
   const paths = [];
-  let active = null, destroyed = false, guideVisible = true, writer = null;
+  let active = null, destroyed = false, writer = null;
   guide.setAttribute?.('aria-label', `${character} standard stroke order`);
   root.classList?.toggle('is-tracing', mode === 'trace');
   const redraw = () => redrawStrokes(ctx, paths, win?.devicePixelRatio || 1, { width: canvas.clientWidth || 1024, height: canvas.clientHeight || 1024 });
@@ -47,7 +47,7 @@ export function createWritingSurface({ root, character, strokeData, mode = 'trac
     } catch { writer = null; }
   }
   if (!writer) guide.innerHTML = `<svg viewBox="0 0 1024 1024" aria-hidden="true"><g class="glyph-guide">${strokeData.strokes.map((d) => `<path d="${d}"/>`).join('')}</g></svg>`;
-  guide.style.visibility = mode === 'trace' && guideVisible ? 'visible' : 'hidden';
+  guide.style.visibility = mode === 'trace' ? 'visible' : 'hidden';
   return {
     async animate() {
       const localWriter = writer ?? (win?.HanziWriter ?? globalThis.HanziWriter)?.create?.(guide, character, { width: canvas.clientWidth || 1024, height: canvas.clientHeight || 1024, padding: 0, charDataLoader: () => strokeData, showCharacter: false, showOutline: true, outlineColor: '#b8a78e', strokeColor: '#29231e', delayBetweenStrokes: 350 });
@@ -61,9 +61,7 @@ export function createWritingSurface({ root, character, strokeData, mode = 'trac
         await new Promise((resolve) => { path.addEventListener('animationend', resolve, { once: true }); setTimeout(resolve, 650); });
       }
     },
-    setMode(next) { mode = next; root.classList?.toggle('is-tracing', mode === 'trace'); guide.style.visibility = mode === 'trace' && guideVisible ? 'visible' : 'hidden'; },
-    setGuideVisible(visible) { guideVisible = Boolean(visible); guide.style.visibility = mode === 'trace' && guideVisible ? 'visible' : 'hidden'; },
-    undo() { if (!paths.length) return false; paths.pop(); active = null; redraw(); return true; },
+    setMode(next) { mode = next; root.classList?.toggle('is-tracing', mode === 'trace'); guide.style.visibility = mode === 'trace' ? 'visible' : 'hidden'; },
     clear() { paths.length = 0; active = null; redraw(); },
     get strokes() { return paths.map((stroke) => stroke.map((p) => ({ ...p }))); },
     destroy() { destroyed = true; observer?.disconnect(); canvas.removeEventListener('pointerdown',down); canvas.removeEventListener('pointermove',move); canvas.removeEventListener('pointerup',finish); canvas.removeEventListener('pointercancel',finish); canvas.removeEventListener('lostpointercapture',finish); win?.removeEventListener?.('resize',resize); win?.removeEventListener?.('orientationchange',resize); }

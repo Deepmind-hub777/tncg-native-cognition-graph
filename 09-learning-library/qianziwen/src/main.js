@@ -1,17 +1,17 @@
 import { createWritingSurface } from './writing.js';
-import { detectAudioEnvironment, pauseClip, playClip, selectAudioAsset } from './audio.js';
+import { detectAudioEnvironment, playClip, selectAudioAsset } from './audio.js';
 import { createQuiz, answerQuiz } from './quiz.js';
 
 const $ = (selector) => document.querySelector(selector);
 const audio = $('#audio-player');
-let lesson; let audioManifest = null; let activeClip = null; let score = 0; let quizRound; const writers = new Map();
+const MAX_QUIZ_QUESTIONS = 10;
+let lesson; let audioManifest = null; let score = 0; let quizAttempts = 0; let quizAnswered = false; let quizRound; const writers = new Map();
 const setAudioState = (state, details = {}) => {
-  const messages = { idle: '點擊按鈕播放', loading: '正在啟動語音…', playing: '正在播放', paused: '已暫停', ended: '播放完成，可重播', error: '播放失敗，請檢查音量或重試。' };
+  const messages = { idle: '點擊按鈕播放', loading: '正在啟動語音…', playing: '正在播放', ended: '播放完成；再次點擊普通話語音可重播', error: '播放失敗，請檢查音量或重試。' };
   const source = details.source === 'browser-tts' ? '（設備普通話語音）' : details.source === 'recorded-audio' ? '（標準錄音）' : '';
   $('#audio-status').textContent = state === 'error' ? `語音錯誤：${details.message ?? messages.error}` : `${messages[state] ?? state}${state === 'playing' ? source : ''}`;
 };
 async function speak(text, mode, index = null) {
-  activeClip = { text, mode, index };
   const assetMode = mode === 'quiz' ? 'character' : mode;
   const url = selectAudioAsset(audioManifest, assetMode, index);
   try { await playClip({ audioElement: audio, assetUrl: url, fallbackText: text, speakingRate: mode === 'slow' ? 0.72 : 1, speechApi: window.speechSynthesis, onState: setAudioState }); }
@@ -48,17 +48,35 @@ async function buildWriting() {
 }
 
 function renderQuiz() {
+  if (quizAttempts >= MAX_QUIZ_QUESTIONS) {
+    $('#quiz-progress').textContent = `已完成 ${MAX_QUIZ_QUESTIONS} / ${MAX_QUIZ_QUESTIONS} 題`;
+    $('#quiz-play').disabled = true;
+    $('#quiz-next').disabled = true;
+    return;
+  }
   quizRound = createQuiz([lesson], 'page');
+  quizAnswered = false;
+  $('#quiz-progress').textContent = `第 ${quizAttempts + 1} / ${MAX_QUIZ_QUESTIONS} 題`;
+  $('#quiz-feedback').textContent = '';
+  $('#quiz-play').disabled = false;
   $('#quiz-next').disabled = true;
   const options = $('#quiz-options'); options.replaceChildren();
   quizRound.options.forEach((option) => {
     const button = document.createElement('button'); button.type = 'button'; button.textContent = option.character;
     button.setAttribute('aria-label', `选择${option.character}`);
     button.addEventListener('click', () => {
+      if (quizAnswered || quizAttempts >= MAX_QUIZ_QUESTIONS) return;
+      quizAnswered = true;
+      quizAttempts += 1;
       const result = answerQuiz(quizRound, option.id, score); score = result.score;
-      $('#score').textContent = String(score); $('#quiz-feedback').textContent = result.feedback;
+      const finished = quizAttempts >= MAX_QUIZ_QUESTIONS;
+      $('#score').textContent = String(score);
+      const finalFeedback = result.correct ? '答對了。' : `答錯了，正確答案是「${quizRound.answer.character}」。`;
+      $('#quiz-feedback').textContent = finished ? `${finalFeedback}本局 ${MAX_QUIZ_QUESTIONS} 題已完成，最終積分：${score}。` : result.feedback;
+      if (finished) $('#quiz-progress').textContent = `已完成 ${MAX_QUIZ_QUESTIONS} / ${MAX_QUIZ_QUESTIONS} 題`;
       [...options.children].forEach((item) => { item.disabled = true; });
-      $('#quiz-next').disabled = false;
+      $('#quiz-next').disabled = finished;
+      $('#quiz-play').disabled = finished;
     });
     options.append(button);
   });
@@ -70,6 +88,7 @@ try {
   lesson = (await response.json())[0];
   $('#traditional-text').textContent = lesson.traditionalText.value;
   $('#meaning').textContent = lesson.simplifiedMeaning.value;
+  $('#meaning-pinyin').textContent = lesson.simplifiedMeaningPinyin.value;
   $('#english-note').textContent = lesson.englishNote.value;
   $('#illustration').src = lesson.illustration.value.path;
   drawPinyin();
@@ -78,14 +97,9 @@ try {
     button.setAttribute('aria-label', `播放${character}`); button.addEventListener('click', () => speak(character, 'character', index)); $('#char-audio').append(button);
   });
   $('#play-slow').addEventListener('click', () => speak(lesson.traditionalText.value, 'slow'));
-  $('#pause-audio').addEventListener('click', () => pauseClip(audio, window.speechSynthesis, setAudioState));
-  $('#repeat-audio').addEventListener('click', () => activeClip && speak(activeClip.text, activeClip.mode, activeClip.index));
   $('#mode-trace').addEventListener('click', (event) => { writers.forEach((writer) => writer.setMode('trace')); event.currentTarget.setAttribute('aria-pressed','true'); $('#mode-free').setAttribute('aria-pressed','false'); });
   $('#mode-free').addEventListener('click', (event) => { writers.forEach((writer) => writer.setMode('free')); event.currentTarget.setAttribute('aria-pressed','true'); $('#mode-trace').setAttribute('aria-pressed','false'); });
-  let guideVisible = true;
-  $('#toggle-guide').addEventListener('click', (event) => { guideVisible = !guideVisible; writers.forEach((writer) => writer.setGuideVisible(guideVisible)); event.currentTarget.textContent = guideVisible ? '隱藏范字' : '顯示范字'; event.currentTarget.setAttribute('aria-pressed',String(guideVisible)); });
   $('#clear-writing').addEventListener('click', () => writers.forEach((writer) => writer.clear()));
-  $('#undo-writing').addEventListener('click', () => writers.forEach((writer) => writer.undo()));
   $('#quiz-play').addEventListener('click', () => { const index = [...lesson.traditionalText.value].indexOf(quizRound.answer.character); speak(quizRound.answer.character, 'quiz', index); });
   $('#quiz-next').addEventListener('click', renderQuiz);
   await buildWriting(); renderQuiz();

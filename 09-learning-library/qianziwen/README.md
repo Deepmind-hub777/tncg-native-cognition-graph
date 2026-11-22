@@ -14,7 +14,9 @@
 
 第一组 `天地玄黃` 已搭建八段式页面。内容、拼音、解释、英语、插画与笔顺状态仍按记录显示 `needs_review`；截图不作内容来源。只有完成字典/原文/笔顺逐项复核后才能改为 `verified`。
 
-Google Cloud Text-to-Speech 样板请求使用 `cmn-CN-Standard-A` 与 MP3 输出，慢读设为 `0.72`。当前已配置的应用凭证对项目缺少 `serviceusage.services.use` 权限，API 返回 403；六个试听 MP3 尚未生成。不要新建项目、修改账单或引入费用。补足现有项目权限后执行 `GCLOUD_CMD=<gcloud executable> node 09-learning-library/qianziwen/tools/generate-audio.mjs`。试听确认之前，不得生成剩余音频。
+简体释义拼音也作为独立 `needs_review` 字段保存。Google Cloud Text-to-Speech 样板使用 `cmn-CN-Standard-A` 与 MP3 输出，慢读设为 `0.72`。六个试听 MP3 已生成并登记在 `data/audio-manifest.json`；用户已报告安卓手机可正常播放。音频条目仍为 `needs_review`，批量生成其余音频前仍需确认样音声线与内容。
+
+语音区仅显示「普通话语音」按钮；再次点击从头播放。描红模式自动显示范字，自由书写模式自动隐藏；清除按钮清空笔迹，不提供撤回或手动显隐控制。听音辨字每次答题计为一题，最多十题，结束时冻结题目并显示最终积分。
 
 ## Android 真机验收记录
 
@@ -23,11 +25,11 @@ Google Cloud Text-to-Speech 样板请求使用 `cmn-CN-Standard-A` 与 MP3 输�
 - 手机型号 / Android 版本：
 - Chrome 版本：
 - 访问方式 / 局域网：
-- 整组播放、暂停、重播：待实测
+- 安卓真机普通话音频播放：用户已确认正常
 - 慢读及逐字播放：待实测
 - 手指描红、多笔、抬笔再写：待实测
-- 清除、撤回、重写、隐藏范字、自由书写：待实测
-- 竖屏转横屏及返回后的画布适配：待实测
+- 清除、描红/自由书写自动切换范字：用户已确认描红可用；精简后的控件待复测
+- 竖屏转横屏及返回后的画布适配：待复测
 
 桌面浏览器自动化不替代任何一项 Android 真机结果。
 

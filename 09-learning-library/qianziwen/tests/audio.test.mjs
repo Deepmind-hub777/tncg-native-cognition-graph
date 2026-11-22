@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { detectAudioEnvironment, resolveAudioClip, selectAudioAsset, playClip, pauseClip, resumeClip } from '../src/audio.js';
+import { detectAudioEnvironment, resolveAudioClip, selectAudioAsset, playClip } from '../src/audio.js';
 
 class SpeechStub {
   constructor() { this.spoken = []; this.paused = false; this.onvoiceschanged = null; }
@@ -27,14 +27,10 @@ test('missing or rejected MP3 uses Mandarin TTS, and exposes playback state', as
   assert.equal(speech.spoken[0].text, '天地玄黃');
   assert.ok(states.includes('loading') && states.includes('playing'));
 });
-test('TTS unavailable produces an actionable error and pause/resume/replay are supported', async () => {
+test('TTS unavailable produces an actionable error', async () => {
   const states = []; const audio = { src: '', play: async () => {}, pause() {} };
   await assert.rejects(playClip({ audioElement: audio, assetUrl: null, fallbackText: '天', speechApi: null, onState: (s) => states.push(s) }));
   assert.equal(states.at(-1), 'error');
-  const speech = new SpeechStub();
-  await playClip({ audioElement: audio, assetUrl: null, fallbackText: '地', speechApi: speech, onState: () => {} });
-  pauseClip(audio, speech); assert.equal(speech.paused, true);
-  resumeClip(audio, speech); assert.equal(speech.paused, false);
 });
 test('an initially decodable clip that fails asynchronously falls back to Mandarin TTS', async () => {
   const speech = new SpeechStub(); const states = [];

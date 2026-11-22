@@ -89,13 +89,3 @@ export async function playClip({ audioElement, assetUrl, fallbackText, speakingR
   }
   await useTtsFallback();
 }
-
-export function pauseClip(audioElement, speechApi = globalThis.speechSynthesis, onState) {
-  if (!audioElement?.paused && audioElement?.src) audioElement.pause();
-  speechApi?.pause?.(); emit(onState, 'paused');
-}
-
-export function resumeClip(audioElement, speechApi = globalThis.speechSynthesis, onState) {
-  if (audioElement?.src && audioElement.paused) Promise.resolve(audioElement.play()).catch(() => emit(onState, 'error'));
-  speechApi?.resume?.(); emit(onState, 'playing');
-}

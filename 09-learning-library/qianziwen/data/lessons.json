@@ -22,6 +22,11 @@
       "status": "needs_review",
       "source": "https://zh.wikisource.org/wiki/千字文"
     },
+    "simplifiedMeaningPinyin": {
+      "value": "tiān sè shēn hēi，dì chéng huáng sè。",
+      "status": "needs_review",
+      "source": "Pinyin draft aligned to the simplified explanation; needs review"
+    },
     "englishNote": {
       "value": "Heaven is dark; earth is yellow.",
       "status": "needs_review",
@@ -37,13 +42,13 @@
     },
     "audio": {
       "value": {
-        "normal": null,
-        "slow": null,
+        "normal": "assets/audio/qzw-001-normal.mp3",
+        "slow": "assets/audio/qzw-001-slow.mp3",
         "characters": [
-          null,
-          null,
-          null,
-          null
+          "assets/audio/chars/5929.mp3",
+          "assets/audio/chars/5730.mp3",
+          "assets/audio/chars/7384.mp3",
+          "assets/audio/chars/9EC3.mp3"
         ]
       },
       "status": "needs_review",
