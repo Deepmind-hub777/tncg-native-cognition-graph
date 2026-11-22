@@ -1,0 +1,13 @@
+[
+  {
+    "id": "qzw-001",
+    "sequence": 1,
+    "traditionalText": { "value": "天地玄黃", "status": "needs_review", "source": "https://zh.wikisource.org/wiki/千字文" },
+    "pinyin": { "value": ["tiān", "dì", "xuán", "huáng"], "status": "needs_review", "source": null },
+    "simplifiedMeaning": { "value": "天色深黑，地呈黃色。", "status": "needs_review", "source": null },
+    "englishNote": { "value": "Heaven is dark; earth is yellow.", "status": "needs_review", "source": null },
+    "illustration": { "value": { "prompt": "A quiet primordial sky above golden earth, ink-wash landscape, no lettering." }, "status": "needs_review", "source": null },
+    "audio": { "value": { "normal": null, "slow": null, "characters": [null, null, null, null] }, "status": "needs_review", "source": null },
+    "strokeData": { "value": ["5929", "5730", "7384", "9EC3"], "status": "needs_review", "source": null }
+  }
+]
