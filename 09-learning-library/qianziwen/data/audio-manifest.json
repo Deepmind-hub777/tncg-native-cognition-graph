@@ -1,0 +1,20 @@
+{
+  "status": "needs_review",
+  "source": "Google Cloud Text-to-Speech",
+  "docs": "https://cloud.google.com/text-to-speech/docs/basics",
+  "terms": "https://cloud.google.com/terms/service-terms",
+  "voice": "cmn-CN-Standard-A",
+  "languageCode": "cmn-CN",
+  "encoding": "MP3",
+  "speakingRates": { "normal": 1, "slow": 0.72, "character": 1 },
+  "requiredSampleClips": [
+    "assets/audio/qzw-001-normal.mp3",
+    "assets/audio/qzw-001-slow.mp3",
+    "assets/audio/chars/5929.mp3",
+    "assets/audio/chars/5730.mp3",
+    "assets/audio/chars/7384.mp3",
+    "assets/audio/chars/9EC3.mp3"
+  ],
+  "generationStatus": "blocked",
+  "note": "Current configured credentials do not have serviceusage.services.use on the selected project; API responded 403. No sample MP3 has been created. Do not batch-generate before user audition approval."
+}
