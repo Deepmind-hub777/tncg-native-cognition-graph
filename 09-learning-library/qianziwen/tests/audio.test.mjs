@@ -35,3 +35,12 @@ test('TTS unavailable produces an actionable error and pause/resume/replay are s
   pauseClip(audio, speech); assert.equal(speech.paused, true);
   resumeClip(audio, speech); assert.equal(speech.paused, false);
 });
+test('an initially decodable clip that fails asynchronously falls back to Mandarin TTS', async () => {
+  const speech = new SpeechStub(); const states = [];
+  const audio = { src:'', play: async()=>{}, pause(){} };
+  await playClip({ audioElement:audio, assetUrl:'clip.mp3', fallbackText:'玄', speechApi:speech, onState:(s)=>states.push(s) });
+  audio.onerror(new Error('decode failed'));
+  await new Promise((resolve)=>setTimeout(resolve,0));
+  assert.equal(speech.spoken.at(-1).text,'玄');
+  assert.ok(states.includes('playing'));
+});

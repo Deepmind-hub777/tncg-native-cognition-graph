@@ -22,13 +22,15 @@ export function createWritingSurface({ root, character, strokeData, mode = 'trac
   if (!guide || !canvas || !strokeData?.strokes || !strokeData?.medians) throw new TypeError('A guide surface, writing canvas and standard stroke data are required');
   const ctx = canvas.getContext('2d'); const viewBox = { x: 0, y: 0, width: 1024, height: 1024 };
   const paths = [];
-  let active = null, destroyed = false;
-  guide.setAttribute?.('aria-label', `${character} standard stroke order`); guide.innerHTML = '';
+  let active = null, destroyed = false, guideVisible = true, writer = null;
+  guide.setAttribute?.('aria-label', `${character} standard stroke order`);
   root.classList?.toggle('is-tracing', mode === 'trace');
   const redraw = () => redrawStrokes(ctx, paths, win?.devicePixelRatio || 1, { width: canvas.clientWidth || 1024, height: canvas.clientHeight || 1024 });
   const resize = () => {
     const rect = canvas.getBoundingClientRect(); const dpr = win?.devicePixelRatio || 1;
-    canvas.width = Math.round(rect.width * dpr); canvas.height = Math.round(rect.height * dpr); redraw();
+    canvas.width = Math.round(rect.width * dpr); canvas.height = Math.round(rect.height * dpr);
+    writer?.updateDimensions?.({ width: rect.width, height: rect.height, padding: 0 });
+    redraw();
   };
   const point = (event) => clientToViewBox(event.clientX, event.clientY, canvas.getBoundingClientRect(), viewBox);
   const down = (event) => { if (destroyed) return; event.preventDefault?.(); canvas.setPointerCapture?.(event.pointerId); active = [point(event)]; paths.push(active); redraw(); };
@@ -38,15 +40,19 @@ export function createWritingSurface({ root, character, strokeData, mode = 'trac
   canvas.addEventListener('pointerdown', down); canvas.addEventListener('pointermove', move); canvas.addEventListener('pointerup', finish); canvas.addEventListener('pointercancel', finish); canvas.addEventListener('lostpointercapture', finish);
   win?.addEventListener?.('resize', resize); win?.addEventListener?.('orientationchange', resize);
   const observer = typeof ResizeObserver === 'function' ? new ResizeObserver(resize) : null; observer?.observe(canvas); resize();
+  const Writer = win?.HanziWriter ?? globalThis.HanziWriter;
+  if (Writer?.create) {
+    try {
+      writer = Writer.create(guide, character, { width: canvas.clientWidth || 1024, height: canvas.clientHeight || 1024, padding: 0, charDataLoader: () => strokeData, showCharacter: false, showOutline: true, outlineColor: '#b8a78e', strokeColor: '#29231e', radicalColor: '#875b2c', drawingWidth: 6, delayBetweenStrokes: 350 });
+    } catch { writer = null; }
+  }
+  if (!writer) guide.innerHTML = `<svg viewBox="0 0 1024 1024" aria-hidden="true"><g class="glyph-guide">${strokeData.strokes.map((d) => `<path d="${d}"/>`).join('')}</g></svg>`;
+  guide.style.visibility = mode === 'trace' && guideVisible ? 'visible' : 'hidden';
   return {
     async animate() {
+      const localWriter = writer ?? (win?.HanziWriter ?? globalThis.HanziWriter)?.create?.(guide, character, { width: canvas.clientWidth || 1024, height: canvas.clientHeight || 1024, padding: 0, charDataLoader: () => strokeData, showCharacter: false, showOutline: true, outlineColor: '#b8a78e', strokeColor: '#29231e', delayBetweenStrokes: 350 });
+      if (localWriter) { writer = localWriter; await writer.animateCharacter(); return; }
       guide.innerHTML = '';
-      const Writer = win?.HanziWriter ?? globalThis.HanziWriter;
-      if (Writer?.create) {
-        const writer = Writer.create(guide, character, { charDataLoader: () => Promise.resolve(strokeData), showCharacter: false, showOutline: false, strokeColor: '#29231e', radicalColor: '#875b2c', drawingWidth: 6, delayBetweenStrokes: 350 });
-        await writer.animateCharacter();
-        return;
-      }
       const group = doc.createElementNS('http://www.w3.org/2000/svg', 'svg'); group.setAttribute('viewBox', '0 0 1024 1024'); guide.append(group);
       for (let i = 0; i < strokeData.medians.length; i++) {
         if (destroyed) return;
@@ -55,8 +61,8 @@ export function createWritingSurface({ root, character, strokeData, mode = 'trac
         await new Promise((resolve) => { path.addEventListener('animationend', resolve, { once: true }); setTimeout(resolve, 650); });
       }
     },
-    setMode(next) { mode = next; root.classList?.toggle('is-tracing', mode === 'trace'); },
-    setGuideVisible(visible) { guide.style.visibility = visible ? 'visible' : 'hidden'; },
+    setMode(next) { mode = next; root.classList?.toggle('is-tracing', mode === 'trace'); guide.style.visibility = mode === 'trace' && guideVisible ? 'visible' : 'hidden'; },
+    setGuideVisible(visible) { guideVisible = Boolean(visible); guide.style.visibility = mode === 'trace' && guideVisible ? 'visible' : 'hidden'; },
     undo() { if (!paths.length) return false; paths.pop(); active = null; redraw(); return true; },
     clear() { paths.length = 0; active = null; redraw(); },
     get strokes() { return paths.map((stroke) => stroke.map((p) => ({ ...p }))); },
