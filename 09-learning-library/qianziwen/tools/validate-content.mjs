@@ -27,7 +27,14 @@ export function validateLessons(entries, { expectedCount = 250, pageSize = 4 } =
       }
       if (field === 'traditionalText' && (typeof item.value !== 'string' || [...item.value].length !== 4)) errors.push(`${label} traditionalText must contain exactly four characters`);
       if (field === 'pinyin' && (!Array.isArray(item.value) || item.value.length !== 4 || item.value.some((v) => typeof v !== 'string' || !v.trim()))) errors.push(`${label} pinyin must contain four non-empty syllables`);
-      if (field === 'simplifiedMeaningPinyin' && (typeof item.value !== 'string' || !item.value.trim())) errors.push(`${label} simplifiedMeaningPinyin must be a non-empty string`);
+      if (field === 'simplifiedMeaningPinyin') {
+        const meaning = typeof entry.simplifiedMeaning?.value === 'string' ? [...entry.simplifiedMeaning.value] : [];
+        const aligned = Array.isArray(item.value) && item.value.length === meaning.length && item.value.every((pinyin, position) => {
+          const hanzi = /[\u3400-\u9fff]/u.test(meaning[position] ?? '');
+          return typeof pinyin === 'string' && (hanzi ? Boolean(pinyin.trim()) : !pinyin.trim());
+        });
+        if (!aligned) errors.push(`${label} simplifiedMeaningPinyin must align one-to-one with simplifiedMeaning characters; punctuation slots must be empty`);
+      }
     }
   }
   if (entries.length === expectedCount) {

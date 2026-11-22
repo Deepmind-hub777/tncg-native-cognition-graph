@@ -28,6 +28,18 @@ function drawPinyin() {
   });
 }
 
+function drawMeaningReading() {
+  const target = $('#meaning-reading'); target.replaceChildren();
+  [...lesson.simplifiedMeaning.value].forEach((character, index) => {
+    const pinyin = lesson.simplifiedMeaningPinyin.value[index];
+    if (!pinyin) { target.append(document.createTextNode(character)); return; }
+    const ruby = document.createElement('ruby');
+    ruby.append(document.createTextNode(character));
+    const annotation = document.createElement('rt'); annotation.textContent = pinyin;
+    ruby.append(annotation); target.append(ruby);
+  });
+}
+
 async function buildWriting() {
   const grid = $('#writing-grid'); const characters = [...lesson.traditionalText.value];
   for (let i = 0; i < characters.length; i++) {
@@ -87,8 +99,7 @@ try {
   const response = await fetch('data/lessons.json'); if (!response.ok) throw new Error('教學內容無法載入。');
   lesson = (await response.json())[0];
   $('#traditional-text').textContent = lesson.traditionalText.value;
-  $('#meaning').textContent = lesson.simplifiedMeaning.value;
-  $('#meaning-pinyin').textContent = lesson.simplifiedMeaningPinyin.value;
+  drawMeaningReading();
   $('#english-note').textContent = lesson.englishNote.value;
   $('#illustration').src = lesson.illustration.value.path;
   drawPinyin();

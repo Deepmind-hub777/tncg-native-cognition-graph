@@ -23,7 +23,18 @@
       "source": "https://zh.wikisource.org/wiki/千字文"
     },
     "simplifiedMeaningPinyin": {
-      "value": "tiān sè shēn hēi，dì chéng huáng sè。",
+      "value": [
+        "tiān",
+        "sè",
+        "shēn",
+        "hēi",
+        "",
+        "dì",
+        "chéng",
+        "huáng",
+        "sè",
+        ""
+      ],
       "status": "needs_review",
       "source": "Pinyin draft aligned to the simplified explanation; needs review"
     },

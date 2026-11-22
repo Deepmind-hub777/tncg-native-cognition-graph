@@ -12,7 +12,15 @@ test('first lesson presents all eight learning sections in the approved sequence
   await expect(page.getByRole('button', { name:'普通話語音' })).toBeVisible();
   await expect(page.getByRole('button', { name:'暂停语音' })).toHaveCount(0);
   await expect(page.getByRole('button', { name:'重播' })).toHaveCount(0);
-  await expect(page.locator('#meaning-pinyin')).toHaveText('tiān sè shēn hēi，dì chéng huáng sè。');
+  const meaningPairs = await page.locator('#meaning-reading ruby').evaluateAll((nodes) => nodes.map((node) => [node.childNodes[0].textContent, node.querySelector('rt').textContent]));
+  expect(meaningPairs).toEqual([['天','tiān'],['色','sè'],['深','shēn'],['黑','hēi'],['地','dì'],['呈','chéng'],['黄','huáng'],['色','sè']]);
+  const pinyinAlignment = await page.locator('#meaning-reading ruby').evaluateAll((nodes) => nodes.map((node) => {
+    const range = document.createRange(); range.selectNode(node.firstChild);
+    const base = range.getBoundingClientRect(), annotation = node.querySelector('rt').getBoundingClientRect();
+    return Math.abs((base.left + base.width / 2) - (annotation.left + annotation.width / 2));
+  }));
+  expect(pinyinAlignment.every((offset) => offset < 1)).toBe(true);
+  await expect(page.locator('#meaning-reading')).toContainText('，');
   await expect(page.locator('#quiz-progress')).toHaveText('第 1 / 10 題');
   await expect(page.getByRole('button', { name:'撤回一步' })).toHaveCount(0);
   await expect(page.getByRole('button', { name:'隱藏范字' })).toHaveCount(0);
@@ -57,6 +65,19 @@ test('mobile portrait and landscape layouts retain vector writing and usable con
   await page.setViewportSize({width:844,height:390}); expect(await page.locator('.writing-grid').evaluate((el)=>getComputedStyle(el).gridTemplateColumns.split(' ').length)).toBe(4);
   await expect.poll(()=>canvas.evaluate((el)=>el.getContext('2d').getImageData(0,0,el.width,el.height).data.filter((v,i)=>i%4===3&&v>0).length)).toBeGreaterThan(0);
   await expect(page.getByRole('button',{name:'普通話語音'})).toBeVisible();
+});
+
+test('phone, tablet and desktop widths have no horizontal overflow', async ({ page }) => {
+  for (const [width, height, columns] of [[320, 740, 2], [390, 844, 2], [768, 1024, 4], [1440, 1000, 4]]) {
+    await page.setViewportSize({ width, height }); await page.goto('/'); await expect(page.locator('#lesson')).toHaveAttribute('aria-busy','false');
+    const layout = await page.evaluate(() => ({ overflow: document.documentElement.scrollWidth > innerWidth, columns: getComputedStyle(document.querySelector('.writing-grid')).gridTemplateColumns.split(' ').length }));
+    expect(layout.overflow, `horizontal overflow at ${width}px`).toBe(false);
+    expect(layout.columns).toBe(columns);
+    if (width === 320) {
+      const toolbar = await page.evaluate(() => [...document.querySelectorAll('.writing-toolbar button')].map((button) => button.getBoundingClientRect().width));
+      expect(toolbar[2]).toBeGreaterThan(toolbar[0] * 1.8);
+    }
+  }
 });
 
 test('listening quiz ends after ten answered questions', async ({ page }) => {
