@@ -282,3 +282,12 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 附件 `qzw-v0.2.0-beta.1.zip`：64,797,132 字节；GitHub 资产 digest 为 `sha256:829a179fc93107bf94a2bc2cdbb436d44e61ac65c25bc20f44fa305ef162d34c`，与 `RELEASE.md` 记录一致。
 - 发布包包含中英文「为什么在 AI 时代学《千字文》」页面及第 46 组「長」读作 cháng 的内容修正；250 组状态仍为 `needs_review`，不代表专家终审。
 - 本轮浏览器预览检查了桌面版说明页；其移动样式已按断点编写，但未做手机真机复测。不要将此项写成移动端已验收。
+
+## 250 幅插图定位为视觉索引（2026-11-23）
+
+- 核对：`data/lessons.json` 250 组均有 `illustration.value.path`，250 个路径互不重复且全部存在于磁盘；`assets/illustrations/` 252 项 = 250 图 + `manifest.csv` + `prompts.log`，一组一图属实。
+- `site/why-qianziwen.html` 新增「不是装饰，是视觉索引」章节（中英导语 + 四条价值 + 一处传播口径），并加一处引用式强调句；`site/purpose.css` 补 `.anchors-lede/.purpose-anchors/.purpose-quote` 与 760px 单列规则。
+- `docs/teaching-purpose.md` 同步「250 幅插图：视觉索引，不是装饰」章节，含一句话亮点与传播口径；明确标注「对抗答案依赖」属设计意图、无课堂数据，页脚说明也加了同一句边界。
+- 验收：`npx playwright test` 12/12 通过；桌面 1280 全页截图人工核对，手机 390 仅截取新增章节核对（全页图过高未逐屏看），手机横向溢出 0px。手机未做真机复测。
+- 提交 `9e646b2`（rebase 到 `eef1226` 之上），已推送，HEAD 与 `origin/feature/qianziwen-module` 一致。
+- 遗留：`qzw-v0.2.0-beta.1` 资产仍对应 `043398e`，与当前 HEAD 脱钩；若要发 beta.2 需重新连打两次比对哈希。
