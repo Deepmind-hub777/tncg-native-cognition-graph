@@ -251,3 +251,10 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 手机：页头隐藏重复说明、跳转与进度区压紧、插画高度限制在 132–176px、正文段距收紧、隐藏冗长页脚，减少首屏被空白插画占据的问题。
 - 桌面预览已在 Chrome 中观察到整幅背景与清晰面板；本轮未做手机浏览器或 Android 真机复测，手机端仍需用户实测确认。
 - 未改课程数据、拼音、释义或字段状态；本轮未运行测试。
+
+### 验收（Doubao Agent，2026-11-23）
+
+- 修视觉缺陷：桌面页头卡片化后 `.home-link` 仍按 `top: 2px` 定位，品牌「千字文」压在卡片上边缘被切顶；已在桌面媒体查询内改为 `left/right` 对齐内边距（`left: 36px; top: 14px`），截图确认完整显示。
+- 用例随改版更新：桌面端插画改为整页背景、`#lesson-art` 降级为屏幕阅读器节点，原断言 `toBeVisible()` 已改为「`body.has-lesson-art` + `--lesson-artwork` 含 `qzw-001.png`」；手机端补 `#lesson-art` 可见断言；插画 404 用例补「`has-lesson-art` 已被移除」，避免空转通过。
+- 结果：`npx playwright test` **12/12 通过**；`node tools/validate-content.mjs` **250 组、63 页通过**；未改课程数据与字段状态（仍 `needs_review`）。
+- 手机端仍为 Chromium 视口模拟（390×844），非真机；真机 19 项验收仍未测。

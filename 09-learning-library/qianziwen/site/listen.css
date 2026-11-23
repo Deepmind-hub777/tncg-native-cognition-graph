@@ -200,6 +200,7 @@ img[hidden]{display:none!important}
   }
   .masthead h1 { font-size: clamp(2rem, 4vw, 2.7rem); }
   .masthead .intro { margin-top: 4px; }
+  .masthead .home-link { left: 36px; top: 14px; }
   .journey {
     margin-bottom: 12px;
     padding: 12px 18px 10px;
