@@ -224,3 +224,10 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 首页此前没有进试听页的入口，已加「試聽模式 · 逐句聽讀」链接。
 - 笔顺 10 个异体字仍无数据（hanzi-writer-data 404、makemeahanzi 9574 字不含、教育部站点不可达、汉典 403 且版权不明），改为占位卡降级并在 `#writing-status` 明确列出，`data/annotation-wiki-base.md` 第九节留证。
 - 校验：validate-content 250/63 通过；单测 22/22；e2e 12/12。
+
+## 交付版本 qzw-v0.1-base（2026-11-23）
+
+- 交付包：`outputs/qzw-v0.1-base.zip`，2,788 个文件 + 清单，64,783,122 字节，SHA-256 `bc39aa9b...67298f`；两次打包哈希一致。
+- 打包脚本 `tools/package_release.py`：按路径排序、固定时间戳、包内附 `RELEASE-MANIFEST.sha256`，可复现；`outputs/` 不入库。
+- 版本记录 `RELEASE.md` 记录资产口径、校验结果、五项遗留（内容待终审、10 字笔顺缺口、单字音频未重造、真机未验收、两处异读定案）。
+- 标签 `qzw-v0.1-base` 打在本次提交上。
