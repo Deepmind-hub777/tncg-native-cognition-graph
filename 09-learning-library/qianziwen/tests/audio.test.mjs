@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { detectAudioEnvironment, resolveAudioClip, selectAudioAsset, playClip } from '../src/audio.js';
-import { buildAudioTargets } from '../tools/audio-targets.mjs';
+import { buildAudioTargets, buildNormalAudioTargets } from '../tools/audio-targets.mjs';
 
 class SpeechStub {
   constructor() { this.spoken = []; this.paused = false; this.onvoiceschanged = null; }
@@ -78,4 +78,28 @@ test('batch audio targets create one slow group clip per lesson and deduplicate 
   assert.equal(characterTargets.length, new Set(characterTargets.map((target) => target.key)).size);
   assert.equal(characterTargets.length, 996);
   assert.equal(characterTargets.some((target) => target.path === 'assets/audio/chars/9EC3.mp3'), false);
+});
+
+test('normal audio targets create one standard-speed group clip per lesson without character duplicates', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const lessons = JSON.parse(await readFile(new URL('../data/lessons.json', import.meta.url), 'utf8'));
+  assert.equal(buildNormalAudioTargets(lessons, { start: 1, end: 1 })[0].key, 'normal');
+  const targets = buildNormalAudioTargets(lessons, { start: 51, end: 100 });
+  assert.equal(targets.length, 50);
+  assert.equal(targets[0].key, 'qzw-051-normal');
+  assert.equal(targets[0].path, 'assets/audio/qzw-051-normal.mp3');
+  assert.equal(targets.at(-1).key, 'qzw-100-normal');
+  assert.ok(targets.every((target) => target.speakingRate === 1));
+  assert.ok(targets.every((target) => target.text.length === 4));
+  assert.ok(targets.every((target) => !target.key.startsWith('char-')));
+});
+
+test('normal audio targets encode the three sequence-specific pinyin overrides as Mandarin phonemes', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const lessons = JSON.parse(await readFile(new URL('../data/lessons.json', import.meta.url), 'utf8'));
+  const targetFor = (sequence) => buildNormalAudioTargets(lessons, { start: sequence, end: sequence })[0];
+  assert.match(targetFor(10).ssml, /ph="wei2">爲<\/phoneme>/);
+  assert.match(targetFor(37).ssml, /ph="fa4">髮<\/phoneme>/);
+  assert.ok(targetFor(188).ssml.includes('<speak>'));
+  assert.equal(targetFor(51).ssml, undefined);
 });

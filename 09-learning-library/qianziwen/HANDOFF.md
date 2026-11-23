@@ -124,3 +124,39 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 题材克制抽检：026（兵器架+远旗）、150（空场兵器架）、217（香炉茶器梅枝）均无血、无正脸、无字。
 - 记录：`assets/illustrations/manifest.csv` 249 行、`prompts.log` 逐张提示词。
 - 仍未做：释义/英文注人工终审（等底本）、常速整句音频 249 条、安卓真机复测、`.git` ACL 调整。
+
+## 插画全量批次 002–250（2026-11-23）
+
+### 进展
+
+- 完成 249 张插画草稿 `qzw-002.jpg`–`qzw-250.jpg`，不含第 1 组；既有 002、025、121 未覆盖。补生成此前缺失的 229–231，且没有改动 `data/lessons.json`。
+- `assets/illustrations/manifest.csv` 已重建为 249 条，字段为 `sequence,filename,four_chars,one_line_brief`；四字取 lessons 数据，中文画面说明依据该组简体释义概括。
+- `assets/illustrations/prompts.log` 含 249 个序号的完整提示词块，包含锁定风格前缀。229–231 使用实际补图提示词替换原来无对应文件的尝试记录；002、025、121 合并自获批试稿提示词。
+- JPEG 静态核验：249 张齐全、没有缺号；全部 1536×1024、均小于 300 KB；最小 108,746 bytes，最大 289,214 bytes；插画目录总计 52,356,757 bytes。
+- ZIP 已生成至 `outputs/qianziwen-illustrations-002-250.zip`，包含 249 张 JPG、manifest.csv 与 prompts.log；打开 ZIP 核验为 251 项、249 张图片、249 行清单和 249 个提示词块。
+- 抽查 028、047、119、121、142、152、220、227、232 等画面，整体保持淡墨纸底、大面积留白；战争/祭祀/书写主题抽样未见血腥、宗教造像或书卷文字。此为抽样视觉检查，全部图像仍标为待审草稿，不代表教学审核通过。
+
+### 遗留 / 风险
+
+- 插图均为视觉草稿，尚未逐张人工终审；学员页面数据状态仍由 lessons.json 控制且保持原样。
+- 本轮没有 git add、commit 或 push；按插画任务约束留在当前 worktree。
+
+### 提示词格式说明
+
+- 对已存在的 246 个生成记录，实际调用提示中含有一行 `Generate exactly ONE image now, then stop...`，其后才是逐字完整的风格锁。为保留实际提示词，不对历史记录调序或伪装成另一条实际 prompt。
+- 002、025、121 试稿及本轮补生成的 229–231 提示词以风格锁开头。若将“必须以风格前缀作为 prompt 第一行”按字面验收，则其余 246 张不满足这一格式要求；当前只完成了资产生成与视觉抽查，未重绘这 246 张。
+
+## 音频常速批次准备与权限阻塞（2026-11-23）
+
+### 本轮进展
+
+- 新增标准语速整组音频 target 构建逻辑与 `--mode normal` 生成模式；每组输出 `assets/audio/qzw-NNN-normal.mp3`，第 1 组复用 manifest 既有 `normal` 键。
+- 第 10、37、188 组按既有逐字拼音 override 生成 Google TTS Mandarin Pinyin SSML；生成记录仍使用 `needs_review`。
+- 先做 051–100 dry-run：50 个整组 target，标准语速 1.0，无单字重复 target。内容校验通过（250 lessons / 63 pages）；Node 单测 22/22 通过。
+- 已尝试调用已配置的 Google Cloud TTS。API 返回 HTTP 403：调用身份缺少项目 `gen-lang-client-0446244982` 的 `serviceusage.services.use` 权限。没有 MP3 成功落盘；`lessons.json` 与 `audio-manifest.json` 已恢复，未写入不存在文件的路径。
+- 生成器遇到不可重试的权限类 HTTP 错误会立即停止；只有相应 MP3 已登记后才会写入 lesson 音频路径。
+
+### 遗留 / 风险
+
+- 051–100 尚未生成，后续批次 101–250 暂不启动。请项目管理员为实际 gcloud 调用身份授予项目 `gen-lang-client-0446244982` 的 `roles/serviceusage.serviceUsageConsumer`（或含 `serviceusage.services.use` 的自定义角色），等待 IAM 传播后重试。
+- 本轮未提交或推送。先完成 051–100 音频、解码与数据路径核验后，再按每 50 组提交。

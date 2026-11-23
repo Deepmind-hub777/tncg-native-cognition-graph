@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { mkdir, readFile, rename, stat, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildAudioTargets } from './audio-targets.mjs';
+import { buildAudioTargets, buildNormalAudioTargets } from './audio-targets.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, '..');
@@ -14,12 +14,16 @@ const readArgs = () => {
 const args = readArgs();
 const start = Number(args.get('--start') ?? 2), end = Number(args.get('--end') ?? 250);
 const concurrency = Math.max(1, Math.min(8, Number(args.get('--concurrency') ?? 5)));
+const mode = args.get('--mode') ?? 'legacy';
+if (!['legacy', 'normal'].includes(mode)) throw new RangeError(`unsupported audio mode: ${mode}`);
 const dryRun = process.argv.includes('--dry-run');
 const lessonsPath = resolve(root, 'data/lessons.json');
 const manifestPath = resolve(root, 'data/audio-manifest.json');
 const lessons = JSON.parse(await readFile(lessonsPath, 'utf8'));
 const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
-const targets = buildAudioTargets(lessons, { start, end });
+const targets = mode === 'normal'
+  ? buildNormalAudioTargets(lessons, { start, end })
+  : buildAudioTargets(lessons, { start, end });
 
 if (dryRun) {
   console.log(JSON.stringify({ start, end, concurrency, targetCount: targets.length, groupCount: targets.filter((target) => target.key.startsWith('qzw-')).length, uniqueCharacterCount: targets.filter((target) => target.key.startsWith('char-')).length }, null, 2));
@@ -51,7 +55,9 @@ let next = 0, firstError = null;
 let saveQueue = Promise.resolve();
 const saveManifest = () => {
   saveQueue = saveQueue.then(async () => {
-    manifest.generationStatus = 'partial'; manifest.generatedAt = new Date().toISOString();
+    if (mode === 'normal') manifest.normalAudioStatus = 'partial';
+    else manifest.generationStatus = 'partial';
+    manifest.generatedAt = new Date().toISOString();
     await writeFile(`${manifestPath}.tmp`, JSON.stringify(manifest, null, 2) + '\n'); await rename(`${manifestPath}.tmp`, manifestPath);
   });
   return saveQueue;
@@ -65,16 +71,19 @@ const worker = async () => {
         const response = await fetch('https://texttospeech.googleapis.com/v1/text:synthesize', {
           method: 'POST',
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', 'x-goog-user-project': project },
-          body: JSON.stringify({ input: { text: target.text }, voice: { languageCode: 'cmn-CN', name: voice }, audioConfig: { audioEncoding: 'MP3', speakingRate: target.speakingRate } }),
+          body: JSON.stringify({ input: target.ssml ? { ssml: target.ssml } : { text: target.text }, voice: { languageCode: 'cmn-CN', name: voice }, audioConfig: { audioEncoding: 'MP3', speakingRate: target.speakingRate } }),
         });
         const payload = await response.json();
         if (!response.ok) {
           lastError = new Error(`TTS request failed (${response.status}): ${payload.error?.message ?? 'unknown API error'}`);
-          if (![429, 500, 502, 503, 504].includes(response.status)) throw lastError;
+          if (![429, 500, 502, 503, 504].includes(response.status)) {
+            firstError = lastError;
+            return;
+          }
         } else {
           const output = resolve(root, target.path); await mkdir(dirname(output), { recursive: true });
           const tempOutput = `${output}.tmp`; await writeFile(tempOutput, Buffer.from(payload.audioContent, 'base64')); await rename(tempOutput, output);
-          manifest.clips[target.key] = { path: target.path, text: target.text, pinyin: target.pinyin, speakingRate: target.speakingRate, status: 'needs_review' };
+          manifest.clips[target.key] = { path: target.path, text: target.text, pinyin: target.pinyin, speakingRate: target.speakingRate, ...(target.ssml ? { pronunciationOverride: true } : {}), status: 'needs_review' };
           completed += 1;
           break;
         }
@@ -90,16 +99,27 @@ const worker = async () => {
 };
 await Promise.all(Array.from({ length: concurrency }, worker));
 await saveQueue;
+if (firstError) throw firstError;
 
 for (const lesson of lessons.filter((entry) => entry.sequence >= start && entry.sequence <= end)) {
+  if (mode === 'normal') {
+    const key = lesson.sequence === 1 ? 'normal' : `qzw-${String(lesson.sequence).padStart(3, '0')}-normal`;
+    if (manifest.clips[key]) lesson.audio.value.normal = manifest.clips[key].path;
+    continue;
+  }
   const groupKey = `qzw-${String(lesson.sequence).padStart(3, '0')}-slow`;
   const pathFor = (character) => `assets/audio/chars/${[...character].map((c) => c.codePointAt(0).toString(16).toUpperCase().padStart(4, '0')).join('')}.mp3`;
   lesson.audio.value.slow = manifest.clips[groupKey]?.path ?? `assets/audio/qzw-${String(lesson.sequence).padStart(3, '0')}-slow.mp3`;
   lesson.audio.value.characters = [...lesson.traditionalText.value].map(pathFor);
 }
 await writeFile(`${lessonsPath}.tmp`, JSON.stringify(lessons, null, 2) + '\n'); await rename(`${lessonsPath}.tmp`, lessonsPath);
-manifest.generationStatus = targets.every((target) => manifest.clips[target.key]) ? 'generated' : 'partial';
+if (mode === 'normal') {
+  const allNormalTargets = buildNormalAudioTargets(lessons);
+  manifest.normalAudioStatus = allNormalTargets.every((target) => manifest.clips[target.key]) ? 'generated' : 'partial';
+  manifest.normalAudioGeneratedCount = allNormalTargets.filter((target) => manifest.clips[target.key]).length;
+} else {
+  manifest.generationStatus = targets.every((target) => manifest.clips[target.key]) ? 'generated' : 'partial';
+}
 manifest.generatedAt = new Date().toISOString();
 await writeFile(`${manifestPath}.tmp`, JSON.stringify(manifest, null, 2) + '\n'); await rename(`${manifestPath}.tmp`, manifestPath);
-if (firstError) throw firstError;
-console.log(`Generated ${targets.length} requested audio assets with ${voice}; existing assets were reused and all clips remain needs_review.`);
+console.log(`Generated ${targets.length} requested ${mode} audio assets with ${voice}; existing assets were reused and all clips remain needs_review.`);
