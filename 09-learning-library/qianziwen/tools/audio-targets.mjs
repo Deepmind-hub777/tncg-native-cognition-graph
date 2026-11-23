@@ -21,7 +21,13 @@ export function buildAudioTargets(lessons, { start = 2, end = lessons.length } =
   return [...targets, ...characters.values()];
 }
 
-const pinyinOverrides = new Set([10, 37, 188]);
+// 需要按校正读音合成 SSML 的组：原三组上下文多音字 + 2026-11-23 维基文库基线核对修正的 24 组。
+// 明细见 data/annotation-wiki-base.md；新增修正组必须同步加入此集合，否则音频会按默认读音朗读。
+const pinyinOverrides = new Set([
+  10, 37, 188, // 露結爲霜 / 蓋此身髮 / 慼謝歡招：早期上下文多音字
+  8, 22, 32, 46, 65, 67, 81, 88, 91, 92, 103, 108, // 2026-11-23 基线核对
+  132, 140, 143, 156, 157, 171, 177, 187, 189, 200, 219, 232,
+]);
 const toneMarks = new Map(Object.entries({
   ā: ['a', 1], á: ['a', 2], ǎ: ['a', 3], à: ['a', 4],
   ē: ['e', 1], é: ['e', 2], ě: ['e', 3], è: ['e', 4],

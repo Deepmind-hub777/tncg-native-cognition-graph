@@ -5,7 +5,7 @@
   "voice": "cmn-CN-Standard-A",
   "languageCode": "cmn-CN",
   "encoding": "MP3",
-  "generatedAt": "2026-11-23T01:02:16.824Z",
+  "generatedAt": "2026-11-23T01:11:07.988Z",
   "clips": {
     "normal": {
       "path": "assets/audio/qzw-001-normal.mp3",
@@ -129,7 +129,7 @@
     "qzw-008-slow": {
       "path": "assets/audio/qzw-008-slow.mp3",
       "text": "律呂調陽",
-      "pinyin": "lǜ lǚ diào yáng",
+      "pinyin": "lǜ lǚ tiáo yáng",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -213,7 +213,7 @@
     "qzw-022-slow": {
       "path": "assets/audio/qzw-022-slow.mp3",
       "text": "乃服衣裳",
-      "pinyin": "nǎi fú yī shang",
+      "pinyin": "nǎi fú yī cháng",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -283,7 +283,7 @@
     "qzw-032-slow": {
       "path": "assets/audio/qzw-032-slow.mp3",
       "text": "率賓歸王",
-      "pinyin": "lǜ bīn guī wáng",
+      "pinyin": "shuài bīn guī wáng",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -388,7 +388,7 @@
     "qzw-046-slow": {
       "path": "assets/audio/qzw-046-slow.mp3",
       "text": "靡恃己長",
-      "pinyin": "mí shì jǐ zhǎng",
+      "pinyin": "mǐ shì jǐ zhǎng",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -521,7 +521,7 @@
     "qzw-065-slow": {
       "path": "assets/audio/qzw-065-slow.mp3",
       "text": "臨深履薄",
-      "pinyin": "lín shēn lǚ báo",
+      "pinyin": "lín shēn lǚ bó",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -535,7 +535,7 @@
     "qzw-067-slow": {
       "path": "assets/audio/qzw-067-slow.mp3",
       "text": "似蘭斯馨",
-      "pinyin": "shì lán sī xīn",
+      "pinyin": "sì lán sī xīn",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -633,7 +633,7 @@
     "qzw-081-slow": {
       "path": "assets/audio/qzw-081-slow.mp3",
       "text": "樂殊貴賤",
-      "pinyin": "lè shū guì jiàn",
+      "pinyin": "yuè shū guì jiàn",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -682,7 +682,7 @@
     "qzw-088-slow": {
       "path": "assets/audio/qzw-088-slow.mp3",
       "text": "猶子比兒",
-      "pinyin": "yóu zi bǐ ér",
+      "pinyin": "yóu zǐ bǐ ér",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -703,7 +703,7 @@
     "qzw-091-slow": {
       "path": "assets/audio/qzw-091-slow.mp3",
       "text": "交友投分",
-      "pinyin": "jiāo yǒu tóu fēn",
+      "pinyin": "jiāo yǒu tóu fèn",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -717,7 +717,7 @@
     "qzw-092-slow": {
       "path": "assets/audio/qzw-092-slow.mp3",
       "text": "切磨箴規",
-      "pinyin": "qiè mó zhēn guī",
+      "pinyin": "qiē mó zhēn guī",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -787,7 +787,7 @@
     "qzw-103-slow": {
       "path": "assets/audio/qzw-103-slow.mp3",
       "text": "都邑華夏",
-      "pinyin": "dōu yì huá xià",
+      "pinyin": "dū yì huá xià",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -822,7 +822,7 @@
     "qzw-108-slow": {
       "path": "assets/audio/qzw-108-slow.mp3",
       "text": "樓觀飛驚",
-      "pinyin": "lóu guān fēi jīng",
+      "pinyin": "lóu guàn fēi jīng",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -983,7 +983,7 @@
     "qzw-132-slow": {
       "path": "assets/audio/qzw-132-slow.mp3",
       "text": "勒碑刻銘",
-      "pinyin": "lēi bēi kè míng",
+      "pinyin": "lè bēi kè míng",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -1053,7 +1053,7 @@
     "qzw-140-slow": {
       "path": "assets/audio/qzw-140-slow.mp3",
       "text": "說感武丁",
-      "pinyin": "shuō gǎn wǔ dīng",
+      "pinyin": "yuè gǎn wǔ dīng",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -1067,7 +1067,7 @@
     "qzw-143-slow": {
       "path": "assets/audio/qzw-143-slow.mp3",
       "text": "晉楚更霸",
-      "pinyin": "jìn chǔ gèng bà",
+      "pinyin": "jìn chǔ gēng bà",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -1157,15 +1157,15 @@
     },
     "qzw-156-slow": {
       "path": "assets/audio/qzw-156-slow.mp3",
-      "text": "禪主雲亭",
-      "pinyin": "chán zhǔ yún tíng",
+      "text": "禪主云亭",
+      "pinyin": "shàn zhǔ yún tíng",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
     "qzw-157-slow": {
       "path": "assets/audio/qzw-157-slow.mp3",
       "text": "雁門紫塞",
-      "pinyin": "yàn mén zǐ sāi",
+      "pinyin": "yàn mén zǐ sài",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -1263,7 +1263,7 @@
     "qzw-171-slow": {
       "path": "assets/audio/qzw-171-slow.mp3",
       "text": "庶幾中庸",
-      "pinyin": "shù jǐ zhōng yōng",
+      "pinyin": "shù jī zhōng yōng",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -1305,7 +1305,7 @@
     "qzw-177-slow": {
       "path": "assets/audio/qzw-177-slow.mp3",
       "text": "省躬譏誡",
-      "pinyin": "shěng gōng jī jiè",
+      "pinyin": "xǐng gōng jī jiè",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -1375,7 +1375,7 @@
     "qzw-187-slow": {
       "path": "assets/audio/qzw-187-slow.mp3",
       "text": "欣奏累遣",
-      "pinyin": "xīn zòu lèi qiǎn",
+      "pinyin": "xīn zòu lěi qiǎn",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -1389,7 +1389,7 @@
     "qzw-189-slow": {
       "path": "assets/audio/qzw-189-slow.mp3",
       "text": "渠荷的歷",
-      "pinyin": "qú hé de lì",
+      "pinyin": "qú hé dì lì",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -1466,7 +1466,7 @@
     "qzw-200-slow": {
       "path": "assets/audio/qzw-200-slow.mp3",
       "text": "屬耳垣牆",
-      "pinyin": "shǔ ěr yuán qiáng",
+      "pinyin": "zhǔ ěr yuán qiáng",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -1599,7 +1599,7 @@
     "qzw-219-slow": {
       "path": "assets/audio/qzw-219-slow.mp3",
       "text": "稽顙再拜",
-      "pinyin": "jī sǎng zài bài",
+      "pinyin": "qǐ sǎng zài bài",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -1697,7 +1697,7 @@
     "qzw-232-slow": {
       "path": "assets/audio/qzw-232-slow.mp3",
       "text": "鈞巧任釣",
-      "pinyin": "jūn qiǎo rèn diào",
+      "pinyin": "jūn qiǎo rén diào",
       "speakingRate": 0.72,
       "status": "needs_review"
     },
@@ -8865,8 +8865,9 @@
     "qzw-065-normal": {
       "path": "assets/audio/qzw-065-normal.mp3",
       "text": "臨深履薄",
-      "pinyin": "lín shēn lǚ báo",
+      "pinyin": "lín shēn lǚ bó",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-066-normal": {
@@ -8879,8 +8880,9 @@
     "qzw-067-normal": {
       "path": "assets/audio/qzw-067-normal.mp3",
       "text": "似蘭斯馨",
-      "pinyin": "shì lán sī xīn",
+      "pinyin": "sì lán sī xīn",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-070-normal": {
@@ -8977,8 +8979,9 @@
     "qzw-081-normal": {
       "path": "assets/audio/qzw-081-normal.mp3",
       "text": "樂殊貴賤",
-      "pinyin": "lè shū guì jiàn",
+      "pinyin": "yuè shū guì jiàn",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-082-normal": {
@@ -9026,8 +9029,9 @@
     "qzw-088-normal": {
       "path": "assets/audio/qzw-088-normal.mp3",
       "text": "猶子比兒",
-      "pinyin": "yóu zi bǐ ér",
+      "pinyin": "yóu zǐ bǐ ér",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-089-normal": {
@@ -9047,15 +9051,17 @@
     "qzw-091-normal": {
       "path": "assets/audio/qzw-091-normal.mp3",
       "text": "交友投分",
-      "pinyin": "jiāo yǒu tóu fēn",
+      "pinyin": "jiāo yǒu tóu fèn",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-092-normal": {
       "path": "assets/audio/qzw-092-normal.mp3",
       "text": "切磨箴規",
-      "pinyin": "qiè mó zhēn guī",
+      "pinyin": "qiē mó zhēn guī",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-093-normal": {
@@ -9131,8 +9137,9 @@
     "qzw-103-normal": {
       "path": "assets/audio/qzw-103-normal.mp3",
       "text": "都邑華夏",
-      "pinyin": "dōu yì huá xià",
+      "pinyin": "dū yì huá xià",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-101-normal": {
@@ -9166,8 +9173,9 @@
     "qzw-108-normal": {
       "path": "assets/audio/qzw-108-normal.mp3",
       "text": "樓觀飛驚",
-      "pinyin": "lóu guān fēi jīng",
+      "pinyin": "lóu guàn fēi jīng",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-109-normal": {
@@ -9334,8 +9342,9 @@
     "qzw-132-normal": {
       "path": "assets/audio/qzw-132-normal.mp3",
       "text": "勒碑刻銘",
-      "pinyin": "lēi bēi kè míng",
+      "pinyin": "lè bēi kè míng",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-133-normal": {
@@ -9390,8 +9399,9 @@
     "qzw-140-normal": {
       "path": "assets/audio/qzw-140-normal.mp3",
       "text": "說感武丁",
-      "pinyin": "shuō gǎn wǔ dīng",
+      "pinyin": "yuè gǎn wǔ dīng",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-141-normal": {
@@ -9404,8 +9414,9 @@
     "qzw-143-normal": {
       "path": "assets/audio/qzw-143-normal.mp3",
       "text": "晉楚更霸",
-      "pinyin": "jìn chǔ gèng bà",
+      "pinyin": "jìn chǔ gēng bà",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-142-normal": {
@@ -9502,15 +9513,17 @@
     "qzw-156-normal": {
       "path": "assets/audio/qzw-156-normal.mp3",
       "text": "禪主云亭",
-      "pinyin": "chán zhǔ yún tíng",
+      "pinyin": "shàn zhǔ yún tíng",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-157-normal": {
       "path": "assets/audio/qzw-157-normal.mp3",
       "text": "雁門紫塞",
-      "pinyin": "yàn mén zǐ sāi",
+      "pinyin": "yàn mén zǐ sài",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-159-normal": {
@@ -9607,8 +9620,9 @@
     "qzw-171-normal": {
       "path": "assets/audio/qzw-171-normal.mp3",
       "text": "庶幾中庸",
-      "pinyin": "shù jǐ zhōng yōng",
+      "pinyin": "shù jī zhōng yōng",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-172-normal": {
@@ -9649,8 +9663,9 @@
     "qzw-177-normal": {
       "path": "assets/audio/qzw-177-normal.mp3",
       "text": "省躬譏誡",
-      "pinyin": "shěng gōng jī jiè",
+      "pinyin": "xǐng gōng jī jiè",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-178-normal": {
@@ -9727,8 +9742,9 @@
     "qzw-187-normal": {
       "path": "assets/audio/qzw-187-normal.mp3",
       "text": "欣奏累遣",
-      "pinyin": "xīn zòu lèi qiǎn",
+      "pinyin": "xīn zòu lěi qiǎn",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-190-normal": {
@@ -9741,8 +9757,9 @@
     "qzw-189-normal": {
       "path": "assets/audio/qzw-189-normal.mp3",
       "text": "渠荷的歷",
-      "pinyin": "qú hé de lì",
+      "pinyin": "qú hé dì lì",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-191-normal": {
@@ -9811,8 +9828,9 @@
     "qzw-200-normal": {
       "path": "assets/audio/qzw-200-normal.mp3",
       "text": "屬耳垣牆",
-      "pinyin": "shǔ ěr yuán qiáng",
+      "pinyin": "zhǔ ěr yuán qiáng",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-201-normal": {
@@ -9944,8 +9962,9 @@
     "qzw-219-normal": {
       "path": "assets/audio/qzw-219-normal.mp3",
       "text": "稽顙再拜",
-      "pinyin": "jī sǎng zài bài",
+      "pinyin": "qǐ sǎng zài bài",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-220-normal": {
@@ -10035,8 +10054,9 @@
     "qzw-232-normal": {
       "path": "assets/audio/qzw-232-normal.mp3",
       "text": "鈞巧任釣",
-      "pinyin": "jūn qiǎo rèn diào",
+      "pinyin": "jūn qiǎo rén diào",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-233-normal": {
@@ -10210,8 +10230,9 @@
     "qzw-008-normal": {
       "path": "assets/audio/qzw-008-normal.mp3",
       "text": "律呂調陽",
-      "pinyin": "lǜ lǚ diào yáng",
+      "pinyin": "lǜ lǚ tiáo yáng",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-009-normal": {
@@ -10309,8 +10330,9 @@
     "qzw-022-normal": {
       "path": "assets/audio/qzw-022-normal.mp3",
       "text": "乃服衣裳",
-      "pinyin": "nǎi fú yī shang",
+      "pinyin": "nǎi fú yī cháng",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-023-normal": {
@@ -10379,8 +10401,9 @@
     "qzw-032-normal": {
       "path": "assets/audio/qzw-032-normal.mp3",
       "text": "率賓歸王",
-      "pinyin": "lǜ bīn guī wáng",
+      "pinyin": "shuài bīn guī wáng",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-031-normal": {
@@ -10478,8 +10501,9 @@
     "qzw-046-normal": {
       "path": "assets/audio/qzw-046-normal.mp3",
       "text": "靡恃己長",
-      "pinyin": "mí shì jǐ zhǎng",
+      "pinyin": "mǐ shì jǐ zhǎng",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-047-normal": {

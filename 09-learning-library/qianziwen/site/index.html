@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3ead7">
+  <meta name="description" content="按顺序听读《千字文》四字课程，查看原文、拼音与简体释义。">
+  <title>千字文 · 听读</title>
+  <link rel="stylesheet" href="./listen.css">
+  <script type="module" src="./listen.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#lesson-card">跳到本课内容</a>
+  <main class="shell">
+    <header class="masthead">
+      <a class="home-link" href="../index.html" aria-label="返回千字文互动学习">千字文</a>
+      <p class="eyebrow">循序听读 · 250 组</p>
+      <h1>一字一音，慢慢读</h1>
+      <p class="intro">听普通话，读原文，也看看这四个字的意思。</p>
+    </header>
+
+    <section class="journey" aria-label="课程进度与跳转">
+      <div class="journey-topline">
+        <label for="lesson-jump">跳至第几组</label>
+        <form id="jump-form" class="jump-form">
+          <input id="lesson-jump" name="sequence" type="number" min="1" max="250" step="1" inputmode="numeric" autocomplete="off" aria-describedby="jump-message">
+          <span>组</span>
+          <button type="submit">前往</button>
+        </form>
+      </div>
+      <p id="jump-message" class="field-message" aria-live="polite"></p>
+      <div class="progress-line">
+        <progress id="lesson-progress" max="250" value="1" aria-label="课程阅读进度">1</progress>
+        <span id="progress-label" class="progress-label" aria-live="polite">第 1 / 250 组</span>
+      </div>
+    </section>
+
+    <article id="lesson-card" class="lesson-card" aria-busy="true" tabindex="-1">
+      <figure class="artwork">
+        <img id="lesson-art" src="" alt="" width="1536" height="1024" fetchpriority="high">
+        <figcaption id="art-caption" class="art-caption">千字文意境插画</figcaption>
+      </figure>
+      <div class="lesson-content">
+        <p class="lesson-index" id="lesson-index">第 1 组</p>
+        <section class="original" aria-labelledby="original-title">
+          <h2 id="original-title">繁體原文</h2>
+          <p id="traditional-text" class="traditional-text"></p>
+          <div id="character-pinyin" class="character-pinyin" aria-label="逐字拼音"></div>
+        </section>
+        <div class="audio-action">
+          <button id="play-audio" class="play-button" type="button" aria-label="播放本课普通话语音">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 4.8c0-.8.9-1.3 1.6-.9l12 7.2a1 1 0 0 1 0 1.8l-12 7.2A1.05 1.05 0 0 1 5 19.2V4.8Z"/></svg>
+            <span>普通话语音</span>
+          </button>
+          <p id="audio-state" class="audio-state" role="status" aria-live="polite">点按按钮收听</p>
+          <audio id="audio-player" preload="none"></audio>
+        </div>
+        <section class="meaning" aria-labelledby="meaning-title">
+          <h2 id="meaning-title">简体中文解释</h2>
+          <p id="meaning-reading" class="meaning-reading"></p>
+        </section>
+        <section class="english" aria-labelledby="english-title">
+          <h2 id="english-title">A short note</h2>
+          <p id="english-note"></p>
+        </section>
+        <p id="review-note" class="review-note">拼音与释义仍待校订</p>
+      </div>
+    </article>
+
+    <nav class="lesson-controls" aria-label="课程顺序">
+      <button id="previous-lesson" type="button" aria-label="上一组">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg>
+        <span>上一组</span>
+      </button>
+      <span id="control-counter" class="control-counter">1 / 250</span>
+      <button id="next-lesson" class="next-button" type="button" aria-label="下一组">
+        <span>下一组</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg>
+      </button>
+    </nav>
+
+    <footer class="page-footer">
+      <p>内容按课程顺序呈现 · 拼音与释义为待校订稿</p>
+      <a href="../index.html">返回互动学习页</a>
+    </footer>
+  </main>
+</body>
+</html>

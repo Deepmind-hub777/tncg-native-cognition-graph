@@ -175,26 +175,28 @@
       "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
     },
     "simplifiedMeaning": {
-      "value": "日月有圆缺，也会西斜。",
+      "value": "月亮有圆有缺，太阳会西斜。",
       "status": "needs_review",
-      "source": "Doubao-authored teaching draft (2026-11-22); pending Codex/human review against primary sources."
+      "source": "Revised against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "simplifiedMeaningPinyin": {
       "value": [
-        "rì",
         "yuè",
+        "liàng",
         "yǒu",
         "yuán",
+        "yǒu",
         "quē",
         "",
-        "yě",
+        "tài",
+        "yáng",
         "huì",
         "xī",
         "xié",
         ""
       ],
       "status": "needs_review",
-      "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review."
+      "source": "Char-aligned pypinyin over the revised explanation; regenerated 2026-11-23; pending review."
     },
     "englishNote": {
       "value": "Sun and moon fill, wane and decline.",
@@ -557,11 +559,11 @@
       "value": [
         "lǜ",
         "lǚ",
-        "diào",
+        "tiáo",
         "yáng"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "以律吕调和阳气。",
@@ -716,16 +718,17 @@
       "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
     },
     "simplifiedMeaning": {
-      "value": "露水遇冷凝成白霜。",
+      "value": "水汽遇寒，凝成白霜。",
       "status": "needs_review",
-      "source": "Doubao-authored teaching draft (2026-11-22); pending Codex/human review against primary sources."
+      "source": "Revised against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "simplifiedMeaningPinyin": {
       "value": [
-        "lù",
         "shuǐ",
+        "qì",
         "yù",
-        "lěng",
+        "hán",
+        "",
         "níng",
         "chéng",
         "bái",
@@ -733,12 +736,12 @@
         ""
       ],
       "status": "needs_review",
-      "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review."
+      "source": "Char-aligned pypinyin over the revised explanation; regenerated 2026-11-23; pending review."
     },
     "englishNote": {
-      "value": "Dew freezes into white frost.",
+      "value": "Cold vapor condenses into white frost.",
       "status": "needs_review",
-      "source": "Doubao-authored English gloss draft (2026-11-22); pending review."
+      "source": "Revised gloss against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "illustration": {
       "value": {
@@ -1641,10 +1644,10 @@
         "nǎi",
         "fú",
         "yī",
-        "shang"
+        "cháng"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "于是有了上衣下裳。",
@@ -2409,13 +2412,13 @@
     },
     "pinyin": {
       "value": [
-        "lǜ",
+        "shuài",
         "bīn",
         "guī",
         "wáng"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "率领众人归附君王。",
@@ -2951,26 +2954,33 @@
       "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
     },
     "simplifiedMeaning": {
-      "value": "恭敬地养育。",
+      "value": "恭敬地想着父母的养育之恩。",
       "status": "needs_review",
-      "source": "Doubao-authored teaching draft (2026-11-22); pending Codex/human review against primary sources."
+      "source": "Revised against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "simplifiedMeaningPinyin": {
       "value": [
         "gōng",
         "jìng",
         "dì",
+        "xiǎng",
+        "zhe",
+        "fù",
+        "mǔ",
+        "de",
         "yǎng",
         "yù",
+        "zhī",
+        "ēn",
         ""
       ],
       "status": "needs_review",
-      "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review."
+      "source": "Char-aligned pypinyin over the revised explanation; regenerated 2026-11-23; pending review."
     },
     "englishNote": {
-      "value": "Rear them with reverence.",
+      "value": "Reverently recall the care that raised us.",
       "status": "needs_review",
-      "source": "Doubao-authored English gloss draft (2026-11-22); pending review."
+      "source": "Revised gloss against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "illustration": {
       "value": {
@@ -3468,13 +3478,13 @@
     },
     "pinyin": {
       "value": [
-        "mí",
+        "mǐ",
         "shì",
         "jǐ",
         "zhǎng"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "不必仗恃自己的优点。",
@@ -4253,30 +4263,36 @@
       "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
     },
     "simplifiedMeaning": {
-      "value": "空堂之上，反复听习。",
+      "value": "空堂之中，声音回响，可反复听到。",
       "status": "needs_review",
-      "source": "Doubao-authored teaching draft (2026-11-22); pending Codex/human review against primary sources."
+      "source": "Revised against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "simplifiedMeaningPinyin": {
       "value": [
         "kōng",
         "táng",
         "zhī",
-        "shàng",
+        "zhōng",
         "",
+        "shēng",
+        "yīn",
+        "huí",
+        "xiǎng",
+        "",
+        "kě",
         "fǎn",
         "fù",
         "tīng",
-        "xí",
+        "dào",
         ""
       ],
       "status": "needs_review",
-      "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review."
+      "source": "Char-aligned pypinyin over the revised explanation; regenerated 2026-11-23; pending review."
     },
     "englishNote": {
-      "value": "In a bare hall one listens and learns.",
+      "value": "In a bare hall the echo lets you hear it again.",
       "status": "needs_review",
-      "source": "Doubao-authored English gloss draft (2026-11-22); pending review."
+      "source": "Revised gloss against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "illustration": {
       "value": {
@@ -4942,10 +4958,10 @@
         "lín",
         "shēn",
         "lǚ",
-        "báo"
+        "bó"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "如临深渊，如踏薄冰。",
@@ -5098,13 +5114,13 @@
     },
     "pinyin": {
       "value": [
-        "shì",
+        "sì",
         "lán",
         "sī",
         "xīn"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "像兰草一样芳香。",
@@ -6178,13 +6194,13 @@
     },
     "pinyin": {
       "value": [
-        "lè",
+        "yuè",
         "shū",
         "guì",
         "jiàn"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "音乐因贵贱而有分别。",
@@ -6718,12 +6734,12 @@
     "pinyin": {
       "value": [
         "yóu",
-        "zi",
+        "zǐ",
         "bǐ",
         "ér"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "把侄子看作自己的儿子。",
@@ -6949,10 +6965,10 @@
         "jiāo",
         "yǒu",
         "tóu",
-        "fēn"
+        "fèn"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "结交朋友，要意气相投。",
@@ -7024,13 +7040,13 @@
     },
     "pinyin": {
       "value": [
-        "qiè",
+        "qiē",
         "mó",
         "zhēn",
         "guī"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "互相切磋，规劝诫勉。",
@@ -7871,13 +7887,13 @@
     },
     "pinyin": {
       "value": [
-        "dōu",
+        "dū",
         "yì",
         "huá",
         "xià"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "华夏的都城。",
@@ -8253,12 +8269,12 @@
     "pinyin": {
       "value": [
         "lóu",
-        "guān",
+        "guàn",
         "fēi",
         "jīng"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "楼观高耸，如飞如惊。",
@@ -8486,23 +8502,27 @@
       "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
     },
     "simplifiedMeaning": {
-      "value": "丙舍在两旁开启。",
+      "value": "宫室两侧的丙舍依次敞开。",
       "status": "needs_review",
-      "source": "Doubao-authored teaching draft (2026-11-22); pending Codex/human review against primary sources."
+      "source": "Revised against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "simplifiedMeaningPinyin": {
       "value": [
+        "gōng",
+        "shì",
+        "liǎng",
+        "cè",
+        "de",
         "bǐng",
         "shě",
-        "zài",
-        "liǎng",
-        "páng",
+        "yī",
+        "cì",
+        "chǎng",
         "kāi",
-        "qǐ",
         ""
       ],
       "status": "needs_review",
-      "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review."
+      "source": "Char-aligned pypinyin over the revised explanation; regenerated 2026-11-23; pending review."
     },
     "englishNote": {
       "value": "Side chambers open beside them.",
@@ -10070,13 +10090,13 @@
     },
     "pinyin": {
       "value": [
-        "lēi",
+        "lè",
         "bēi",
         "kè",
         "míng"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "刻碑立石，镌刻铭文。",
@@ -10622,30 +10642,38 @@
       "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
     },
     "simplifiedMeaning": {
-      "value": "绮里季使汉惠帝回心。",
+      "value": "绮里季等四皓出山，挽回汉惠帝的储位。",
       "status": "needs_review",
-      "source": "Doubao-authored teaching draft (2026-11-22); pending Codex/human review against primary sources."
+      "source": "Revised against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "simplifiedMeaningPinyin": {
       "value": [
         "qǐ",
         "lǐ",
         "jì",
-        "shǐ",
+        "děng",
+        "sì",
+        "hào",
+        "chū",
+        "shān",
+        "",
+        "wǎn",
+        "huí",
         "hàn",
         "huì",
         "dì",
-        "huí",
-        "xīn",
+        "de",
+        "chǔ",
+        "wèi",
         ""
       ],
       "status": "needs_review",
-      "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review."
+      "source": "Char-aligned pypinyin over the revised explanation; regenerated 2026-11-23; pending review."
     },
     "englishNote": {
-      "value": "Qili Ji changed Emperor Hui's mind.",
+      "value": "Qili Ji and the Four Whiteheads saved Emperor Hui's place as heir.",
       "status": "needs_review",
-      "source": "Doubao-authored English gloss draft (2026-11-22); pending review."
+      "source": "Revised gloss against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "illustration": {
       "value": {
@@ -10690,13 +10718,13 @@
     },
     "pinyin": {
       "value": [
-        "shuō",
+        "yuè",
         "gǎn",
         "wǔ",
         "dīng"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "傅说感动了武丁。",
@@ -10920,11 +10948,11 @@
       "value": [
         "jìn",
         "chǔ",
-        "gèng",
+        "gēng",
         "bà"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "晋国楚国交替称霸。",
@@ -11915,13 +11943,13 @@
     },
     "pinyin": {
       "value": [
-        "chán",
+        "shàn",
         "zhǔ",
         "yún",
         "tíng"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "封禅之礼，以云云亭亭为主。",
@@ -11998,10 +12026,10 @@
         "yàn",
         "mén",
         "zǐ",
-        "sāi"
+        "sài"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "雁门关与紫塞。",
@@ -13054,12 +13082,12 @@
     "pinyin": {
       "value": [
         "shù",
-        "jǐ",
+        "jī",
         "zhōng",
         "yōng"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "差不多合于中庸之道。",
@@ -13513,13 +13541,13 @@
     },
     "pinyin": {
       "value": [
-        "shěng",
+        "xǐng",
         "gōng",
         "jī",
         "jiè"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "反省自身，接受讥诫。",
@@ -14282,11 +14310,11 @@
       "value": [
         "xīn",
         "zòu",
-        "lèi",
+        "lěi",
         "qiǎn"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "欣喜到来，牵累遣去。",
@@ -14436,11 +14464,11 @@
       "value": [
         "qú",
         "hé",
-        "de",
+        "dì",
         "lì"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "渠中荷花，鲜明清丽。",
@@ -15275,39 +15303,43 @@
     },
     "pinyin": {
       "value": [
-        "shǔ",
+        "zhǔ",
         "ěr",
         "yuán",
         "qiáng"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
-      "value": "贴着墙壁，侧耳倾听。",
+      "value": "附耳于墙说话，须防隔墙有耳。",
       "status": "needs_review",
-      "source": "Doubao-authored teaching draft (2026-11-22); pending Codex/human review against primary sources."
+      "source": "Revised against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "simplifiedMeaningPinyin": {
       "value": [
-        "tiē",
-        "zhe",
-        "qiáng",
-        "bì",
-        "",
-        "cè",
+        "fù",
         "ěr",
-        "qīng",
-        "tīng",
+        "yú",
+        "qiáng",
+        "shuō",
+        "huà",
+        "",
+        "xū",
+        "fáng",
+        "gé",
+        "qiáng",
+        "yǒu",
+        "ěr",
         ""
       ],
       "status": "needs_review",
-      "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review."
+      "source": "Char-aligned pypinyin over the revised explanation; regenerated 2026-11-23; pending review."
     },
     "englishNote": {
-      "value": "Ears pressed to the wall.",
+      "value": "Whisper by the wall, and mind who may be listening.",
       "status": "needs_review",
-      "source": "Doubao-authored English gloss draft (2026-11-22); pending review."
+      "source": "Revised gloss against Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; pending review."
     },
     "illustration": {
       "value": {
@@ -16722,13 +16754,13 @@
     },
     "pinyin": {
       "value": [
-        "jī",
+        "qǐ",
         "sǎng",
         "zài",
         "bài"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "叩头触地，再次下拜。",
@@ -17718,11 +17750,11 @@
       "value": [
         "jūn",
         "qiǎo",
-        "rèn",
+        "rén",
         "diào"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
     },
     "simplifiedMeaning": {
       "value": "马钧巧思，任公垂钓。",
