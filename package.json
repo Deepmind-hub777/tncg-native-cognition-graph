@@ -1,0 +1,15 @@
+{
+  "name": "qianziwen-learning-module",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test 09-learning-library/qianziwen/tests/*.test.mjs",
+    "validate:data:sample": "node 09-learning-library/qianziwen/tools/validate-content.mjs --sample",
+    "validate:data": "node 09-learning-library/qianziwen/tools/validate-content.mjs",
+    "test:e2e": "playwright test",
+    "serve": "node 09-learning-library/qianziwen/tools/serve.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
+  }
+}

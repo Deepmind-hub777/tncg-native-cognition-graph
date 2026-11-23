@@ -1,0 +1,9 @@
+.worktrees/
+
+node_modules/
+.npm-cache/
+work/
+test-results/
+playwright-report/
+outputs/
+
