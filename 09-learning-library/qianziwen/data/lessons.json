@@ -3481,10 +3481,10 @@
         "mǐ",
         "shì",
         "jǐ",
-        "zhǎng"
+        "cháng"
       ],
       "status": "needs_review",
-      "source": "Readings aligned to Wikisource Qianziwen (https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228) on 2026-11-23; polyphone corrections recorded in data/annotation-wiki-base.md; still pending human sign-off."
+      "source": "Reading corrected by meaning: 長 means strength/merit (as in 長處), cháng, supported by MOE Concise Dictionary entry 長處 (https://dict.concised.moe.edu.tw/dictView.jsp?ID=32146&la=0&powerMode=0); field remains pending full review."
     },
     "simplifiedMeaning": {
       "value": "不必仗恃自己的优点。",
@@ -3532,7 +3532,7 @@
         ]
       },
       "status": "needs_review",
-      "source": "Awaiting authorized generated audio assets and manifest entries."
+      "source": "Google Cloud Text-to-Speech cmn-CN-Standard-A; generated 2026-11-23 with pronunciation override; pending human listening review."
     },
     "strokeData": {
       "value": [

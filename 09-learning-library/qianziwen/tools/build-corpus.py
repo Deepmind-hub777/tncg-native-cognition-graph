@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 PINYIN_DRAFT_OVERRIDES = {
     # In 「露結為霜」, 為 means “become/as” and is wéi, not the default wèi.
     10: ["lù", "jié", "wéi", "shuāng"],
+    # In 「靡恃己長」, 長 means “strength/merit” and is cháng (as in 長處), not zhǎng.
+    46: ["mǐ", "shì", "jǐ", "cháng"],
     37: ["gài", "cǐ", "shēn", "fà"],
     188: ["qī", "xiè", "huān", "zhāo"],
 }

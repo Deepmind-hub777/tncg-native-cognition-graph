@@ -5,7 +5,7 @@
   "voice": "cmn-CN-Standard-A",
   "languageCode": "cmn-CN",
   "encoding": "MP3",
-  "generatedAt": "2026-11-23T01:11:07.988Z",
+  "generatedAt": "2026-11-23T03:10:40.492Z",
   "clips": {
     "normal": {
       "path": "assets/audio/qzw-001-normal.mp3",
@@ -388,8 +388,9 @@
     "qzw-046-slow": {
       "path": "assets/audio/qzw-046-slow.mp3",
       "text": "靡恃己長",
-      "pinyin": "mǐ shì jǐ zhǎng",
+      "pinyin": "mǐ shì jǐ cháng",
       "speakingRate": 0.72,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "qzw-048-slow": {
@@ -3041,8 +3042,9 @@
     "char-9577": {
       "path": "assets/audio/chars/9577.mp3",
       "text": "長",
-      "pinyin": "zhǎng",
+      "pinyin": "cháng",
       "speakingRate": 1,
+      "pronunciationOverride": true,
       "status": "needs_review"
     },
     "char-4FE1": {
@@ -10501,7 +10503,7 @@
     "qzw-046-normal": {
       "path": "assets/audio/qzw-046-normal.mp3",
       "text": "靡恃己長",
-      "pinyin": "mǐ shì jǐ zhǎng",
+      "pinyin": "mǐ shì jǐ cháng",
       "speakingRate": 1,
       "pronunciationOverride": true,
       "status": "needs_review"

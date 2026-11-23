@@ -264,3 +264,15 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 用例随改版更新：桌面端插画改为整页背景、`#lesson-art` 降级为屏幕阅读器节点，原断言 `toBeVisible()` 已改为「`body.has-lesson-art` + `--lesson-artwork` 含 `qzw-001.png`」；手机端补 `#lesson-art` 可见断言；插画 404 用例补「`has-lesson-art` 已被移除」，避免空转通过。
 - 结果：`npx playwright test` **12/12 通过**；`node tools/validate-content.mjs` **250 组、63 页通过**；未改课程数据与字段状态（仍 `needs_review`）。
 - 手机端仍为 Chromium 视口模拟（390×844），非真机；真机 19 项验收仍未测。
+## 第 46 组「長」读音订正（2026-11-23）
+
+- 用户指出「靡恃己長」中的「長」不应读 zhǎng。按“长处、优点”义项，正确读音为 **cháng（第二声）**，教育部《國語辭典簡編本》“長處”条标作 cháng chù：<https://dict.concised.moe.edu.tw/dictView.jsp?ID=32146&la=0&powerMode=0>。
+- `data/lessons.json`、`data/pinyin-review.md`、`tools/build-corpus.py` 已同步更正；`needs_review` 状态保留。
+- 音频生成器现为第 46 组慢速语音和对应单字音频输出拼音 SSML 覆盖，常速整句原有覆盖也会读取修正后的 cháng。三条音频已按 cháng 重新提交 TTS 合成；常速/慢速文件哈希变化，单字文件哈希未变化；manifest 已记为 `pronunciationOverride: true`，状态保留 `needs_review`，尚未人工听审。
+- 校验：`node tools/validate-content.mjs` 输出 `Content validation passed: 250 lessons, 63 pages.`；`git diff --check` 清理尾部空行后再复核。
+
+## Beta 发布准备与 AI 时代课程说明页（2026-11-23）
+
+- 新增 `site/why-qianziwen.html`：从 `docs/teaching-purpose.md` 编排中英文说明、三条课堂用法和内容审校边界；已从主课程页和循序听读页增加入口，手机纵向阅读、桌面双栏。
+- Beta 版本采用 `qzw-v0.2.0-beta.1`，保留既有 `qzw-v0.1-base` 冻结资产；包清单现在支持显式传入版本名。
+- 当前先完成内容验证、页面检查和可复现 ZIP；GitHub beta 发布应附带 ZIP，说明它是可用性 beta 而非内容终审版本，并列明内容/笔顺/设备复测边界。

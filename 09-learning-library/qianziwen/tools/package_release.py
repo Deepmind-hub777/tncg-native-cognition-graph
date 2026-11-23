@@ -7,7 +7,7 @@
 - 输出到仓库外可见的 outputs/ 目录，并把总 sha256、文件数、字节数打印出来，
   由 RELEASE.md 记录（脚本不自动改文档，避免数字与磁盘脱节）。
 
-用法：python tools/package_release.py [--out ../outputs] [--name qzw-v0.1-base.zip]
+用法：python tools/package_release.py [--out ../outputs] [--name qzw-v0.1-base.zip] [--version qzw-v0.1-base]
 """
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ INCLUDE_FILES = [
 # 版本记录随仓库提交与标签发布，包内只带 README / HANDOFF / 任务书。
 EXCLUDE_NAMES = {".DS_Store", "Thumbs.db"}
 EXCLUDE_SUFFIXES = {".tmp", ".log", ".lock"}
-EXCLUDE_DIRS = {"outputs", "node_modules", "test-results", "playwright-report", "__pycache__"}
+EXCLUDE_DIRS = {"outputs", "node_modules", "test-results", "playwright-report", "__pycache__", "superpowers"}
 
 
 def iter_files() -> list[tuple[str, Path]]:
@@ -69,6 +69,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", default=str(MODULE.parent.parent / "outputs"))
     parser.add_argument("--name", default="qzw-v0.1-base.zip")
+    parser.add_argument("--version", default="qzw-v0.1-base")
     args = parser.parse_args()
 
     out_dir = Path(args.out).resolve()
@@ -87,7 +88,7 @@ def main() -> int:
         total_bytes += len(data)
         manifest_lines.append(f"{sha256_of(data)}  {len(data)}  {relative}")
 
-    manifest = ("# 千字文互动学习 qzw-v0.1-base 交付清单\n"
+    manifest = (f"# 千字文互动学习 {args.version} 交付清单\n"
                 "# 行格式：sha256  字节数  相对路径\n"
                 + "\n".join(manifest_lines) + "\n").encode("utf-8")
 

@@ -12,10 +12,21 @@ export function buildAudioTargets(lessons, { start = 2, end = lessons.length } =
       text: lesson.traditionalText.value,
       pinyin: lesson.pinyin.value.join(' '),
       speakingRate: 0.72,
+      ssml: pronunciationMarkup(lesson),
     });
     [...lesson.traditionalText.value].forEach((character, index) => {
       const code = [...character].map((item) => item.codePointAt(0).toString(16).toUpperCase().padStart(4, '0')).join('');
-      if (!characters.has(code)) characters.set(code, { key: `char-${code}`, path: `assets/audio/chars/${code}.mp3`, text: character, pinyin: lesson.pinyin.value[index], speakingRate: 1 });
+      if (!characters.has(code)) {
+        const characterPinyin = characterPinyinOverrides.get(code) ?? lesson.pinyin.value[index];
+        characters.set(code, {
+          key: `char-${code}`,
+          path: `assets/audio/chars/${code}.mp3`,
+          text: character,
+          pinyin: characterPinyin,
+          speakingRate: 1,
+          ...(characterPinyinOverrides.has(code) ? { ssml: characterPronunciationMarkup(character, characterPinyin) } : {}),
+        });
+      }
     });
   }
   return [...targets, ...characters.values()];
@@ -27,6 +38,9 @@ const pinyinOverrides = new Set([
   10, 37, 188, // 露結爲霜 / 蓋此身髮 / 慼謝歡招：早期上下文多音字
   8, 22, 32, 46, 65, 67, 81, 88, 91, 92, 103, 108, // 2026-11-23 基线核对
   132, 140, 143, 156, 157, 171, 177, 187, 189, 200, 219, 232,
+]);
+const characterPinyinOverrides = new Map([
+  ['9577', 'cháng'], // 長 in qzw-046, meaning “strength/merit”.
 ]);
 const toneMarks = new Map(Object.entries({
   ā: ['a', 1], á: ['a', 2], ǎ: ['a', 3], à: ['a', 4],
@@ -60,6 +74,11 @@ function pronunciationMarkup(lesson) {
     return `<phoneme alphabet="pinyin" ph="${numberedPinyin(lesson.pinyin.value[index])}">${escaped}</phoneme>`;
   }).join('');
   return `<speak>${phonemes}</speak>`;
+}
+
+function characterPronunciationMarkup(character, syllable) {
+  const escaped = character.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+  return `<speak><phoneme alphabet="pinyin" ph="${numberedPinyin(syllable)}">${escaped}</phoneme></speak>`;
 }
 
 export function buildNormalAudioTargets(lessons, { start = 1, end = lessons.length } = {}) {

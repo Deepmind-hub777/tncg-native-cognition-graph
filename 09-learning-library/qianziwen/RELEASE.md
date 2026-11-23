@@ -72,3 +72,12 @@ npx playwright test --reporter=line
 python tools/package_release.py
 Get-FileHash outputs/qzw-v0.1-base.zip -Algorithm SHA256
 ```
+
+## Beta 1（2026-11-23）
+
+- 版本与标签：`qzw-v0.2.0-beta.1`；以 `qzw-v0.1-base` 为基线，不移动、不覆盖旧标签。
+- GitHub Release：本地包与分支变更已准备；创建 beta Release 并附加压缩包后在此补入链接。
+- 交付包：`outputs/qzw-v0.2.0-beta.1.zip`；2,792 个文件（含 1 份校验清单），内容 68,066,210 字节，ZIP 64,769,693 字节；SHA-256 `93038d7b72fb10e2241a4d06ff216222663e8da0a0740560f2421ed5ebd27a58`。
+- 本版内容：新增中英文单页说明 `site/why-qianziwen.html`，从课程首页及循序听读页均可进入；包括课堂用法与待校订声明。同步第 46 组「長」读音为 cháng（第二声），重合成常速、慢速整句；所有内容状态仍为 `needs_review`。
+- 验证：`node tools/validate-content.mjs` 输出 `Content validation passed: 250 lessons, 63 pages.`；`git diff --check` 无空白错误；压缩包包含说明页与新版本清单。
+- 边界：此为功能 beta，不表示 250 组内容已由专家终审；发布不等于 Android/iPad/Windows 全设备复测完成。
