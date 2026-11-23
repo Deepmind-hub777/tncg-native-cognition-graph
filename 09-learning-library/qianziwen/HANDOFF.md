@@ -93,6 +93,15 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 这三张仅供用户检查画风与题材克制度，不代表教学审核通过；尚未复制进正式 assets，也未改写任何 lessons 字段。等待用户确认后再开始 246 张余稿。
 - 本轮没有创建 249 行正式 `manifest.csv`，也没有创建或声称完成 `qianziwen-illustrations-002-250.zip`。
 
+## 插画批次 003–010（2026-11-23）
+
+- 用户回复“继续”后，按风格试稿可用处理，生成下一批 8 张：003–010，编号递增。
+- 每张使用 qzw-001 唯一风格参照和锁定前缀；004 采用星光映在静水上的视角，与 002–003 的远山天象区分。所有图均为独立单张，不复用变体。
+- 累计试稿与批次文件位于 `C:\Users\User\Documents\Codex\2026-11-22\github-codex-250-1-2-3\outputs\qianziwen-illustrations-002-250\`。当前有 11 张唯一文件：连续 002–010，加试探题材 025、121；`manifest.partial.csv` 有 11 条数据记录，`prompts.log` 记录对应最终提示词。
+- 003–010 均为 1536×1024 JPG，体积低于 300 KB；本批文件暂未合入课程数据，仍属待审插画草稿。
+- 本批验收输出：图片/清单核对 `images=11 manifest_rows=11 unique_sequences=11 missing_files=0 prompt_entries=11 max_bytes=162947`；内容校验 `Content validation passed: 250 lessons, 63 pages.`；Node 单测 `20/20` 通过；Playwright `7 passed (10.4s)`。
+- 全量仍缺 238 张：011–024、026–120、122–250。尚未创建完整 249 行 `manifest.csv`，未创建全量 ZIP，不得报告全量完成。
+
 ## 本轮进展 / 验收（2026-11-23）
 
 | 做了什么 | 文件路径 | 验证命令与结果 | 没做什么及原因 |
@@ -103,3 +112,15 @@ npm run serve                            # 默认 4173；局域网访问用电�
 | 完成回归自检。 | 本模块 `tests/` | Node 单测 20/20 通过；Playwright 浏览器用例单独运行 7/7 通过。按字面运行 `node --test tests/*.mjs` 会把 `page.spec.mjs` 交给错误 runner，出现 Playwright runner 冲突（20 pass、1 fail）；因此 Node 与 Playwright 分开运行。 | 没有做安卓真机复测。 |
 
 本轮未改任何字段 `status`，未改第 1 组内容，未生成图片/TTS，也未执行 git push。验收要求的本地提交未能完成：当前执行环境将 `.git` 元数据目录设为只读，Git 创建 `index.lock` 时收到 `Permission denied`；工作区改动仍未提交。
+
+## 插画全量完成（2026-11-23，豆包）
+
+- 用户判定试稿画风通过后，按 `CODEX_TASK_ILLUSTRATIONS.md` 的风格锁逐张出图：002–250 共 249 张，全部独立单张，无变体充数。
+- 出图方式：Codex 每张一个独立会话（`codex exec` + stdin EOF），单张约 30 秒；驱动脚本 `C:\Users\User\craft-anything\gen_illus.py`，日志 `illus-progress.log`，断点续跑（已存在即跳过）。首轮 241 成功、3 张（229–231）超时后补跑成功。
+- 规格核验：全部 1536×1024 JPG，单张 106.2–282.4KB（≤300KB），目录合计 46.83MB（预算 75MB）。
+- `node tools/import-illustrations.mjs --write` 写回 `illustration.value.path` 249 条；所有 `meaning`/`pinyin` 仍为 `needs_review`，未升级任何字段。
+- 校验：`node tools/validate-content.mjs` → 250 lessons / 63 pages；Node 单测 20/20。
+- 线上 `http://192.168.1.117:4177/`：`data/lessons.json` 250 组均有 path，`assets/illustrations/qzw-*.jpg` HEAD 200。
+- 题材克制抽检：026（兵器架+远旗）、150（空场兵器架）、217（香炉茶器梅枝）均无血、无正脸、无字。
+- 记录：`assets/illustrations/manifest.csv` 249 行、`prompts.log` 逐张提示词。
+- 仍未做：释义/英文注人工终审（等底本）、常速整句音频 249 条、安卓真机复测、`.git` ACL 调整。
