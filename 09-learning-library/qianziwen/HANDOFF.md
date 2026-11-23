@@ -231,3 +231,9 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 打包脚本 `tools/package_release.py`：按路径排序、固定时间戳、包内附 `RELEASE-MANIFEST.sha256`，可复现；`outputs/` 不入库。
 - 版本记录 `RELEASE.md` 记录资产口径、校验结果、五项遗留（内容待终审、10 字笔顺缺口、单字音频未重造、真机未验收、两处异读定案）。
 - 标签 `qzw-v0.1-base` 打在本次提交上。
+
+## 上传 GitHub（2026-11-23）
+
+- Release：`qzw-v0.1-base`，附件 `qzw-v0.1-base.zip`（64,783,122 字节），GitHub 服务端 digest `sha256:bc39aa9b…67298f` 与本地哈希一致。
+- 手机端验收清单：`handoff/device-acceptance-2026-11-23.md`（19 项，状态全部「未测」，等实测回填）。
+- 说明：交付包走 Release 附件，不写进 git 历史；`outputs/` 仍保持忽略。

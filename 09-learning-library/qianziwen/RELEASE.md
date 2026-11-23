@@ -15,6 +15,8 @@
 | 内容字节 | 68,038,391 |
 | 打包条目 | 2,788 个文件 + 1 份清单 |
 | 复现命令 | `python tools/package_release.py`（默认输出 `../outputs/qzw-v0.1-base.zip`） |
+| GitHub Release | https://github.com/Deepmind-hub777/tncg-native-cognition-graph/releases/tag/qzw-v0.1-base |
+| 附件核验 | Release 附件 `qzw-v0.1-base.zip`，64,783,122 字节，服务端 digest 与本表 SHA-256 一致 |
 | 复现性 | 同一输入连跑两次，ZIP SHA-256 完全相同 |
 
 包内自带 `RELEASE-MANIFEST.sha256`：逐文件 sha256 + 字节数，共 2788 行；本轮已逐条回读校验，异常 0。
@@ -47,7 +49,8 @@
 2. **笔顺缺 10 字**：爲 U+7232、凊 U+51CA、羣 U+7FA3、磻 U+78FB、寔 U+5BD4、俶 U+4FF6、輶 U+8F36、煒 U+7152、牀 U+7240、絃 U+7D43。三个开源数据源均无收录，页面以占位卡降级。要闭合需覆盖繁体异体的笔画中轴数据（付费字库或教育部原始资料）。
 3. **单字音频未重造**：`assets/audio/chars/` 1000 条按字的常用读音录制，与组内校正读音（如 說 yuè、稽 qǐ）不一致；组级整句音频已按校正读音重合成。
 4. **真机未验收**：分页、音频、多笔触控、清除、显隐范字、旋转适配只做过桌面与模拟视口，未做 Android Chrome 真机验收。
-5. **两处异读已按定案处理**：013 巨阙 jù què、051 景行 jǐng xíng，依据见 `data/annotation-wiki-base.md` 第八节；`háng` 作异读保留在注记。
+5. **手机端未验收**：19 项验收清单见 `handoff/device-acceptance-2026-11-23.md`，结果待实测回填。
+6. **两处异读已按定案处理**：013 巨阙 jù què、051 景行 jǐng xíng，依据见 `data/annotation-wiki-base.md` 第八节；`háng` 作异读保留在注记。
 
 ## 五、变更日志（本轮三段）
 
