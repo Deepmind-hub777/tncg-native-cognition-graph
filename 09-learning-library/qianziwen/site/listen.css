@@ -173,87 +173,83 @@ img[hidden]{display:none!important}
 .page-footer { flex-wrap: wrap; }
 .page-footer .purpose-line { flex-basis: 100%; margin: 0 0 6px; }
 
-/* Desktop: use each lesson illustration as the full-screen reading backdrop. */
+/* Desktop and tablets: present the illustration as a calm, cropped hero above the lesson. */
 @media (min-width: 721px) {
-  body { isolation: isolate; min-height: 100vh; min-height: 100svh; }
-  body::before {
-    position: fixed;
-    z-index: -1;
-    inset: 0;
-    content: "";
-    background-image: linear-gradient(rgb(30 22 14 / 32%), rgb(30 22 14 / 24%)), var(--lesson-artwork, none);
-    background-color: #8e7659;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .shell { width: min(100% - 48px, 1120px); padding-block: 18px 16px; }
+  body { min-height: 100vh; min-height: 100svh; }
+  body::before { display: none; }
+  .shell { width: min(100% - 48px, 1040px); padding-block: 24px 20px; }
   .masthead {
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto 12px;
-    padding: 16px 36px 14px;
-    border: 1px solid rgb(217 201 174 / 95%);
-    border-radius: 20px;
-    background: rgb(255 250 241 / 96%);
-    box-shadow: 0 8px 28px rgb(35 24 12 / 18%);
+    width: 100%;
+    margin: 0 auto 16px;
+    padding: 0 0 10px;
   }
-  .masthead h1 { font-size: clamp(2rem, 4vw, 2.7rem); }
+  .masthead h1 { font-size: clamp(2rem, 4vw, 2.8rem); }
   .masthead .intro { margin-top: 4px; }
-  .masthead .home-link { left: 36px; top: 14px; }
   .journey {
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     padding: 12px 18px 10px;
-    border-color: rgb(217 201 174 / 98%);
-    background: rgb(255 250 241 / 97%);
-    box-shadow: 0 8px 28px rgb(35 24 12 / 16%);
+    background: rgb(255 252 245 / 92%);
   }
   .field-message:empty { display: none; }
   .lesson-card {
-    display: block;
-    overflow: visible;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--surface);
+    box-shadow: 0 12px 32px rgb(69 49 22 / 10%);
   }
   .artwork {
+    position: relative;
+    display: block;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    padding: 0;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+  }
+  .artwork img {
+    flex: none;
+    width: 100%;
+    height: clamp(240px, 40vh, 420px);
+    aspect-ratio: auto;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: center bottom;
+  }
+  .art-caption {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    clip-path: inset(50%);
-    white-space: nowrap;
+    right: 18px;
+    bottom: 14px;
+    padding: 5px 10px;
+    border-radius: 99px;
+    color: #4c3a29;
+    background: rgb(255 250 241 / 90%);
   }
   .lesson-content {
     width: min(100%, 850px);
     margin: 0 auto;
-    padding: clamp(22px, 3vw, 34px) clamp(24px, 5vw, 58px);
-    border: 1px solid rgb(217 201 174 / 98%);
-    border-radius: 22px;
-    background: rgb(255 250 241 / 97%);
-    box-shadow: 0 12px 34px rgb(35 24 12 / 22%);
+    padding: clamp(24px, 3vw, 38px) clamp(28px, 5vw, 64px);
   }
   .lesson-controls {
     width: min(100%, 850px);
-    margin: 12px auto 0;
-    padding: 8px;
-    border: 1px solid rgb(217 201 174 / 95%);
-    border-radius: 18px;
-    background: rgb(255 250 241 / 96%);
-    box-shadow: 0 8px 24px rgb(35 24 12 / 16%);
+    margin: 14px auto 0;
   }
   .page-footer {
     width: min(100%, 850px);
     margin: 8px auto 0;
-    padding: 10px 16px;
-    border: 1px solid rgb(217 201 174 / 95%);
-    border-radius: 16px;
+    padding: 8px 2px;
     color: var(--ink);
-    background: rgb(255 250 241 / 96%);
   }
   .page-footer .purpose-line { color: #55432f; }
+}
+
+@media (min-width: 721px) and (max-width: 980px) {
+  .shell { width: min(100% - 36px, 760px); padding-block: 18px; }
+  .artwork img { height: clamp(190px, 31vw, 300px); object-position: center bottom; }
+  .lesson-content { padding: 24px clamp(20px, 5vw, 40px); }
 }
 
 /* Phones: keep the artwork short and bring lesson controls into view sooner. */
