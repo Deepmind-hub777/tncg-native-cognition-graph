@@ -70,11 +70,20 @@ function render() {
   const image = $('#lesson-art');
   const imagePath = activeLesson.illustration.value.path;
   const resolvedImagePath = resolveAsset(imagePath);
+  if (imagePath) {
+    document.body.style.setProperty('--lesson-artwork', `url("${resolvedImagePath}")`);
+    document.body.classList.add('has-lesson-art');
+  } else {
+    document.body.style.removeProperty('--lesson-artwork');
+    document.body.classList.remove('has-lesson-art');
+  }
   image.alt = imagePath ? `${text}的水墨意境插画` : '';
   image.hidden = !imagePath;
   image.onerror = () => {
     if (image.src !== resolvedImagePath) return;
     image.hidden = true;
+    document.body.style.removeProperty('--lesson-artwork');
+    document.body.classList.remove('has-lesson-art');
     $('#art-caption').textContent = '本组插画暂不可用';
   };
   if (imagePath) {

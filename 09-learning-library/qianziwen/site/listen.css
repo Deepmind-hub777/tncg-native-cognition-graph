@@ -172,3 +172,138 @@ img[hidden]{display:none!important}
 
 .page-footer { flex-wrap: wrap; }
 .page-footer .purpose-line { flex-basis: 100%; margin: 0 0 6px; }
+
+/* Desktop: use each lesson illustration as the full-screen reading backdrop. */
+@media (min-width: 721px) {
+  body { isolation: isolate; min-height: 100vh; min-height: 100svh; }
+  body::before {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    background-image: linear-gradient(rgb(30 22 14 / 32%), rgb(30 22 14 / 24%)), var(--lesson-artwork, none);
+    background-color: #8e7659;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .shell { width: min(100% - 48px, 1120px); padding-block: 18px 16px; }
+  .masthead {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 12px;
+    padding: 16px 36px 14px;
+    border: 1px solid rgb(217 201 174 / 95%);
+    border-radius: 20px;
+    background: rgb(255 250 241 / 96%);
+    box-shadow: 0 8px 28px rgb(35 24 12 / 18%);
+  }
+  .masthead h1 { font-size: clamp(2rem, 4vw, 2.7rem); }
+  .masthead .intro { margin-top: 4px; }
+  .journey {
+    margin-bottom: 12px;
+    padding: 12px 18px 10px;
+    border-color: rgb(217 201 174 / 98%);
+    background: rgb(255 250 241 / 97%);
+    box-shadow: 0 8px 28px rgb(35 24 12 / 16%);
+  }
+  .field-message:empty { display: none; }
+  .lesson-card {
+    display: block;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .artwork {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .lesson-content {
+    width: min(100%, 850px);
+    margin: 0 auto;
+    padding: clamp(22px, 3vw, 34px) clamp(24px, 5vw, 58px);
+    border: 1px solid rgb(217 201 174 / 98%);
+    border-radius: 22px;
+    background: rgb(255 250 241 / 97%);
+    box-shadow: 0 12px 34px rgb(35 24 12 / 22%);
+  }
+  .lesson-controls {
+    width: min(100%, 850px);
+    margin: 12px auto 0;
+    padding: 8px;
+    border: 1px solid rgb(217 201 174 / 95%);
+    border-radius: 18px;
+    background: rgb(255 250 241 / 96%);
+    box-shadow: 0 8px 24px rgb(35 24 12 / 16%);
+  }
+  .page-footer {
+    width: min(100%, 850px);
+    margin: 8px auto 0;
+    padding: 10px 16px;
+    border: 1px solid rgb(217 201 174 / 95%);
+    border-radius: 16px;
+    color: var(--ink);
+    background: rgb(255 250 241 / 96%);
+  }
+  .page-footer .purpose-line { color: #55432f; }
+}
+
+/* Phones: keep the artwork short and bring lesson controls into view sooner. */
+@media (max-width: 720px) {
+  body { min-height: 100vh; min-height: 100svh; }
+  body::before { display: none; }
+  .shell { width: calc(100% - 20px); padding: 8px 0 14px; }
+  .masthead { padding: 34px 0 10px; }
+  .masthead h1 { font-size: clamp(1.75rem, 7vw, 2.2rem); letter-spacing: .06em; }
+  .intro { display: none; }
+  .journey { margin-bottom: 10px; padding: 10px 12px 9px; border-radius: 15px; }
+  .journey-topline { align-items: center; flex-direction: row; gap: 8px; }
+  .journey-topline label { font-size: .88rem; white-space: nowrap; }
+  .jump-form { gap: 6px; }
+  .jump-form input { width: 66px; min-height: 42px; padding: 6px; }
+  .jump-form button { min-width: 58px; min-height: 42px; padding: 6px 10px; }
+  .field-message:empty { display: none; }
+  .progress-line { gap: 8px; }
+  .progress-label { min-width: 80px; font-size: .8rem; }
+  .artwork { position: static; width: auto; height: auto; overflow: visible; clip: auto; clip-path: none; white-space: normal; padding: 8px 10px 0; }
+  .artwork img { flex: none; width: 100%; height: clamp(132px, 44vw, 176px); aspect-ratio: auto; object-fit: cover; object-position: center 68%; }
+  .art-caption { padding-top: 5px; font-size: .78rem; }
+  .lesson-content { padding: 14px 16px 16px; }
+  .lesson-index { margin-bottom: 6px; }
+  .traditional-text { font-size: clamp(2.25rem, 11vw, 2.85rem); line-height: 1.18; }
+  .character-pinyin { margin: 6px 0 10px; }
+  .audio-action { gap: 8px; margin-bottom: 12px; }
+  .play-button { min-width: 0; min-height: 44px; padding: 8px 14px; }
+  .audio-state { font-size: .82rem; }
+  .meaning { padding-top: 10px; }
+  .meaning-reading { font-size: 1rem; line-height: 2; }
+  .english { margin-top: 10px; }
+  .english h2 { margin-bottom: 5px; }
+  .english p { font-size: .9rem; }
+  .review-note { margin-top: 10px; }
+  .lesson-controls { gap: 8px; margin-top: 10px; }
+  .lesson-controls button { min-height: 46px; }
+  .page-footer { display: none; }
+}
+
+@media (max-width: 350px) {
+  .journey-topline label { font-size: .8rem; }
+  .jump-form { gap: 4px; }
+  .jump-form input { width: 56px; }
+  .jump-form button { min-width: 50px; padding-inline: 8px; }
+}
+
+@media (orientation: landscape) and (max-height: 560px) and (min-width: 721px) {
+  .shell { padding-block: 8px; }
+  .masthead { padding-block: 8px; }
+  .masthead .intro { display: none; }
+  .lesson-content { padding-block: 14px; }
+  .meaning-reading { line-height: 1.9; }
+}
