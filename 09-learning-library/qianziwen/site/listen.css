@@ -78,7 +78,7 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
 .jump-form button { min-width: 68px; }
 .field-message { min-height: 1.25em; margin: 4px 0 9px; color: #8a382d; font-size: .88rem; }
 .progress-line { gap: 12px; }
-progress { display: block; width: 100%; height: 10px; overflow: hidden; border: 0; border-radius: 999px; background: #e8dcc8; accent-color: var(--accent); }
+progress { display: block; flex: 1 1 auto; min-width: 0; width: 100%; height: 10px; overflow: hidden; border: 0; border-radius: 999px; background: #e8dcc8; accent-color: var(--accent); }
 progress::-webkit-progress-bar { border-radius: 999px; background: #e8dcc8; }
 progress::-webkit-progress-value { border-radius: 999px; background: linear-gradient(90deg, #9a7142, #74502c); transition: width 220ms ease; }
 progress::-moz-progress-bar { border-radius: 999px; background: #82592e; }
@@ -164,3 +164,6 @@ progress::-moz-progress-bar { border-radius: 999px; background: #82592e; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+img[hidden]{display:none!important}
+

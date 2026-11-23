@@ -69,11 +69,16 @@ function render() {
 
   const image = $('#lesson-art');
   const imagePath = activeLesson.illustration.value.path;
+  const resolvedImagePath = resolveAsset(imagePath);
   image.alt = imagePath ? `${text}的水墨意境插画` : '';
   image.hidden = !imagePath;
-  image.onerror = () => { image.hidden = true; $('#art-caption').textContent = '本组插画暂不可用'; };
+  image.onerror = () => {
+    if (image.src !== resolvedImagePath) return;
+    image.hidden = true;
+    $('#art-caption').textContent = '本组插画暂不可用';
+  };
   if (imagePath) {
-    image.src = resolveAsset(imagePath);
+    image.src = resolvedImagePath;
     $('#art-caption').textContent = '千字文意境插画';
   } else {
     image.removeAttribute('src');
@@ -145,10 +150,11 @@ try {
   if (!response.ok) throw new Error('课程内容暂时无法载入，请刷新页面重试。');
   lessons = await response.json();
   if (lessons.length !== TOTAL) throw new Error(`课程数据数量不正确：当前载入 ${lessons.length} 组。`);
-  const initial = Number(new URL(location.href).searchParams.get('group'));
+  const pageUrl = new URL(location.href);
+  const initial = Number(pageUrl.searchParams.get('group'));
   sequence = Number.isInteger(initial) && initial >= 1 && initial <= TOTAL ? initial : 1;
-  if (!new URL(location.href).searchParams.has('group')) {
-    const url = new URL(location.href); url.searchParams.set('group', String(sequence)); history.replaceState({ sequence }, '', url);
+  if (pageUrl.searchParams.get('group') !== String(sequence)) {
+    pageUrl.searchParams.set('group', String(sequence)); history.replaceState({ sequence }, '', pageUrl);
   }
   render();
 } catch (error) {
