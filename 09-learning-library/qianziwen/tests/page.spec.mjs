@@ -114,6 +114,10 @@ test('the corpus has 63 navigable pages with four selectable lessons and a final
   await page.locator('#page-select').selectOption('3');
   await page.locator('#page-groups button').nth(1).click();
   await expect(page.locator('#traditional-text')).toHaveText('露結爲霜');
-  await expect(page.locator('.writing-card')).toHaveCount(3);
+  await expect(page.locator('.writing-card')).toHaveCount(4);
+  await expect(page.locator('.writing-card .animate-stroke')).toHaveCount(3);
+  await expect(page.locator('.writing-placeholder')).toHaveCount(1);
+  await expect(page.locator('.writing-placeholder')).toContainText('爲');
+  await expect(page.locator('.placeholder-note')).toContainText('筆順資料待補');
   await expect(page.locator('#writing-status')).toContainText('爲');
 });

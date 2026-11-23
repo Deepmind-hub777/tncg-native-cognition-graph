@@ -187,6 +187,23 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 常速录音仍为 `needs_review`，需抽听多音字与语流。课程字段不得因此升级为 `verified`。
 - 下一项继续处理标准笔顺缺口；交付标签、全量 ZIP、MD5 与变更日志留待音频、听读页及笔顺阶段闭环后统一固化。
 
+## 静态听读页（2026-11-23）
+
+### 进展
+
+- 在 `site/` 增加独立静态听读页，读取既有 `data/lessons.json`，不改课程 JSON 结构；提供插图、繁体原文、逐字拼音、简体释义逐字拼音、英文短注和常速普通话播放。
+- 增加上一组/下一组、数字组号跳转、当前位置进度条和 `?group=N` 深链接；音频故障沿用 `src/audio.js` 的普通话 TTS 备用逻辑。
+- 视觉沿用米纸、墨色和赭色样板；小屏切单栏、横屏适配、触控控件至少 48px，并保留键盘焦点、跳过链接及 reduced-motion 支持。UI/UX Pro Max 搜索结果建议通用靛蓝/圆润教育样式，与当前已确认的书页视觉不符，故未采用其冲突部分。
+- 静态服务支持目录 `index.html` 和 JPG/JPEG MIME，听读页可从 `/site/` 直接访问。`README.md` 已更新为当前资产状态和真实本地运行命令。
+- 实际资产抽查：250 组 `audio.value.normal` 均有文件，合计 2,564,352 bytes；manifest 中常速音频条目 250 个，`normalAudioStatus=generated`。
+- 已通过本机预览的可访问性树确认第 1 组内容，以及顺序前进到第 2 组、输入组号跳至第 250 组；首页展示原文、逐字拼音、释义注音、英语短注、音频按钮及进度控件。
+
+### 遗留 / 风险
+
+- 只完成桌面浏览器中的页面内容与跳转预览；尚未记录 320px、手机横屏、平板和 Android Chrome 真机验收。不能据此宣称多设备或安卓验收通过。
+- 常速录音仍为 `needs_review`，需抽听多音字与语流。课程字段不得因此升级为 `verified`。
+- 下一项继续处理标准笔顺缺口；交付标签、全量 ZIP、MD5 与变更日志留待音频、听读页及笔顺阶段闭环后统一固化。
+
 ## 释义基线核对完成（2026-11-23）
 
 - 基线：维基文库《千字文》oldid=13033228，本地锚点 `data/corpus-source.txt`；范围第 2–250 组。
@@ -198,3 +215,12 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 连带：24 组读音变更导致 48 个音频失效，已重新合成；`audio-targets.mjs` 读音覆写集合由 3 组扩至 27 组。
 - 校验：`validate-content` 250/63 通过；单测 22/22；所有字段仍 `needs_review`。
 - 报告：`data/annotation-wiki-base.md`。
+
+## 试听页与笔顺段（2026-11-23）
+
+- 013 巨阙定 què、051 景行定 jǐng xíng，均维持现值，依据见 `data/annotation-wiki-base.md` 第八节；数据无改动，无音频重合成。
+- 试听页（`site/`）此前只有文件、无验收：本轮补 `tests/listen.spec.mjs`（5 例），并把 `playwright.config.mjs` 的 testMatch 扩到两个 spec，e2e 12/12 通过。
+- 试听页实测修出两个真 bug：跳转表单缺 `novalidate` 导致越界输入只弹原生提示、`img[hidden]` 被 `display:block` 覆盖导致缺图时不隐藏。
+- 首页此前没有进试听页的入口，已加「試聽模式 · 逐句聽讀」链接。
+- 笔顺 10 个异体字仍无数据（hanzi-writer-data 404、makemeahanzi 9574 字不含、教育部站点不可达、汉典 403 且版权不明），改为占位卡降级并在 `#writing-status` 明确列出，`data/annotation-wiki-base.md` 第九节留证。
+- 校验：validate-content 250/63 通过；单测 22/22；e2e 12/12。

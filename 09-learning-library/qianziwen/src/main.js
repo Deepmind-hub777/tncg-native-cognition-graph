@@ -76,7 +76,18 @@ async function buildWriting() {
   for (let i = 0; i < characters.length; i++) {
     const character = characters[i], code = character.codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
     const response = await fetch(`data/strokes/${code}.json`);
-    if (!response.ok) { missing.push(character); continue; }
+    if (!response.ok) {
+      missing.push(character);
+      const card = document.createElement('article'); card.className = 'writing-card writing-placeholder';
+      const label = document.createElement('h3'); label.textContent = `${character} · ${lesson.pinyin.value[i]}`;
+      const stage = document.createElement('div'); stage.className = 'writing-stage writing-placeholder-stage';
+      stage.setAttribute('aria-label', `${character}字形展示，筆順資料待補`);
+      const glyph = document.createElement('span'); glyph.className = 'placeholder-glyph'; glyph.textContent = character;
+      stage.append(glyph);
+      const note = document.createElement('p'); note.className = 'placeholder-note'; note.textContent = '異體字形 · 筆順資料待補，可對照課本臨寫';
+      card.append(label, stage, note); grid.append(card);
+      continue;
+    }
     const strokeData = await response.json();
     const card = document.createElement('article'); card.className = 'writing-card';
     const label = document.createElement('h3'); label.textContent = `${character} · ${lesson.pinyin.value[i]}`;
@@ -92,7 +103,7 @@ async function buildWriting() {
   const hasWriting = writers.size > 0;
   $('.writing-toolbar').hidden = !hasWriting;
   $('#writing-status').textContent = missing.length
-    ? `標準筆順資料待補，本組暫有 ${writers.size} 個字可描寫；尚未啟用：${missing.join('、')}`
+    ? `本組 ${writers.size} 字可描寫；異體字形筆順資料待補：${missing.join('、')}`
     : '標準筆順資料待校訂';
 }
 

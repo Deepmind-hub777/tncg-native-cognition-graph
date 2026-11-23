@@ -16,3 +16,14 @@ button,.page-navigation select{min-height:48px;border-color:#a27c4e}
 .writing-card .animate-stroke{min-height:48px}
 .lesson-navigation [aria-current=true]{background:#e9d8bd;border-color:#8a5d2c;color:#53381e;font-weight:650}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* 异体字形缺笔顺时的占位卡：仍显示字形与拼音，明确标注资料待补 */
+.writing-placeholder-stage{display:flex;align-items:center;justify-content:center}
+.placeholder-glyph{font-family:"Noto Serif TC","Songti TC",serif;font-size:clamp(3rem,16vw,5rem);line-height:1;color:#3d342b;opacity:.92}
+.placeholder-note{margin:6px 0 0;font-size:.76rem;line-height:1.4;color:var(--muted);text-align:center;min-height:2.2em}
+/* 首页到試聽頁的入口 */
+.listen-link{display:inline-block;margin-top:8px;padding:6px 14px;border:1px solid #b89a71;border-radius:99px;color:#714b23;text-decoration:none;font-size:.85rem;background:#fffaf1}
+.listen-link:hover{background:#f5e9d4}
+
+img[hidden]{display:none!important}
+
