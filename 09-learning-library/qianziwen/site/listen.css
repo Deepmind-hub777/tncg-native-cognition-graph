@@ -167,3 +167,8 @@ progress::-moz-progress-bar { border-radius: 999px; background: #82592e; }
 
 img[hidden]{display:none!important}
 
+
+.page-footer .purpose-line{margin:0 0 4px;font-family:"Noto Serif TC","Songti TC",serif;letter-spacing:.04em;color:#7a6a55}
+
+.page-footer { flex-wrap: wrap; }
+.page-footer .purpose-line { flex-basis: 100%; margin: 0 0 6px; }

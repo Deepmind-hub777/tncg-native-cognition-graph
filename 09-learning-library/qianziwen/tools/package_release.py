@@ -22,7 +22,7 @@ MODULE = Path(__file__).resolve().parent.parent
 RELEASE_EPOCH = (2026, 11, 23, 0, 0, 0)
 
 # 交付内容：能直接跑起来的静态站点 + 数据 + 资产 + 可审计工具与文档
-INCLUDE_DIRS = ["src", "site", "data", "assets", "vendor", "tools", "tests", "handoff"]
+INCLUDE_DIRS = ["src", "site", "data", "assets", "vendor", "tools", "tests", "handoff", "docs"]
 INCLUDE_FILES = [
     "index.html",
     "styles.css",
@@ -118,3 +118,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
