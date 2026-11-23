@@ -276,3 +276,9 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 新增 `site/why-qianziwen.html`：从 `docs/teaching-purpose.md` 编排中英文说明、三条课堂用法和内容审校边界；已从主课程页和循序听读页增加入口，手机纵向阅读、桌面双栏。
 - Beta 版本采用 `qzw-v0.2.0-beta.1`，保留既有 `qzw-v0.1-base` 冻结资产；包清单现在支持显式传入版本名。
 - 当前先完成内容验证、页面检查和可复现 ZIP；GitHub beta 发布应附带 ZIP，说明它是可用性 beta 而非内容终审版本，并列明内容/笔顺/设备复测边界。
+## Beta 1 已发布并核验（2026-11-23）
+
+- GitHub Release：<https://github.com/Deepmind-hub777/tncg-native-cognition-graph/releases/tag/qzw-v0.2.0-beta.1>；状态为 prerelease，非 draft。标签指向提交 `043398e4608d135cf569b216cb747b8abf713f36`。
+- 附件 `qzw-v0.2.0-beta.1.zip`：64,797,132 字节；GitHub 资产 digest 为 `sha256:829a179fc93107bf94a2bc2cdbb436d44e61ac65c25bc20f44fa305ef162d34c`，与 `RELEASE.md` 记录一致。
+- 发布包包含中英文「为什么在 AI 时代学《千字文》」页面及第 46 组「長」读作 cháng 的内容修正；250 组状态仍为 `needs_review`，不代表专家终审。
+- 本轮浏览器预览检查了桌面版说明页；其移动样式已按断点编写，但未做手机真机复测。不要将此项写成移动端已验收。
