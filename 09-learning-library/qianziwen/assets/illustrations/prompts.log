@@ -1,3 +1,22 @@
+== qzw-002 ==
+Style lock: Chinese ink-wash on warm rice-paper ground (#F3EAD7); about 60% empty space; soft ink gradients; palette limited to ink black, pale ochre, and at most one faint mineral-blue accent; calm, quiet, contemplative mood; distant silhouettes only, no identifiable faces; composition places the subject in the lower third off-centre, leaving the upper area open for text overlay; flat matte paper texture.
+Hard bans: no text, no calligraphy strokes forming words, no Chinese characters, no Latin letters, no numbers, no seal, no signature, no watermark, no border, no frame; no modern objects, no photo realism, no glossy plastic 3D, no neon, no anime.
+Output: 1536x1024 JPG, sRGB, file size <= 300 KB.
+
+For lesson 002, 宇宙洪荒. Show one quiet abstract image of the primordial cosmos: a low, soft arc of distant mountains emerging from ink-dark mist beneath a vast, mostly empty rice-paper sky, with a barely visible pale-ochre horizon and one extremely faint mineral-blue atmospheric wash. Keep all visual interest in the lower third and leave the upper area broad, pale, and calm. The original qzw-001 reference image is a style reference only; match its restrained hand-painted Chinese ink-wash atmosphere and warm paper texture while respecting the lighter locked palette.
+
+== qzw-003 ==
+Generate exactly ONE image now, then stop. No questions, no alternatives, no file reading.
+
+Style lock: Chinese ink-wash on warm rice-paper ground (#F3EAD7); about 60% empty space; soft ink gradients; palette limited to ink black, pale ochre, and at most one faint mineral-blue accent; calm, quiet, contemplative mood; distant silhouettes only, no identifiable faces; composition places the subject in the lower third off-centre, leaving the upper area open for text overlay; flat matte paper texture.
+Hard bans: no text, no calligraphy strokes forming words, no Chinese characters, no Latin letters, no numbers, no seal, no signature, no watermark, no border, no frame; no modern objects, no photo realism, no glossy plastic 3D, no neon, no anime.
+
+Subject: for lesson 003, {'value': '日月盈昃', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'}. Semantic anchor: Sun and moon fill, wane and decline. Compose exactly ONE single core scene that carries this meaning as a real landscape or still-life moment. Do not split the frame into panels, do not illustrate all four characters as four separate objects, do not draw diagrams, calendars, discs, charts or icons. Upper two-thirds stays almost entirely empty paper.
+Atmosphere for this frame: after snowfall, cold quiet air. Landscape orientation 1536x1024. 
+
+Do not put any character, glyph, letter, number, seal or signature anywhere in the image.
+The look must match a restrained hand-painted ink-wash on warm rice paper.
+
 == qzw-004 ==
 Generate exactly ONE image now, then stop. No questions, no alternatives, no file reading.
 
@@ -18,18 +37,6 @@ Hard bans: no text, no calligraphy strokes forming words, no Chinese characters,
 
 Subject: for lesson 005, {'value': '寒來暑往', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'}. Semantic anchor: Cold and heat follow one another. Compose exactly ONE single core scene that carries this meaning as a real landscape or still-life moment. Do not split the frame into panels, do not illustrate all four characters as four separate objects, do not draw diagrams, calendars, discs, charts or icons. Upper two-thirds stays almost entirely empty paper.
 Atmosphere for this frame: still water reflecting a pale sky. Landscape orientation 1536x1024. 
-
-Do not put any character, glyph, letter, number, seal or signature anywhere in the image.
-The look must match a restrained hand-painted ink-wash on warm rice paper.
-
-== qzw-003 ==
-Generate exactly ONE image now, then stop. No questions, no alternatives, no file reading.
-
-Style lock: Chinese ink-wash on warm rice-paper ground (#F3EAD7); about 60% empty space; soft ink gradients; palette limited to ink black, pale ochre, and at most one faint mineral-blue accent; calm, quiet, contemplative mood; distant silhouettes only, no identifiable faces; composition places the subject in the lower third off-centre, leaving the upper area open for text overlay; flat matte paper texture.
-Hard bans: no text, no calligraphy strokes forming words, no Chinese characters, no Latin letters, no numbers, no seal, no signature, no watermark, no border, no frame; no modern objects, no photo realism, no glossy plastic 3D, no neon, no anime.
-
-Subject: for lesson 003, {'value': '日月盈昃', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'}. Semantic anchor: Sun and moon fill, wane and decline. Compose exactly ONE single core scene that carries this meaning as a real landscape or still-life moment. Do not split the frame into panels, do not illustrate all four characters as four separate objects, do not draw diagrams, calendars, discs, charts or icons. Upper two-thirds stays almost entirely empty paper.
-Atmosphere for this frame: after snowfall, cold quiet air. Landscape orientation 1536x1024. 
 
 Do not put any character, glyph, letter, number, seal or signature anywhere in the image.
 The look must match a restrained hand-painted ink-wash on warm rice paper.
@@ -261,6 +268,13 @@ Atmosphere for this frame: early morning mist, cool pale light. Landscape orient
 
 Do not put any character, glyph, letter, number, seal or signature anywhere in the image.
 The look must match a restrained hand-painted ink-wash on warm rice paper.
+
+== qzw-025 ==
+Style lock: Chinese ink-wash on warm rice-paper ground (#F3EAD7); about 60% empty space; soft ink gradients; palette limited to ink black, pale ochre, and at most one faint mineral-blue accent; calm, quiet, contemplative mood; distant silhouettes only, no identifiable faces; composition places the subject in the lower third off-centre, leaving the upper area open for text overlay; flat matte paper texture.
+Hard bans: no text, no calligraphy strokes forming words, no Chinese characters, no Latin letters, no numbers, no seal, no signature, no watermark, no border, no frame; no modern objects, no photo realism, no glossy plastic 3D, no neon, no anime.
+Output: 1536x1024 JPG, sRGB, file size <= 300 KB.
+
+For lesson 025, 弔民伐罪. Depict one restrained, non-violent image: a small orderly rack of sheathed ancient weapons resting beside a quiet, empty ochre plain, with only two tiny distant flag silhouettes near the horizon. No battle action, no bodies, no prisoners, no suffering, no readable marks on weapons or flags, no identifiable people. Keep the objects modest and off-centre in the lower third; leave the broad upper two-thirds as calm warm paper with very soft ink mist. The original qzw-001 reference is for style only; match its hand-painted Chinese ink-wash landscape and quiet atmosphere.
 
 == qzw-026 ==
 Generate exactly ONE image now, then stop. No questions, no alternatives, no file reading.
@@ -1401,6 +1415,13 @@ Atmosphere for this frame: early morning mist, cool pale light. Landscape orient
 
 Do not put any character, glyph, letter, number, seal or signature anywhere in the image.
 The look must match a restrained hand-painted ink-wash on warm rice paper.
+
+== qzw-121 ==
+Style lock: Chinese ink-wash on warm rice-paper ground (#F3EAD7); about 60% empty space; soft ink gradients; palette limited to ink black, pale ochre, and at most one faint mineral-blue accent; calm, quiet, contemplative mood; distant silhouettes only, no identifiable faces; composition places the subject in the lower third off-centre, leaving the upper area open for text overlay; flat matte paper texture.
+Hard bans: no text, no calligraphy strokes forming words, no Chinese characters, no Latin letters, no numbers, no seal, no signature, no watermark, no border, no frame; no modern objects, no photo realism, no glossy plastic 3D, no neon, no anime.
+Output: 1536x1024 JPG, sRGB, file size <= 300 KB.
+
+For lesson 121, 杜稿鍾隸. Show one quiet still life of historical writing implements: a simple brush resting beside an inkstone and a short stack of completely blank bamboo slips, viewed slightly from above and gathered as one modest cluster in the lower-right third. The slips must be entirely empty with no strokes, marks, symbols, or writing. Use only soft black ink wash and pale ochre, with at most a faint mineral-blue shadow; broad warm rice-paper negative space fills the upper area. Calm scholarly atmosphere, no people, no faces, no child. Use qzw-001 only as a style reference for its soft hand-painted ink-wash and paper texture.
 
 == qzw-122 ==
 Generate exactly ONE image now, then stop. No questions, no alternatives, no file reading.
@@ -2686,6 +2707,30 @@ Atmosphere for this frame: just after rain, wet soft ground. Landscape orientati
 Do not put any character, glyph, letter, number, seal or signature anywhere in the image.
 The look must match a restrained hand-painted ink-wash on warm rice paper.
 
+== qzw-229 ==
+Style lock: Chinese ink-wash on warm rice-paper ground (#F3EAD7); about 60% empty space; soft ink gradients; palette limited to ink black, pale ochre, and at most one faint mineral-blue accent; calm, quiet, contemplative mood; distant silhouettes only, no identifiable faces; composition places the subject in the lower third off-centre, leaving the upper area open for text overlay; flat matte paper texture.
+Hard bans: no text, no calligraphy strokes forming words, no Chinese characters, no Latin letters, no numbers, no seal, no signature, no watermark, no border, no frame; no modern objects, no photo realism, no glossy plastic 3D, no neon, no anime.
+Output: 1536x1024 JPG, sRGB, file size <= 300 KB.
+
+For lesson 229, the imagery is an ancient archer's skill. Show one quiet still-life core: an elegant traditional bow with a single arrow resting beside a plain straw target at the edge of a misty field; no people. Keep all objects small in the lower left third, broad empty warm paper and distant faint hills above. Avoid any writing, insignia, or marks on the target. The scene should feel reverent and subdued, like an old tale remembered in a landscape.
+The supplied qzw-001 image is a style reference only; match its hand-painted Chinese ink-wash atmosphere and warm rice-paper texture.
+
+== qzw-230 ==
+Style lock: Chinese ink-wash on warm rice-paper ground (#F3EAD7); about 60% empty space; soft ink gradients; palette limited to ink black, pale ochre, and at most one faint mineral-blue accent; calm, quiet, contemplative mood; distant silhouettes only, no identifiable faces; composition places the subject in the lower third off-centre, leaving the upper area open for text overlay; flat matte paper texture.
+Hard bans: no text, no calligraphy strokes forming words, no Chinese characters, no Latin letters, no numbers, no seal, no signature, no watermark, no border, no frame; no modern objects, no photo realism, no glossy plastic 3D, no neon, no anime.
+Output: 1536x1024 JPG, sRGB, file size <= 300 KB.
+
+For lesson 230, the imagery recalls a quiet scholar's qin music and a long whistle in the wilderness. Choose one core scene: a single traditional seven-string qin resting on a low wooden stand beneath a pine at the edge of a misty mountain pavilion. No people, no writing or marks on the instrument; the empty instrument is the sole focal subject. Place it small and off-centre in the lower third, broad open paper sky above, quiet dusk atmosphere.
+Use the supplied qzw-001 image as a style reference only; match its hand-painted ink-wash atmosphere and warm rice-paper texture.
+
+== qzw-231 ==
+Style lock: Chinese ink-wash on warm rice-paper ground (#F3EAD7); about 60% empty space; soft ink gradients; palette limited to ink black, pale ochre, and at most one faint mineral-blue accent; calm, quiet, contemplative mood; distant silhouettes only, no identifiable faces; composition places the subject in the lower third off-centre, leaving the upper area open for text overlay; flat matte paper texture.
+Hard bans: no text, no calligraphy strokes forming words, no Chinese characters, no Latin letters, no numbers, no seal, no signature, no watermark, no border, no frame; no modern objects, no photo realism, no glossy plastic 3D, no neon, no anime.
+Output: 1536x1024 JPG, sRGB, file size <= 300 KB.
+
+For lesson 231, the imagery recalls the making of a brush and the invention of paper. Choose one core still life only: one plain calligraphy brush resting beside a single unmarked sheet of pale handmade paper on a low stone ledge in misty mountains. The paper must be completely blank with no lines or ink. No people, no extra writing tools, no symbols. Keep the brush and paper small, off-centre in the lower third; expansive empty warm paper above, soft morning mist and restrained pale ochre.
+Use the supplied qzw-001 image as a style reference only; match its hand-painted Chinese ink-wash atmosphere and warm rice-paper texture.
+
 == qzw-232 ==
 Generate exactly ONE image now, then stop. No questions, no alternatives, no file reading.
 
@@ -2913,40 +2958,3 @@ Atmosphere for this frame: clear night, thin moonlight. Landscape orientation 15
 
 Do not put any character, glyph, letter, number, seal or signature anywhere in the image.
 The look must match a restrained hand-painted ink-wash on warm rice paper.
-
-== qzw-229 ==
-Generate exactly ONE image now, then stop. No questions, no alternatives, no file reading.
-
-Style lock: Chinese ink-wash on warm rice-paper ground (#F3EAD7); about 60% empty space; soft ink gradients; palette limited to ink black, pale ochre, and at most one faint mineral-blue accent; calm, quiet, contemplative mood; distant silhouettes only, no identifiable faces; composition places the subject in the lower third off-centre, leaving the upper area open for text overlay; flat matte paper texture.
-Hard bans: no text, no calligraphy strokes forming words, no Chinese characters, no Latin letters, no numbers, no seal, no signature, no watermark, no border, no frame; no modern objects, no photo realism, no glossy plastic 3D, no neon, no anime.
-
-Subject: for lesson 229, {'value': '布射遼丸', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'}. Semantic anchor: Lu Bu's archery, Yiliao's juggling pellets. Compose exactly ONE single core scene that carries this meaning as a real landscape or still-life moment. Do not split the frame into panels, do not illustrate all four characters as four separate objects, do not draw diagrams, calendars, discs, charts or icons. Upper two-thirds stays almost entirely empty paper.
-Atmosphere for this frame: still water reflecting a pale sky. Landscape orientation 1536x1024. Any person appears only as a distant small silhouette or back view; no face, no child, no modern clothing, no close portrait.
-
-Do not put any character, glyph, letter, number, seal or signature anywhere in the image.
-The look must match a restrained hand-painted ink-wash on warm rice paper.
-
-== qzw-230 ==
-Generate exactly ONE image now, then stop. No questions, no alternatives, no file reading.
-
-Style lock: Chinese ink-wash on warm rice-paper ground (#F3EAD7); about 60% empty space; soft ink gradients; palette limited to ink black, pale ochre, and at most one faint mineral-blue accent; calm, quiet, contemplative mood; distant silhouettes only, no identifiable faces; composition places the subject in the lower third off-centre, leaving the upper area open for text overlay; flat matte paper texture.
-Hard bans: no text, no calligraphy strokes forming words, no Chinese characters, no Latin letters, no numbers, no seal, no signature, no watermark, no border, no frame; no modern objects, no photo realism, no glossy plastic 3D, no neon, no anime.
-
-Subject: for lesson 230, {'value': '嵇琴阮嘯', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'}. Semantic anchor: Ji Kang's lute, Ruan Ji's whistling. Compose exactly ONE single core scene that carries this meaning as a real landscape or still-life moment. Do not split the frame into panels, do not illustrate all four characters as four separate objects, do not draw diagrams, calendars, discs, charts or icons. Upper two-thirds stays almost entirely empty paper.
-Atmosphere for this frame: close view of one object, wide empty paper above. Landscape orientation 1536x1024. Any person appears only as a distant small silhouette or back view; no face, no child, no modern clothing, no close portrait.
-
-Do not put any character, glyph, letter, number, seal or signature anywhere in the image.
-The look must match a restrained hand-painted ink-wash on warm rice paper.
-
-== qzw-231 ==
-Generate exactly ONE image now, then stop. No questions, no alternatives, no file reading.
-
-Style lock: Chinese ink-wash on warm rice-paper ground (#F3EAD7); about 60% empty space; soft ink gradients; palette limited to ink black, pale ochre, and at most one faint mineral-blue accent; calm, quiet, contemplative mood; distant silhouettes only, no identifiable faces; composition places the subject in the lower third off-centre, leaving the upper area open for text overlay; flat matte paper texture.
-Hard bans: no text, no calligraphy strokes forming words, no Chinese characters, no Latin letters, no numbers, no seal, no signature, no watermark, no border, no frame; no modern objects, no photo realism, no glossy plastic 3D, no neon, no anime.
-
-Subject: for lesson 231, {'value': '恬筆倫紙', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'}. Semantic anchor: Meng Tian's brush, Cai Lun's paper. Compose exactly ONE single core scene that carries this meaning as a real landscape or still-life moment. Do not split the frame into panels, do not illustrate all four characters as four separate objects, do not draw diagrams, calendars, discs, charts or icons. Upper two-thirds stays almost entirely empty paper.
-Atmosphere for this frame: distant ridge silhouette under a broad empty sky. Landscape orientation 1536x1024. Any person appears only as a distant small silhouette or back view; no face, no child, no modern clothing, no close portrait.
-
-Do not put any character, glyph, letter, number, seal or signature anywhere in the image.
-The look must match a restrained hand-painted ink-wash on warm rice paper.
-

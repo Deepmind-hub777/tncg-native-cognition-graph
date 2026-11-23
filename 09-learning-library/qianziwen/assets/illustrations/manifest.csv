@@ -1,247 +1,250 @@
-sequence,filename,four_chars,one_line_brief
-004,qzw-004.jpg,{'value': '辰宿列張', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Stars spread out and fill the sky.
-005,qzw-005.jpg,{'value': '寒來暑往', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Cold and heat follow one another.
-003,qzw-003.jpg,{'value': '日月盈昃', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Sun and moon fill, wane and decline.
-006,qzw-006.jpg,{'value': '秋收冬藏', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Harvest in autumn, store in winter.
-007,qzw-007.jpg,{'value': '閏餘成歲', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Leap months complete the year.
-008,qzw-008.jpg,{'value': '律呂調陽', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Pitch pipes harmonize the yang.
-009,qzw-009.jpg,{'value': '雲騰致雨', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Clouds rise and become rain.
-010,qzw-010.jpg,{'value': '露結爲霜', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Dew freezes into white frost.
-011,qzw-011.jpg,{'value': '金生麗水', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Gold comes from the Li waters.
-012,qzw-012.jpg,{'value': '玉出崑岡', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Jade comes from Kunlun's slopes.
-013,qzw-013.jpg,{'value': '劍號巨闕', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The sword Juque is the most famous of blades.
-014,qzw-014.jpg,{'value': '珠稱夜光', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Among pearls, Night Glow is the famed one.
-015,qzw-015.jpg,{'value': '果珍李柰', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Plums and crabapples are the prized fruits.
-016,qzw-016.jpg,{'value': '菜重芥姜', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Mustard greens and ginger matter among vegetables.
-017,qzw-017.jpg,{'value': '海鹹河淡', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The sea is salty, the river fresh.
-018,qzw-018.jpg,{'value': '鱗潛羽翔', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Scaled fish dive, feathered birds fly.
-019,qzw-019.jpg,{'value': '龍師火帝', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Fuxi named offices by dragons, Shennong by fire.
-020,qzw-020.jpg,{'value': '鳥官人皇', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Shaohao named offices by birds; the Human Sovereign ruled.
-021,qzw-021.jpg,{'value': '始制文字', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Writing was first created.
-022,qzw-022.jpg,{'value': '乃服衣裳', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Then came upper and lower garments.
-023,qzw-023.jpg,{'value': '推位讓國', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Thrones were yielded and realms ceded.
-024,qzw-024.jpg,{'value': '有虞陶唐', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Shun of Youyu and Yao of Taotang.
-026,qzw-026.jpg,{'value': '周發殷湯', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},King Wu of Zhou and Tang of Shang.
-027,qzw-027.jpg,{'value': '坐朝問道', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Hold court and ask after the way.
-028,qzw-028.jpg,{'value': '垂拱平章', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Rule at ease; all is ordered and bright.
-029,qzw-029.jpg,{'value': '愛育黎首', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Cherish and raise the common people.
-030,qzw-030.jpg,{'value': '臣伏戎羌', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Make the Rong and Qiang submit.
-031,qzw-031.jpg,{'value': '遐邇壹體', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Far and near become one body.
-032,qzw-032.jpg,{'value': '率賓歸王', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Lead all to pledge to the king.
-033,qzw-033.jpg,{'value': '鳴鳳在樹', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The phoenix calls in the tree.
-034,qzw-034.jpg,{'value': '白駒食場', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},A white colt grazes in the yard.
-035,qzw-035.jpg,{'value': '化被草木', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Virtue reaches even plants.
-036,qzw-036.jpg,{'value': '賴及萬方', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Its blessing reaches every direction.
-037,qzw-037.jpg,{'value': '蓋此身髮', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},This body and hair of ours.
-038,qzw-038.jpg,{'value': '四大五常', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The four elements and the five constants.
-039,qzw-039.jpg,{'value': '恭惟鞠養', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Rear them with reverence.
-040,qzw-040.jpg,{'value': '豈敢毀傷', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},How dare we harm them.
-041,qzw-041.jpg,{'value': '女慕貞絜', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Women admire purity.
-042,qzw-042.jpg,{'value': '男效才良', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Men emulate talent and goodness.
-043,qzw-043.jpg,{'value': '知過必改', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Know a fault and mend it.
-044,qzw-044.jpg,{'value': '得能莫忘', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Do not forget what you have gained.
-045,qzw-045.jpg,{'value': '罔談彼短', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Do not speak of others' faults.
-046,qzw-046.jpg,{'value': '靡恃己長', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Do not lean on your own strengths.
-047,qzw-047.jpg,{'value': '信使可覆', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Trustworthiness can bear checking.
-048,qzw-048.jpg,{'value': '器欲難量', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Capacity should be hard to fathom.
-049,qzw-049.jpg,{'value': '墨悲絲染', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Mozi grieved that plain silk gets dyed.
-050,qzw-050.jpg,{'value': '詩讚羔羊', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The Odes praise the lamb.
-051,qzw-051.jpg,{'value': '景行維賢', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Lofty conduct belongs to the worthy.
-052,qzw-052.jpg,{'value': '克唸作聖', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Restrain your thoughts and become a sage.
-053,qzw-053.jpg,{'value': '德建名立', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Virtue built, the name stands.
-054,qzw-054.jpg,{'value': '形端表正', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Upright in body and bearing.
-055,qzw-055.jpg,{'value': '空谷傳聲', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Sound carries in an empty valley.
-056,qzw-056.jpg,{'value': '虛堂習聽', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},In a bare hall one listens and learns.
-057,qzw-057.jpg,{'value': '禍因惡積', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Misfortune comes from piled-up evil.
-058,qzw-058.jpg,{'value': '福緣善慶', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Blessings follow good deeds.
-059,qzw-059.jpg,{'value': '尺璧非寶', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},A foot-wide jade is not the treasure.
-060,qzw-060.jpg,{'value': '寸陰是競', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Contend for every inch of time.
-061,qzw-061.jpg,{'value': '資父事君', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Serve your father, serve your lord.
-062,qzw-062.jpg,{'value': '曰嚴與敬', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},It calls for gravity and respect.
-063,qzw-063.jpg,{'value': '孝當竭力', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Filial piety takes all your strength.
-064,qzw-064.jpg,{'value': '忠則盡命', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Loyalty gives up life itself.
-065,qzw-065.jpg,{'value': '臨深履薄', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},As at a deep gulf, on thin ice.
-066,qzw-066.jpg,{'value': '夙興溫凊', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Rise early; warm them in winter, cool them in summer.
-067,qzw-067.jpg,{'value': '似蘭斯馨', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Fragrant as the orchid.
-068,qzw-068.jpg,{'value': '如松之盛', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Flourishing as the pine.
-069,qzw-069.jpg,{'value': '川流不息', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Rivers flow without rest.
-070,qzw-070.jpg,{'value': '淵澄取映', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},A clear pool mirrors your shape.
-071,qzw-071.jpg,{'value': '容止若思', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Composed as if pondering.
-072,qzw-072.jpg,{'value': '言辭安定', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Words calm and steady.
-073,qzw-073.jpg,{'value': '篤初誠美', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Hold the beginning true; it is fair.
-074,qzw-074.jpg,{'value': '慎終宜令', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},End carefully, and end well.
-075,qzw-075.jpg,{'value': '榮業所基', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Here the work of glory is founded.
-076,qzw-076.jpg,{'value': '籍甚無竟', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Fame grows beyond all end.
-077,qzw-077.jpg,{'value': '學優登仕', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Excel in study, enter office.
-078,qzw-078.jpg,{'value': '攝職從政', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Take a post and govern.
-079,qzw-079.jpg,{'value': '存以甘棠', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Keep the sweet pear tree in memory.
-080,qzw-080.jpg,{'value': '去而益詠', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Once gone, one is sung the more.
-081,qzw-081.jpg,{'value': '樂殊貴賤', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Music differs by rank.
-082,qzw-082.jpg,{'value': '禮別尊卑', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Rites tell high from low.
-083,qzw-083.jpg,{'value': '上和下睦', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},High and low in harmony.
-084,qzw-084.jpg,{'value': '夫唱婦隨', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Husband leads, wife follows.
-085,qzw-085.jpg,{'value': '外受傅訓', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Outside, take a tutor's teaching.
-086,qzw-086.jpg,{'value': '入奉母儀', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},At home, follow the mother's model.
-087,qzw-087.jpg,{'value': '諸姑伯叔', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The aunts and uncles of the clan.
-088,qzw-088.jpg,{'value': '猶子比兒', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Treat nephews as your own sons.
-089,qzw-089.jpg,{'value': '孔懷兄弟', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Hold brothers close in heart.
-090,qzw-090.jpg,{'value': '同氣連枝', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},One breath, branches of a single tree.
-091,qzw-091.jpg,{'value': '交友投分', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Choose friends of matching spirit.
-092,qzw-092.jpg,{'value': '切磨箴規', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Polish and admonish each other.
-093,qzw-093.jpg,{'value': '仁慈隱惻', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Kindness and quiet compassion.
-094,qzw-094.jpg,{'value': '造次弗離', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Never abandon it even in haste.
-095,qzw-095.jpg,{'value': '節義廉退', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Integrity, righteousness, purity, modesty.
-096,qzw-096.jpg,{'value': '顛沛匪虧', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Do not lose it in adversity.
-097,qzw-097.jpg,{'value': '性靜情逸', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Quiet nature, easy feelings.
-098,qzw-098.jpg,{'value': '心動神疲', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},A restless mind tires the spirit.
-099,qzw-099.jpg,{'value': '守真志滿', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Keep the true self, and the will is full.
-100,qzw-100.jpg,{'value': '逐物意移', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Chasing things, the will drifts.
-101,qzw-101.jpg,{'value': '堅持雅操', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Hold fast to noble conduct.
-102,qzw-102.jpg,{'value': '好爵自縻', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Good rank binds itself to you.
-103,qzw-103.jpg,{'value': '都邑華夏', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The capitals of Huaxia.
-104,qzw-104.jpg,{'value': '東西二京', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The two capitals, east and west.
-105,qzw-105.jpg,{'value': '背邙面洛', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Back to Mount Mang, facing the Luo.
-106,qzw-106.jpg,{'value': '浮渭據涇', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Float on the Wei, hold the Jing.
-107,qzw-107.jpg,{'value': '宮殿盤鬱', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Palaces coil and rise.
-108,qzw-108.jpg,{'value': '樓觀飛驚', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Towers soar, startling the eye.
-109,qzw-109.jpg,{'value': '圖寫禽獸', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Paint birds and beasts.
-110,qzw-110.jpg,{'value': '畫彩仙靈', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Color the immortal spirits.
-111,qzw-111.jpg,{'value': '丙舍傍啓', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Side chambers open beside them.
-112,qzw-112.jpg,{'value': '甲帳對楹', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Curtained tents face the pillars.
-113,qzw-113.jpg,{'value': '肆筵設席', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Mats and seats are laid out.
-114,qzw-114.jpg,{'value': '鼓瑟吹笙', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Zithers are plucked and pipes blown.
-115,qzw-115.jpg,{'value': '升階納陛', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Climb the steps to the throne.
-116,qzw-116.jpg,{'value': '弁轉疑星', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Caps turn like stars.
-117,qzw-117.jpg,{'value': '右通廣內', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Right leads to the Guangnei hall.
-118,qzw-118.jpg,{'value': '左達承明', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Left reaches the Chengming hall.
-119,qzw-119.jpg,{'value': '既集墳典', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The ancient books are gathered.
-120,qzw-120.jpg,{'value': '亦聚羣英', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},And the finest talents gather too.
-122,qzw-122.jpg,{'value': '漆書壁經', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Lacquer-written books and wall-hidden classics.
-123,qzw-123.jpg,{'value': '府羅將相', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Generals and ministers line the court.
-124,qzw-124.jpg,{'value': '路俠槐卿', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Dukes and ministers flank the road.
-125,qzw-125.jpg,{'value': '戶封八縣', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Households enfeoffed with eight counties.
-126,qzw-126.jpg,{'value': '家給千兵', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Each house supplies a thousand troops.
-127,qzw-127.jpg,{'value': '高冠陪輦', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Tall-capped men attend the carriage.
-128,qzw-128.jpg,{'value': '驅轂振纓', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Drive on with tassels flying.
-129,qzw-129.jpg,{'value': '世祿侈富', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Hereditary stipends and lavish wealth.
-130,qzw-130.jpg,{'value': '車駕肥輕', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Fat horses and light carriages.
-131,qzw-131.jpg,{'value': '策功茂實', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Merit recorded, rich and real.
-132,qzw-132.jpg,{'value': '勒碑刻銘', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Steles are carved with inscriptions.
-133,qzw-133.jpg,{'value': '磻溪伊尹', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Jiang Ziya at Pan Creek, and Yi Yin.
-134,qzw-134.jpg,{'value': '佐時阿衡', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Aiding the age as chief minister.
-135,qzw-135.jpg,{'value': '奄宅曲阜', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Taking Qufu as their seat.
-136,qzw-136.jpg,{'value': '微旦孰營', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Without the Duke of Zhou, who could build it?
-137,qzw-137.jpg,{'value': '桓公匡合', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Duke Huan of Qi rectified and united the states.
-138,qzw-138.jpg,{'value': '濟弱扶傾', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Aid the weak, hold up the falling.
-139,qzw-139.jpg,{'value': '綺回漢惠', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Qili Ji changed Emperor Hui's mind.
-140,qzw-140.jpg,{'value': '說感武丁', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Fu Yue moved King Wu Ding.
-141,qzw-141.jpg,{'value': '俊乂密勿', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The worthy labor diligently.
-142,qzw-142.jpg,{'value': '多士寔寧', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Many worthy officers bring true peace.
-143,qzw-143.jpg,{'value': '晉楚更霸', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Jin and Chu took turns as hegemon.
-144,qzw-144.jpg,{'value': '趙魏困橫', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Zhao and Wei were trapped by the horizontal alliance.
-145,qzw-145.jpg,{'value': '假途滅虢', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Borrowing a road through Yu, Guo was destroyed.
-146,qzw-146.jpg,{'value': '踐土會盟', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The covenant sworn at Jiantu.
-147,qzw-147.jpg,{'value': '何遵約法', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Xiao He kept the law simple.
-148,qzw-148.jpg,{'value': '韓弊煩刑', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Han Fei fell to harsh punishment.
-149,qzw-149.jpg,{'value': '起翦頗牧', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Bai Qi, Wang Jian, Lian Po and Li Mu.
-150,qzw-150.jpg,{'value': '用軍最精', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The most skilled in war.
-151,qzw-151.jpg,{'value': '宣威沙漠', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Might proclaimed across the desert.
-152,qzw-152.jpg,{'value': '馳譽丹青', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Fame spreads through painting.
-153,qzw-153.jpg,{'value': '九州禹跡', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Nine provinces bear Yu's traces.
-154,qzw-154.jpg,{'value': '百郡秦并', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},A hundred commanderies joined by Qin.
-155,qzw-155.jpg,{'value': '嶽宗泰岱', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Of the five peaks, Tai is chief.
-156,qzw-156.jpg,{'value': '禪主云亭', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The sacrifice centers on Yun and Ting.
-157,qzw-157.jpg,{'value': '雁門紫塞', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Yanmen Pass and the Purple Frontier.
-158,qzw-158.jpg,{'value': '雞田赤城', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Jitian and Chicheng.
-159,qzw-159.jpg,{'value': '昆池碣石', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Kunming Pool and Jieshi.
-160,qzw-160.jpg,{'value': '鉅野洞庭', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Juye Marsh and Dongting Lake.
-161,qzw-161.jpg,{'value': '曠遠綿邈', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Vast, remote and far-stretching.
-162,qzw-162.jpg,{'value': '巖岫杳冥', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Crags and caves, deep and dim.
-163,qzw-163.jpg,{'value': '治本於農', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Farming is the root of governing.
-164,qzw-164.jpg,{'value': '務茲稼穡', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Attend to sowing and harvesting.
-165,qzw-165.jpg,{'value': '俶載南畝', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Begin work in the southern fields.
-166,qzw-166.jpg,{'value': '我藝黍稷', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},I plant millet and grain.
-167,qzw-167.jpg,{'value': '稅熟貢新', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Tax the ripe grain, offer the new.
-168,qzw-168.jpg,{'value': '勸賞黜陟', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Reward or dismiss each as deserved.
-169,qzw-169.jpg,{'value': '孟軻敦素', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Mencius prized plain virtue.
-170,qzw-170.jpg,{'value': '史魚秉直', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Shi Yu held to what is straight.
-171,qzw-171.jpg,{'value': '庶幾中庸', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Close to the middle way.
-172,qzw-172.jpg,{'value': '勞謙謹敕', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Diligent, modest, careful and ordered.
-173,qzw-173.jpg,{'value': '聆音察理', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Hear the sound, weigh the reason.
-174,qzw-174.jpg,{'value': '鑑貌辨色', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Read the face, discern the mood.
-175,qzw-175.jpg,{'value': '貽厥嘉猷', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Bequeath good counsel.
-176,qzw-176.jpg,{'value': '勉其祗植', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Urge reverence and upright conduct.
-177,qzw-177.jpg,{'value': '省躬譏誡', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Examine yourself and take warning.
-178,qzw-178.jpg,{'value': '寵增抗極', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Favor grows, pride peaks.
-179,qzw-179.jpg,{'value': '殆辱近恥', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Disgrace and shame draw near.
-180,qzw-180.jpg,{'value': '林皋幸即', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Retire to the woods and marsh, and be glad.
-181,qzw-181.jpg,{'value': '兩疏見機', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The two Shus saw the sign and withdrew.
-182,qzw-182.jpg,{'value': '解組誰逼', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Who forced them to untie the seal cords?
-183,qzw-183.jpg,{'value': '索居閒處', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Living alone at leisure.
-184,qzw-184.jpg,{'value': '沉默寂寥', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Silent and solitary.
-185,qzw-185.jpg,{'value': '求古尋論', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Seek the ancients and their discourse.
-186,qzw-186.jpg,{'value': '散慮逍遙', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Release cares and roam free.
-187,qzw-187.jpg,{'value': '欣奏累遣', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Joy arrives, burdens leave.
-188,qzw-188.jpg,{'value': '慼謝歡招', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Sorrow departs, gladness is called in.
-189,qzw-189.jpg,{'value': '渠荷的歷', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Lotus in the ditch, bright and clear.
-190,qzw-190.jpg,{'value': '園莽抽條', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Shoots push up in the wild garden.
-191,qzw-191.jpg,{'value': '枇杷晚翠', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The loquat stays green late.
-192,qzw-192.jpg,{'value': '梧桐早凋', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The paulownia sheds its leaves early.
-193,qzw-193.jpg,{'value': '陳根委翳', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Old roots wither and shade the ground.
-194,qzw-194.jpg,{'value': '落葉飄搖', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Fallen leaves drift in the wind.
-195,qzw-195.jpg,{'value': '遊鵾獨運', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The great bird journeys alone.
-196,qzw-196.jpg,{'value': '凌摩絳霄', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Soaring up to the crimson sky.
-197,qzw-197.jpg,{'value': '耽讀玩市', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Lost in books, amused by the market.
-198,qzw-198.jpg,{'value': '寓目囊箱', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The eye rests on book bags and chests.
-199,qzw-199.jpg,{'value': '易輶攸畏', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Light and easy matters are what to fear.
-200,qzw-200.jpg,{'value': '屬耳垣牆', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Ears pressed to the wall.
-201,qzw-201.jpg,{'value': '具膳餐飯', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Meals are prepared.
-202,qzw-202.jpg,{'value': '適口充腸', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Suit the taste, fill the belly.
-203,qzw-203.jpg,{'value': '飽飫烹宰', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Sated with cooked meat.
-204,qzw-204.jpg,{'value': '飢厭糟糠', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Hunger is eased with chaff and husks.
-205,qzw-205.jpg,{'value': '親戚故舊', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Kin and old friends.
-206,qzw-206.jpg,{'value': '老少異糧', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Old and young eat different fare.
-207,qzw-207.jpg,{'value': '妾御績紡', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The women spin and weave.
-208,qzw-208.jpg,{'value': '侍巾帷房', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Attending with towels in the inner rooms.
-209,qzw-209.jpg,{'value': '紈扇圓潔', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The silk fan, round and clean.
-210,qzw-210.jpg,{'value': '銀燭煒煌', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Silver candles blaze bright.
-211,qzw-211.jpg,{'value': '晝眠夕寐', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Nap by day, sleep at night.
-212,qzw-212.jpg,{'value': '籃筍象牀', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Bamboo mat and ivory bed.
-213,qzw-213.jpg,{'value': '絃歌酒宴', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Strings and song, wine and feast.
-214,qzw-214.jpg,{'value': '接杯舉觴', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Pass the cups and raise the goblets.
-215,qzw-215.jpg,{'value': '矯手頓足', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Lift hands and stamp feet to the music.
-216,qzw-216.jpg,{'value': '悅豫且康', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Joyful and in good health.
-217,qzw-217.jpg,{'value': '嫡後嗣續', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The direct line continues unbroken.
-218,qzw-218.jpg,{'value': '祭祀烝嘗', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Offer the seasonal sacrifices.
-219,qzw-219.jpg,{'value': '稽顙再拜', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Bow to the ground, twice over.
-220,qzw-220.jpg,{'value': '悚懼恐惶', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Trembling with fear.
-221,qzw-221.jpg,{'value': '箋牒簡要', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Letters and records brief and clear.
-222,qzw-222.jpg,{'value': '顧答審詳', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Answer carefully and fully.
-223,qzw-223.jpg,{'value': '骸垢想浴', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},With a soiled body, one longs to bathe.
-224,qzw-224.jpg,{'value': '執熱願涼', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Holding something hot, one wishes for cool.
-225,qzw-225.jpg,{'value': '驢騾犢特', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Donkeys, mules, calves and bulls.
-226,qzw-226.jpg,{'value': '駭躍超驤', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Startled, leaping, racing ahead.
-227,qzw-227.jpg,{'value': '誅斬賊盜', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Thieves are struck down.
-228,qzw-228.jpg,{'value': '捕獲叛亡', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Rebels and runaways are seized.
-232,qzw-232.jpg,{'value': '鈞巧任釣', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Ma Jun's craft, the Ren master's fishing.
-233,qzw-233.jpg,{'value': '釋紛利俗', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Settle disputes, benefit the world.
-234,qzw-234.jpg,{'value': '並皆佳妙', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},All are excellent and fine.
-235,qzw-235.jpg,{'value': '毛施淑姿', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Mao Qiang and Xi Shi, beauties of old.
-236,qzw-236.jpg,{'value': '工顰妍笑', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Even frowns are lovely, smiles are fair.
-237,qzw-237.jpg,{'value': '年矢每催', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The arrow of years ever urges us on.
-238,qzw-238.jpg,{'value': '曦暉朗曜', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Sunlight shines clear and bright.
-239,qzw-239.jpg,{'value': '璇璣懸斡', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The armillary turns in the sky.
-240,qzw-240.jpg,{'value': '晦魄環照', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The dim moon circles and shines.
-241,qzw-241.jpg,{'value': '指薪修祜', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Pass the firewood on; cultivate blessing.
-242,qzw-242.jpg,{'value': '永綏吉劭', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Ever at peace, auspicious and fair.
-243,qzw-243.jpg,{'value': '矩步引領', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Square steps, head lifted high.
-244,qzw-244.jpg,{'value': '俯仰廊廟', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Bowing and rising in the court hall.
-245,qzw-245.jpg,{'value': '束帶矜莊', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Belted up, grave and dignified.
-246,qzw-246.jpg,{'value': '徘徊瞻眺', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Pacing about, gazing far away.
-247,qzw-247.jpg,{'value': '孤陋寡聞', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Isolated, shallow and ill-informed.
-248,qzw-248.jpg,{'value': '愚蒙等誚', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},The foolish earn reproach alike.
-249,qzw-249.jpg,{'value': '謂語助者', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},As for the sentence particles —
-250,qzw-250.jpg,{'value': '焉哉乎也', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},— yan, zai, hu, ye.
-229,qzw-229.jpg,{'value': '布射遼丸', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Lu Bu's archery, Yiliao's juggling pellets.
-230,qzw-230.jpg,{'value': '嵇琴阮嘯', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Ji Kang's lute, Ruan Ji's whistling.
-231,qzw-231.jpg,{'value': '恬筆倫紙', 'status': 'needs_review', 'source': 'https://zh.wikisource.org/w/index.php?title=千字文&oldid=13033228; source transcription in data/corpus-source.txt'},Meng Tian's brush, Cai Lun's paper.
+"sequence","filename","four_chars","one_line_brief"
+"002","qzw-002.jpg","宇宙洪荒","淡墨留白意境呈现：天地宇宙，初开时混沌荒远。"
+"003","qzw-003.jpg","日月盈昃","淡墨留白意境呈现：日月有圆缺，也会西斜。"
+"004","qzw-004.jpg","辰宿列張","淡墨留白意境呈现：星辰布列，张满天空。"
+"005","qzw-005.jpg","寒來暑往","淡墨留白意境呈现：寒气暑气，交替往来。"
+"006","qzw-006.jpg","秋收冬藏","淡墨留白意境呈现：秋天收谷，冬天贮藏。"
+"007","qzw-007.jpg","閏餘成歲","淡墨留白意境呈现：以闰月补足余日，凑成一年。"
+"008","qzw-008.jpg","律呂調陽","淡墨留白意境呈现：以律吕调和阳气。"
+"009","qzw-009.jpg","雲騰致雨","淡墨留白意境呈现：云气上升，聚成雨水。"
+"010","qzw-010.jpg","露結爲霜","淡墨留白意境呈现：露水遇冷凝成白霜。"
+"011","qzw-011.jpg","金生麗水","淡墨留白意境呈现：黄金出自丽水。"
+"012","qzw-012.jpg","玉出崑岡","淡墨留白意境呈现：美玉出自昆仑山冈。"
+"013","qzw-013.jpg","劍號巨闕","淡墨留白意境呈现：宝剑中最著名的是巨阙。"
+"014","qzw-014.jpg","珠稱夜光","淡墨留白意境呈现：宝珠之中，夜光最受称道。"
+"015","qzw-015.jpg","果珍李柰","淡墨留白意境呈现：果品珍贵的是李子和柰。"
+"016","qzw-016.jpg","菜重芥姜","淡墨留白意境呈现：蔬菜看重的是芥菜和姜。"
+"017","qzw-017.jpg","海鹹河淡","淡墨留白意境呈现：海水味咸，河水味淡。"
+"018","qzw-018.jpg","鱗潛羽翔","淡墨留白意境呈现：有鳞的潜水，有羽的飞翔。"
+"019","qzw-019.jpg","龍師火帝","淡墨留白意境呈现：伏羲以龙名官，神农以火纪官。"
+"020","qzw-020.jpg","鳥官人皇","淡墨留白意境呈现：少昊以鸟名官，人皇治理天下。"
+"021","qzw-021.jpg","始制文字","淡墨留白意境呈现：开始创制文字。"
+"022","qzw-022.jpg","乃服衣裳","淡墨留白意境呈现：于是有了上衣下裳。"
+"023","qzw-023.jpg","推位讓國","淡墨留白意境呈现：推让君位，让出国家。"
+"024","qzw-024.jpg","有虞陶唐","淡墨留白意境呈现：有虞氏的舜，陶唐氏的尧。"
+"025","qzw-025.jpg","弔民伐罪","淡墨留白意境呈现：安抚百姓，讨伐有罪之人。"
+"026","qzw-026.jpg","周發殷湯","淡墨留白意境呈现：周武王姬发与商汤。"
+"027","qzw-027.jpg","坐朝問道","淡墨留白意境呈现：临朝听政，询问道理。"
+"028","qzw-028.jpg","垂拱平章","淡墨留白意境呈现：垂衣拱手，天下太平章明。"
+"029","qzw-029.jpg","愛育黎首","淡墨留白意境呈现：爱护养育百姓。"
+"030","qzw-030.jpg","臣伏戎羌","淡墨留白意境呈现：使戎族羌族俯首臣服。"
+"031","qzw-031.jpg","遐邇壹體","淡墨留白意境呈现：远近之人，合为一体。"
+"032","qzw-032.jpg","率賓歸王","淡墨留白意境呈现：率领众人归附君王。"
+"033","qzw-033.jpg","鳴鳳在樹","淡墨留白意境呈现：凤凰鸣叫在树上。"
+"034","qzw-034.jpg","白駒食場","淡墨留白意境呈现：白马在场上吃草。"
+"035","qzw-035.jpg","化被草木","淡墨留白意境呈现：德化覆盖草木。"
+"036","qzw-036.jpg","賴及萬方","淡墨留白意境呈现：恩泽遍及万方。"
+"037","qzw-037.jpg","蓋此身髮","淡墨留白意境呈现：人的身体和头发。"
+"038","qzw-038.jpg","四大五常","淡墨留白意境呈现：四大与五常：地水火风，仁义礼智信。"
+"039","qzw-039.jpg","恭惟鞠養","淡墨留白意境呈现：恭敬地养育。"
+"040","qzw-040.jpg","豈敢毀傷","淡墨留白意境呈现：怎敢毁坏损伤。"
+"041","qzw-041.jpg","女慕貞絜","淡墨留白意境呈现：女子仰慕贞洁。"
+"042","qzw-042.jpg","男效才良","淡墨留白意境呈现：男子效法才德。"
+"043","qzw-043.jpg","知過必改","淡墨留白意境呈现：知道过错就一定改正。"
+"044","qzw-044.jpg","得能莫忘","淡墨留白意境呈现：得到本事，不可遗忘。"
+"045","qzw-045.jpg","罔談彼短","淡墨留白意境呈现：不要谈论别人的短处。"
+"046","qzw-046.jpg","靡恃己長","淡墨留白意境呈现：不必仗恃自己的优点。"
+"047","qzw-047.jpg","信使可覆","淡墨留白意境呈现：言语诚信，才可反复查验。"
+"048","qzw-048.jpg","器欲難量","淡墨留白意境呈现：器量要大到难以估量。"
+"049","qzw-049.jpg","墨悲絲染","淡墨留白意境呈现：墨子见素丝被染而悲。"
+"050","qzw-050.jpg","詩讚羔羊","淡墨留白意境呈现：《诗经》赞美羔羊。"
+"051","qzw-051.jpg","景行維賢","淡墨留白意境呈现：崇高的德行，属于贤人。"
+"052","qzw-052.jpg","克唸作聖","淡墨留白意境呈现：克制私念，可以成圣。"
+"053","qzw-053.jpg","德建名立","淡墨留白意境呈现：德行建立，名声随之而立。"
+"054","qzw-054.jpg","形端表正","淡墨留白意境呈现：形体端正，仪表方正。"
+"055","qzw-055.jpg","空谷傳聲","淡墨留白意境呈现：空谷之中，声音传得很远。"
+"056","qzw-056.jpg","虛堂習聽","淡墨留白意境呈现：空堂之上，反复听习。"
+"057","qzw-057.jpg","禍因惡積","淡墨留白意境呈现：灾祸因恶行积累而来。"
+"058","qzw-058.jpg","福緣善慶","淡墨留白意境呈现：福分因善行而得喜庆。"
+"059","qzw-059.jpg","尺璧非寶","淡墨留白意境呈现：一尺大的玉璧，不算真正的宝。"
+"060","qzw-060.jpg","寸陰是競","淡墨留白意境呈现：一寸光阴，才值得去争。"
+"061","qzw-061.jpg","資父事君","淡墨留白意境呈现：奉养父亲，事奉君王。"
+"062","qzw-062.jpg","曰嚴與敬","淡墨留白意境呈现：要的是严谨与恭敬。"
+"063","qzw-063.jpg","孝當竭力","淡墨留白意境呈现：行孝应当竭尽全力。"
+"064","qzw-064.jpg","忠則盡命","淡墨留白意境呈现：尽忠就要献出生命。"
+"065","qzw-065.jpg","臨深履薄","淡墨留白意境呈现：如临深渊，如踏薄冰。"
+"066","qzw-066.jpg","夙興溫凊","淡墨留白意境呈现：早起侍奉，冬日温暖，夏日清凉。"
+"067","qzw-067.jpg","似蘭斯馨","淡墨留白意境呈现：像兰草一样芳香。"
+"068","qzw-068.jpg","如松之盛","淡墨留白意境呈现：像松树一样茂盛。"
+"069","qzw-069.jpg","川流不息","淡墨留白意境呈现：江河奔流，永不止息。"
+"070","qzw-070.jpg","淵澄取映","淡墨留白意境呈现：深潭清澈，可以照见形影。"
+"071","qzw-071.jpg","容止若思","淡墨留白意境呈现：仪容举止，沉静如有所思。"
+"072","qzw-072.jpg","言辭安定","淡墨留白意境呈现：言辞安详而笃定。"
+"073","qzw-073.jpg","篤初誠美","淡墨留白意境呈现：守住初心，确实美好。"
+"074","qzw-074.jpg","慎終宜令","淡墨留白意境呈现：收尾谨慎，才合于善。"
+"075","qzw-075.jpg","榮業所基","淡墨留白意境呈现：荣耀的事业，由此奠基。"
+"076","qzw-076.jpg","籍甚無竟","淡墨留白意境呈现：声名盛大，没有终竟。"
+"077","qzw-077.jpg","學優登仕","淡墨留白意境呈现：学业优秀，便可入仕。"
+"078","qzw-078.jpg","攝職從政","淡墨留白意境呈现：担任职务，从事政事。"
+"079","qzw-079.jpg","存以甘棠","淡墨留白意境呈现：留下甘棠之思，纪念德政。"
+"080","qzw-080.jpg","去而益詠","淡墨留白意境呈现：离去之后，更被人歌咏。"
+"081","qzw-081.jpg","樂殊貴賤","淡墨留白意境呈现：音乐因贵贱而有分别。"
+"082","qzw-082.jpg","禮別尊卑","淡墨留白意境呈现：礼节区分尊卑。"
+"083","qzw-083.jpg","上和下睦","淡墨留白意境呈现：在上者和睦，在下者亲近。"
+"084","qzw-084.jpg","夫唱婦隨","淡墨留白意境呈现：丈夫倡导，妻子随和。"
+"085","qzw-085.jpg","外受傅訓","淡墨留白意境呈现：在外接受师长的教诲。"
+"086","qzw-086.jpg","入奉母儀","淡墨留白意境呈现：在家奉行母亲的仪范。"
+"087","qzw-087.jpg","諸姑伯叔","淡墨留白意境呈现：诸位姑姑、伯父、叔父。"
+"088","qzw-088.jpg","猶子比兒","淡墨留白意境呈现：把侄子看作自己的儿子。"
+"089","qzw-089.jpg","孔懷兄弟","淡墨留白意境呈现：十分挂念兄弟。"
+"090","qzw-090.jpg","同氣連枝","淡墨留白意境呈现：同气相连，如枝同根。"
+"091","qzw-091.jpg","交友投分","淡墨留白意境呈现：结交朋友，要意气相投。"
+"092","qzw-092.jpg","切磨箴規","淡墨留白意境呈现：互相切磋，规劝诫勉。"
+"093","qzw-093.jpg","仁慈隱惻","淡墨留白意境呈现：心存仁慈与恻隐。"
+"094","qzw-094.jpg","造次弗離","淡墨留白意境呈现：匆忙仓促之时也不背离。"
+"095","qzw-095.jpg","節義廉退","淡墨留白意境呈现：守节、行义、廉洁、谦退。"
+"096","qzw-096.jpg","顛沛匪虧","淡墨留白意境呈现：颠沛流离也不亏损。"
+"097","qzw-097.jpg","性靜情逸","淡墨留白意境呈现：心性安静，情致安逸。"
+"098","qzw-098.jpg","心動神疲","淡墨留白意境呈现：心念躁动，精神疲乏。"
+"099","qzw-099.jpg","守真志滿","淡墨留白意境呈现：守住真性，志向圆满。"
+"100","qzw-100.jpg","逐物意移","淡墨留白意境呈现：追逐外物，心意就游移。"
+"101","qzw-101.jpg","堅持雅操","淡墨留白意境呈现：坚持高雅的操守。"
+"102","qzw-102.jpg","好爵自縻","淡墨留白意境呈现：好的爵位自来系在身上。"
+"103","qzw-103.jpg","都邑華夏","淡墨留白意境呈现：华夏的都城。"
+"104","qzw-104.jpg","東西二京","淡墨留白意境呈现：东都洛阳，西京长安。"
+"105","qzw-105.jpg","背邙面洛","淡墨留白意境呈现：背靠邙山，面向洛水。"
+"106","qzw-106.jpg","浮渭據涇","淡墨留白意境呈现：浮舟渭水，据守泾水。"
+"107","qzw-107.jpg","宮殿盤鬱","淡墨留白意境呈现：宫殿盘曲，气象郁盛。"
+"108","qzw-108.jpg","樓觀飛驚","淡墨留白意境呈现：楼观高耸，如飞如惊。"
+"109","qzw-109.jpg","圖寫禽獸","淡墨留白意境呈现：图画飞禽走兽。"
+"110","qzw-110.jpg","畫彩仙靈","淡墨留白意境呈现：彩绘仙人神灵。"
+"111","qzw-111.jpg","丙舍傍啓","淡墨留白意境呈现：丙舍在两旁开启。"
+"112","qzw-112.jpg","甲帳對楹","淡墨留白意境呈现：甲帐对着楹柱。"
+"113","qzw-113.jpg","肆筵設席","淡墨留白意境呈现：铺设筵席。"
+"114","qzw-114.jpg","鼓瑟吹笙","淡墨留白意境呈现：弹瑟吹笙。"
+"115","qzw-115.jpg","升階納陛","淡墨留白意境呈现：升上台阶，进入殿陛。"
+"116","qzw-116.jpg","弁轉疑星","淡墨留白意境呈现：冠冕转动，疑似星辰。"
+"117","qzw-117.jpg","右通廣內","淡墨留白意境呈现：右面通往广内殿。"
+"118","qzw-118.jpg","左達承明","淡墨留白意境呈现：左面到达承明殿。"
+"119","qzw-119.jpg","既集墳典","淡墨留白意境呈现：已经聚集了三坟五典。"
+"120","qzw-120.jpg","亦聚羣英","淡墨留白意境呈现：也聚集了众多英才。"
+"121","qzw-121.jpg","杜稿鍾隸","淡墨留白意境呈现：杜度的草稿，钟繇的隶书。"
+"122","qzw-122.jpg","漆書壁經","淡墨留白意境呈现：漆写的经书，壁藏的典籍。"
+"123","qzw-123.jpg","府羅將相","淡墨留白意境呈现：府中罗列着将相。"
+"124","qzw-124.jpg","路俠槐卿","淡墨留白意境呈现：道上夹列着三公九卿。"
+"125","qzw-125.jpg","戶封八縣","淡墨留白意境呈现：封给八县之户。"
+"126","qzw-126.jpg","家給千兵","淡墨留白意境呈现：每家供给千名兵士。"
+"127","qzw-127.jpg","高冠陪輦","淡墨留白意境呈现：高冠之人陪侍车辇。"
+"128","qzw-128.jpg","驅轂振纓","淡墨留白意境呈现：驱车前行，冠缨振起。"
+"129","qzw-129.jpg","世祿侈富","淡墨留白意境呈现：世代食禄，奢侈富足。"
+"130","qzw-130.jpg","車駕肥輕","淡墨留白意境呈现：车驾用肥马轻车。"
+"131","qzw-131.jpg","策功茂實","淡墨留白意境呈现：记录功劳，丰厚而实在。"
+"132","qzw-132.jpg","勒碑刻銘","淡墨留白意境呈现：刻碑立石，镌刻铭文。"
+"133","qzw-133.jpg","磻溪伊尹","淡墨留白意境呈现：磻溪的姜太公，与伊尹。"
+"134","qzw-134.jpg","佐時阿衡","淡墨留白意境呈现：辅佐当世，位居阿衡。"
+"135","qzw-135.jpg","奄宅曲阜","淡墨留白意境呈现：占有曲阜，建立鲁国。"
+"136","qzw-136.jpg","微旦孰營","淡墨留白意境呈现：没有周公旦，谁能营建。"
+"137","qzw-137.jpg","桓公匡合","淡墨留白意境呈现：齐桓公匡正天下，合诸侯。"
+"138","qzw-138.jpg","濟弱扶傾","淡墨留白意境呈现：救助弱小，扶持倾危。"
+"139","qzw-139.jpg","綺回漢惠","淡墨留白意境呈现：绮里季使汉惠帝回心。"
+"140","qzw-140.jpg","說感武丁","淡墨留白意境呈现：傅说感动了武丁。"
+"141","qzw-141.jpg","俊乂密勿","淡墨留白意境呈现：俊杰之士勤勉从事。"
+"142","qzw-142.jpg","多士寔寧","淡墨留白意境呈现：贤士众多，天下安宁。"
+"143","qzw-143.jpg","晉楚更霸","淡墨留白意境呈现：晋国楚国交替称霸。"
+"144","qzw-144.jpg","趙魏困橫","淡墨留白意境呈现：赵魏受困于连横之策。"
+"145","qzw-145.jpg","假途滅虢","淡墨留白意境呈现：借道虞国，灭掉虢国。"
+"146","qzw-146.jpg","踐土會盟","淡墨留白意境呈现：在践土会合诸侯，订立盟约。"
+"147","qzw-147.jpg","何遵約法","淡墨留白意境呈现：萧何遵循简约之法。"
+"148","qzw-148.jpg","韓弊煩刑","淡墨留白意境呈现：韩非受害于繁苛刑罚。"
+"149","qzw-149.jpg","起翦頗牧","淡墨留白意境呈现：白起、王翦、廉颇、李牧。"
+"150","qzw-150.jpg","用軍最精","淡墨留白意境呈现：用兵最为精妙。"
+"151","qzw-151.jpg","宣威沙漠","淡墨留白意境呈现：向沙漠宣扬威德。"
+"152","qzw-152.jpg","馳譽丹青","淡墨留白意境呈现：名声在绘画中远播。"
+"153","qzw-153.jpg","九州禹跡","淡墨留白意境呈现：九州留下大禹的足迹。"
+"154","qzw-154.jpg","百郡秦并","淡墨留白意境呈现：百郡被秦所兼并。"
+"155","qzw-155.jpg","嶽宗泰岱","淡墨留白意境呈现：五岳之中，以泰山为宗。"
+"156","qzw-156.jpg","禪主云亭","淡墨留白意境呈现：封禅之礼，以云云亭亭为主。"
+"157","qzw-157.jpg","雁門紫塞","淡墨留白意境呈现：雁门关与紫塞。"
+"158","qzw-158.jpg","雞田赤城","淡墨留白意境呈现：鸡田与赤城。"
+"159","qzw-159.jpg","昆池碣石","淡墨留白意境呈现：昆明池与碣石山。"
+"160","qzw-160.jpg","鉅野洞庭","淡墨留白意境呈现：巨野泽与洞庭湖。"
+"161","qzw-161.jpg","曠遠綿邈","淡墨留白意境呈现：空旷遥远，绵长渺茫。"
+"162","qzw-162.jpg","巖岫杳冥","淡墨留白意境呈现：山岩洞穴，幽深昏暗。"
+"163","qzw-163.jpg","治本於農","淡墨留白意境呈现：治国的根本在于农业。"
+"164","qzw-164.jpg","務茲稼穡","淡墨留白意境呈现：致力于播种与收获。"
+"165","qzw-165.jpg","俶載南畝","淡墨留白意境呈现：开始到南边的田里耕作。"
+"166","qzw-166.jpg","我藝黍稷","淡墨留白意境呈现：我种植黍和稷。"
+"167","qzw-167.jpg","稅熟貢新","淡墨留白意境呈现：谷熟纳税，新谷进贡。"
+"168","qzw-168.jpg","勸賞黜陟","淡墨留白意境呈现：劝勉奖赏，罢黜升迁。"
+"169","qzw-169.jpg","孟軻敦素","淡墨留白意境呈现：孟轲崇尚质朴。"
+"170","qzw-170.jpg","史魚秉直","淡墨留白意境呈现：史鱼秉持正直。"
+"171","qzw-171.jpg","庶幾中庸","淡墨留白意境呈现：差不多合于中庸之道。"
+"172","qzw-172.jpg","勞謙謹敕","淡墨留白意境呈现：勤劳、谦逊、谨慎、整饬。"
+"173","qzw-173.jpg","聆音察理","淡墨留白意境呈现：听其声音，察其道理。"
+"174","qzw-174.jpg","鑑貌辨色","淡墨留白意境呈现：观察容貌，辨别神色。"
+"175","qzw-175.jpg","貽厥嘉猷","淡墨留白意境呈现：留下美好的谋略。"
+"176","qzw-176.jpg","勉其祗植","淡墨留白意境呈现：勉励其恭敬修身。"
+"177","qzw-177.jpg","省躬譏誡","淡墨留白意境呈现：反省自身，接受讥诫。"
+"178","qzw-178.jpg","寵增抗極","淡墨留白意境呈现：恩宠增加，高傲至极。"
+"179","qzw-179.jpg","殆辱近恥","淡墨留白意境呈现：危险羞辱，近在眼前。"
+"180","qzw-180.jpg","林皋幸即","淡墨留白意境呈现：退居山林水边，幸而得之。"
+"181","qzw-181.jpg","兩疏見機","淡墨留白意境呈现：疏广疏受，见机而退。"
+"182","qzw-182.jpg","解組誰逼","淡墨留白意境呈现：解下印绶，谁人相逼。"
+"183","qzw-183.jpg","索居閒處","淡墨留白意境呈现：独居闲处。"
+"184","qzw-184.jpg","沉默寂寥","淡墨留白意境呈现：沉默寂静，空寥无声。"
+"185","qzw-185.jpg","求古尋論","淡墨留白意境呈现：探求古事，寻究论说。"
+"186","qzw-186.jpg","散慮逍遙","淡墨留白意境呈现：散去忧虑，逍遥自在。"
+"187","qzw-187.jpg","欣奏累遣","淡墨留白意境呈现：欣喜到来，牵累遣去。"
+"188","qzw-188.jpg","慼謝歡招","淡墨留白意境呈现：忧愁退去，欢乐招来。"
+"189","qzw-189.jpg","渠荷的歷","淡墨留白意境呈现：渠中荷花，鲜明清丽。"
+"190","qzw-190.jpg","園莽抽條","淡墨留白意境呈现：园中草木，抽出枝条。"
+"191","qzw-191.jpg","枇杷晚翠","淡墨留白意境呈现：枇杷到深秋仍青翠。"
+"192","qzw-192.jpg","梧桐早凋","淡墨留白意境呈现：梧桐叶子早早凋落。"
+"193","qzw-193.jpg","陳根委翳","淡墨留白意境呈现：旧根枯萎，堆积遮蔽。"
+"194","qzw-194.jpg","落葉飄搖","淡墨留白意境呈现：落叶随风飘摇。"
+"195","qzw-195.jpg","遊鵾獨運","淡墨留白意境呈现：大鸟独自行于高空。"
+"196","qzw-196.jpg","凌摩絳霄","淡墨留白意境呈现：直上摩近红色云霄。"
+"197","qzw-197.jpg","耽讀玩市","淡墨留白意境呈现：沉迷读书，玩味于市。"
+"198","qzw-198.jpg","寓目囊箱","淡墨留白意境呈现：目光所及，是书囊书箱。"
+"199","qzw-199.jpg","易輶攸畏","淡墨留白意境呈现：轻忽之事，尤须畏惧。"
+"200","qzw-200.jpg","屬耳垣牆","淡墨留白意境呈现：贴着墙壁，侧耳倾听。"
+"201","qzw-201.jpg","具膳餐飯","淡墨留白意境呈现：备好膳食，用饭。"
+"202","qzw-202.jpg","適口充腸","淡墨留白意境呈现：合口味，填饱肚肠。"
+"203","qzw-203.jpg","飽飫烹宰","淡墨留白意境呈现：饱食烹煮的牲肉。"
+"204","qzw-204.jpg","飢厭糟糠","淡墨留白意境呈现：饥饿时只求糟糠充饥。"
+"205","qzw-205.jpg","親戚故舊","淡墨留白意境呈现：亲戚与故交老友。"
+"206","qzw-206.jpg","老少異糧","淡墨留白意境呈现：老人小孩，饭食不同。"
+"207","qzw-207.jpg","妾御績紡","淡墨留白意境呈现：妻妾从事纺线织布。"
+"208","qzw-208.jpg","侍巾帷房","淡墨留白意境呈现：在内室侍奉巾栉。"
+"209","qzw-209.jpg","紈扇圓潔","淡墨留白意境呈现：白色绢扇，圆润洁白。"
+"210","qzw-210.jpg","銀燭煒煌","淡墨留白意境呈现：银烛明亮辉煌。"
+"211","qzw-211.jpg","晝眠夕寐","淡墨留白意境呈现：白天午睡，夜里安眠。"
+"212","qzw-212.jpg","籃筍象牀","淡墨留白意境呈现：竹席与象牙床。"
+"213","qzw-213.jpg","絃歌酒宴","淡墨留白意境呈现：弦歌奏起，酒宴开设。"
+"214","qzw-214.jpg","接杯舉觴","淡墨留白意境呈现：传递酒杯，举起酒觞。"
+"215","qzw-215.jpg","矯手頓足","淡墨留白意境呈现：抬手顿足，随乐起舞。"
+"216","qzw-216.jpg","悅豫且康","淡墨留白意境呈现：欢悦安乐，身体康健。"
+"217","qzw-217.jpg","嫡後嗣續","淡墨留白意境呈现：嫡系后代，承继不绝。"
+"218","qzw-218.jpg","祭祀烝嘗","淡墨留白意境呈现：四时祭祀，冬烝秋尝。"
+"219","qzw-219.jpg","稽顙再拜","淡墨留白意境呈现：叩头触地，再次下拜。"
+"220","qzw-220.jpg","悚懼恐惶","淡墨留白意境呈现：惊悚畏惧，惶恐不安。"
+"221","qzw-221.jpg","箋牒簡要","淡墨留白意境呈现：书信公文，简明扼要。"
+"222","qzw-222.jpg","顧答審詳","淡墨留白意境呈现：回话答问，审慎周详。"
+"223","qzw-223.jpg","骸垢想浴","淡墨留白意境呈现：身上沾污，就想沐浴。"
+"224","qzw-224.jpg","執熱願涼","淡墨留白意境呈现：手持热物，愿得清凉。"
+"225","qzw-225.jpg","驢騾犢特","淡墨留白意境呈现：驴、骡、牛犊、公牛。"
+"226","qzw-226.jpg","駭躍超驤","淡墨留白意境呈现：惊跃奔腾，超越前行。"
+"227","qzw-227.jpg","誅斬賊盜","淡墨留白意境呈现：诛杀盗贼。"
+"228","qzw-228.jpg","捕獲叛亡","淡墨留白意境呈现：捕捉叛逃之人。"
+"229","qzw-229.jpg","布射遼丸","淡墨留白意境呈现：吕布善射，宜僚善弄丸。"
+"230","qzw-230.jpg","嵇琴阮嘯","淡墨留白意境呈现：嵇康弹琴，阮籍长啸。"
+"231","qzw-231.jpg","恬筆倫紙","淡墨留白意境呈现：蒙恬制笔，蔡伦造纸。"
+"232","qzw-232.jpg","鈞巧任釣","淡墨留白意境呈现：马钧巧思，任公垂钓。"
+"233","qzw-233.jpg","釋紛利俗","淡墨留白意境呈现：解开纷争，有利世俗。"
+"234","qzw-234.jpg","並皆佳妙","淡墨留白意境呈现：全都美好精妙。"
+"235","qzw-235.jpg","毛施淑姿","淡墨留白意境呈现：毛嫱西施，姿容美好。"
+"236","qzw-236.jpg","工顰妍笑","淡墨留白意境呈现：皱眉也美，笑也妍丽。"
+"237","qzw-237.jpg","年矢每催","淡墨留白意境呈现：岁月如箭，时时催人。"
+"238","qzw-238.jpg","曦暉朗曜","淡墨留白意境呈现：阳光明亮照耀。"
+"239","qzw-239.jpg","璇璣懸斡","淡墨留白意境呈现：璇玑悬空运转。"
+"240","qzw-240.jpg","晦魄環照","淡墨留白意境呈现：月魄晦暗，环行照临。"
+"241","qzw-241.jpg","指薪修祜","淡墨留白意境呈现：薪火相传，修积福祜。"
+"242","qzw-242.jpg","永綏吉劭","淡墨留白意境呈现：永远安好，吉祥美好。"
+"243","qzw-243.jpg","矩步引領","淡墨留白意境呈现：步法方正，引领仰望。"
+"244","qzw-244.jpg","俯仰廊廟","淡墨留白意境呈现：在廊庙中俯仰行礼。"
+"245","qzw-245.jpg","束帶矜莊","淡墨留白意境呈现：束好衣带，庄重自持。"
+"246","qzw-246.jpg","徘徊瞻眺","淡墨留白意境呈现：来回踱步，远望眺望。"
+"247","qzw-247.jpg","孤陋寡聞","淡墨留白意境呈现：孤陋寡闻，见识浅少。"
+"248","qzw-248.jpg","愚蒙等誚","淡墨留白意境呈现：愚昧无知，同受讥诮。"
+"249","qzw-249.jpg","謂語助者","淡墨留白意境呈现：所谓语气助词。"
+"250","qzw-250.jpg","焉哉乎也","淡墨留白意境呈现：焉、哉、乎、也。"

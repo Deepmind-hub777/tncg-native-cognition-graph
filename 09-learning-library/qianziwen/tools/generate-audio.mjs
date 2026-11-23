@@ -36,12 +36,23 @@ const gcloud = process.env.GCLOUD_CMD || (process.platform === 'win32' && proces
 const runGcloud = (args) => process.platform === 'win32'
   ? execFileSync('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command', '& $env:GCLOUD_CMD ' + args.join(' ')], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], env: { ...process.env, GCLOUD_CMD: gcloud } })
   : execFileSync(gcloud, args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
-let token;
-try { token = runGcloud(['auth', 'print-access-token']).trim(); } catch { token = ''; }
-if (!token) { try { token = runGcloud(['auth', 'application-default', 'print-access-token']).trim(); } catch { token = ''; } }
-if (!token) throw new Error('No gcloud CLI or application-default access token is available.');
+// 凭据来源优先级：显式 token → gcloud 用户凭据 → ADC。
+// 注意：ADC 常属于另一个 Google 身份，若它不是该项目的成员，会在 TTS 上返回 403
+// "serviceusage.services.use"，因此只在前两者都不可用时才降级，并且必须打印警告。
+let token = '';
+let tokenSource = '';
+if (process.env.TTS_ACCESS_TOKEN) { token = process.env.TTS_ACCESS_TOKEN.trim(); tokenSource = 'env:TTS_ACCESS_TOKEN'; }
+if (!token) {
+  try { token = runGcloud(['auth', 'print-access-token']).trim(); if (token) tokenSource = 'gcloud-user'; } catch { token = ''; }
+}
+if (!token) {
+  try { token = runGcloud(['auth', 'application-default', 'print-access-token']).trim(); if (token) tokenSource = 'gcloud-adc'; } catch { token = ''; }
+}
+if (!token) throw new Error('No gcloud CLI or application-default access token is available. Set TTS_ACCESS_TOKEN, or run gcloud auth login as an account that owns the project.');
+if (tokenSource === 'gcloud-adc') console.warn('WARN: 使用 ADC 凭据；若该身份不是项目成员，TTS 会返回 403 serviceusage.services.use。建议改用 gcloud auth login 或设置 TTS_ACCESS_TOKEN。');
 const project = runGcloud(['config', 'get-value', 'project']).trim();
 if (!project || project === '(unset)') throw new Error('No active Google Cloud project is configured.');
+console.log(`auth: ${tokenSource} · project: ${project}`);
 
 const voice = 'cmn-CN-Standard-A';
 const pending = [];

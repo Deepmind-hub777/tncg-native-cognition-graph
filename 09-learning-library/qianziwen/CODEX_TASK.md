@@ -59,3 +59,20 @@
 - 常速音频生成（TTS 有费用）
 - 安卓真机复测（需要用户手机）
 - 任何 `verified` 状态升级
+
+## 音频管线：凭据规则（2026-11-23 修正）
+
+- `generate-audio.mjs` 取 token 的顺序固定为：`TTS_ACCESS_TOKEN`（环境变量）→ `gcloud auth print-access-token`（用户凭据）→ ADC。ADC 只作最后降级，且会打印警告。
+- ADC 常挂在另一个 Google 身份，若该身份不是项目 `gen-lang-client-0446244982` 的成员，TTS 会返回 `403 serviceusage.services.use`。项目人类成员只有 owner `zhajray@gmail.com`。
+- Codex 跑在独立 Windows 沙箱账号下，读不到真实用户 profile 的 gcloud 凭据库。因此：
+  - 需要 Codex 自己跑音频时，先给进程注入 `TTS_ACCESS_TOKEN`（短期 access token，勿写入仓库与日志）；
+  - 否则由豆包在有凭据的会话里执行，Codex 只做导入与校验。
+- 遇到 401/403 立即停止，不留空文件，不把不存在的路径写进 `lessons.json`。
+
+## 长任务管线优化规则
+
+1. 所有批量长任务持续输出 `logs/progress.json`：总任务数、已完成、失败清单、预计剩余。
+2. 插图类任务每 20 张输出一次抽样预览索引（缩略图拼版 + 序号清单），供快速抽检。
+3. 主线任务运行期间，允许并行预处理无冲突附属资产（笔顺素材、前端组件模板）。
+4. TTS 等外部 API 管线必须有降级预案：超时/配额/权限故障时写故障日志并按批次暂停，不阻断其余任务。
+5. 任何批次收尾必须给出「产物核对」：文件数、清单行数、抽查解码、缺失序号；报告数字必须与磁盘一致。
