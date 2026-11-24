@@ -32,3 +32,5 @@ a,button,select,input{-webkit-tap-highlight-color:transparent}
 @media (prefers-reduced-motion:reduce){.cue-pulse:not(:disabled){animation:none!important;box-shadow:0 0 0 3px #e0c08f}}
 .hub-link-hand{color:#9a7b55;font-size:.78rem}
 .hub-link-row a[href*="#qz="]{background:#fbefd6;border-color:#c9a26a;color:#5a3a12;font-weight:600}
+
+.hub-links-section{scroll-margin-top:calc(var(--hubbar-h,0px) + 10px)}
