@@ -14,24 +14,66 @@ const writers = new Map();
 let strokeGaps = new Set();
 const strokeGapsReady = fetch('data/stroke-gaps.json').then((r) => (r.ok ? r.json() : {})).then((d) => { strokeGaps = new Set(d.codepoints ?? []); }).catch(() => {});
 
+// 朗讀狀態只在出錯或改用手機語音時顯示一行小字；平時不佔位置
 const setAudioState = (state, details = {}) => {
-  const messages = { idle: '點擊按鈕播放', loading: '正在啟動語音…', playing: '正在播放', ended: '播放完成；再次點擊慢速朗讀可重播', error: '播放失敗，請檢查音量或重試。' };
-  const source = details.source === 'browser-tts' ? '（設備普通話語音）' : details.source === 'recorded-audio' ? '（標準錄音）' : '';
-  $('#audio-status').textContent = state === 'error' ? `語音錯誤：${details.message ?? messages.error}` : `${messages[state] ?? state}${state === 'playing' ? source : ''}`;
+  const el = $('#audio-status'); if (!el) return;
+  if (state === 'error') { el.textContent = `語音錯誤：${details.message ?? '播放失敗，請檢查音量或重試。'}`; stopReading(); return; }
+  if (state === 'ended') { stopReading(); el.textContent = ''; return; }
+  el.textContent = state === 'playing' && details.source === 'browser-tts' ? '（使用設備普通話語音）' : '';
 };
 
+// 慢速朗讀時，繁體原文和拼音裏「正在讀的字」一起高亮（字的起始時間見 data/slow-timing.json，缺資料時平均分）
+let slowTiming = {};
+fetch('data/slow-timing.json?v=1').then((r) => (r.ok ? r.json() : {})).then((d) => { slowTiming = d; }).catch(() => {});
+let readingRaf = 0;
+function markReading(index) {
+  document.querySelectorAll('#traditional-text [data-ci], #pinyin-list [data-ci]').forEach((el) => {
+    const on = Number(el.dataset.ci) === index; el.classList.toggle('is-reading', on);
+    if (el.tagName === 'BUTTON') el.setAttribute('aria-pressed', String(on));
+  });
+}
+function stopReading() {
+  cancelAnimationFrame(readingRaf); readingRaf = 0; markReading(-1);
+  document.querySelectorAll('.play-slow').forEach((b) => b.classList.remove('is-playing'));
+}
+function followLine(url) {
+  const marks = slowTiming[String(lesson.sequence)]; const count = [...lesson.traditionalText.value].length;
+  const tick = () => {
+    if (!audio.src.endsWith(url)) { stopReading(); return; }
+    const t = audio.currentTime; let index = 0;
+    if (Array.isArray(marks) && marks.length === count + 1) { for (let k = 0; k < count; k += 1) if (t >= marks[k] - 0.04) index = k; }
+    else if (audio.duration > 0) index = Math.min(count - 1, Math.floor((t / audio.duration) * count));
+    markReading(index); readingRaf = requestAnimationFrame(tick);
+  };
+  tick();
+}
+
 function speak(text, mode, index = null) {
-  chainToken += 1;
+  chainToken += 1; stopReading();
   const value = lesson.audio.value;
   const url = mode === 'character' || mode === 'quiz' ? value.characters?.[index] : value.slow;
-  void playClip({ audioElement: audio, assetUrl: url, fallbackText: text, speakingRate: 0.6, speechApi: window.speechSynthesis, onState: setAudioState })
-    .catch((error) => { $('#audio-status').textContent = error.message; });
+  // playClip 同步設好 audio.src 後才開始跟讀高亮
+  const playing = playClip({ audioElement: audio, assetUrl: url, fallbackText: text, speakingRate: 0.6, speechApi: window.speechSynthesis, onState: setAudioState });
+  if (mode === 'slow') { document.querySelectorAll('.play-slow').forEach((b) => b.classList.add('is-playing')); if (url) followLine(url); else markReading(0); }
+  else if (mode === 'character') markReading(index);
+  void playing.catch((error) => { $('#audio-status').textContent = error.message; stopReading(); });
+}
+
+function drawText() {
+  const target = $('#traditional-text'); target.replaceChildren();
+  [...lesson.traditionalText.value].forEach((character, index) => {
+    const button = document.createElement('button'); button.type = 'button'; button.className = 'read-char'; button.dataset.ci = String(index);
+    button.textContent = character; button.setAttribute('aria-label', `朗讀「${character}」`);
+    button.addEventListener('click', () => speak(character, 'character', index)); target.append(button);
+  });
 }
 
 function drawPinyin() {
   const list = $('#pinyin-list'); list.replaceChildren();
   [...lesson.traditionalText.value].forEach((character, index) => {
-    const item = document.createElement('span'); item.className = 'pinyin-item';
+    const item = document.createElement('button'); item.type = 'button'; item.className = 'pinyin-item'; item.dataset.ci = String(index);
+    item.setAttribute('aria-label', `朗讀「${character}」${lesson.pinyin.value[index] ?? ''}`);
+    item.addEventListener('click', () => speak(character, 'character', index));
     const hanzi = document.createElement('span'); hanzi.className = 'hanzi'; hanzi.textContent = character;
     const syllable = document.createElement('span'); syllable.className = 'syllable'; syllable.textContent = lesson.pinyin.value[index];
     item.append(hanzi, syllable); list.append(item);
@@ -202,7 +244,8 @@ function onQuizNext() {
 async function renderLesson() {
   $('#lesson').setAttribute('aria-busy', 'true');
   renderLessonTabs();
-  $('#traditional-text').textContent = lesson.traditionalText.value;
+  stopReading(); if (!audio.paused) audio.pause();
+  drawText();
   document.title = `千字文 · 第 ${lesson.sequence} 組`; markSeen(lesson.sequence);
   $('#review-badge').textContent = `第 ${lesson.sequence} 組內容待校訂`;
   drawMeaningReading(); drawPinyin();
@@ -215,12 +258,8 @@ async function renderLesson() {
   const image = $('#illustration'); const caption = $('#illustration-caption');
   if (illustration.path) { image.hidden = false; image.src = illustration.path; image.alt = `${lesson.traditionalText.value}意境插畫`; caption.textContent = illustration.prompt; }
   else { image.hidden = true; image.removeAttribute('src'); caption.textContent = '意境插畫待製作。'; }
-  const characters = [...lesson.traditionalText.value]; const audioButtons = $('#char-audio'); audioButtons.replaceChildren();
-  characters.forEach((character, index) => {
-    const button = document.createElement('button'); button.type = 'button'; button.textContent = character;
-    button.setAttribute('aria-label', `播放${character}`); button.addEventListener('click', () => speak(character, 'character', index)); audioButtons.append(button);
-  });
-  $('#play-slow').onclick = () => speak(lesson.traditionalText.value, 'slow');
+  const playLine = () => speak(lesson.traditionalText.value, 'slow');
+  $('#play-slow').onclick = playLine; $('#play-slow-py').onclick = playLine; $('#audio-status').textContent = '';
   const tabs = $('#page-groups'); [...tabs.children].forEach((button, index) => { button.setAttribute('aria-current', String(getPageEntries(lessons, activePage)[index].id === lesson.id)); });
   await buildWriting(); renderQuiz(); $('#lesson').setAttribute('aria-busy', 'false');
 }
@@ -278,7 +317,7 @@ try {
   $('#quiz-next').addEventListener('click', onQuizNext);
   await renderLesson();
   const env = detectAudioEnvironment({ userAgent: navigator.userAgent, protocol: location.protocol, speechApi: window.speechSynthesis });
-  if (env.androidChrome && lessons.length > 1) $('#audio-status').textContent = '點擊慢速朗讀播放；尚未製作的錄音會使用手機普通話語音。';
+  void env;
 } catch (error) {
   $('#lesson').setAttribute('aria-busy', 'false'); $('#audio-status').textContent = error.message;
   $('#writing-status').textContent = '描紅資料載入失敗，請重新整理頁面。'; console.error(error);
