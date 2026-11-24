@@ -292,7 +292,6 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 提交 `9e646b2`（rebase 到 `eef1226` 之上），已推送，HEAD 与 `origin/feature/qianziwen-module` 一致。
 - 遗留：`qzw-v0.2.0-beta.1` 资产仍对应 `043398e`，与当前 HEAD 脱钩；若要发 beta.2 需重新连打两次比对哈希。
 
-
 ## 插画局部审核台账（2026-11-25）
 
 - 新增 `data/illustration-review.md` 与 `data/illustration-review.csv`，逐组记录 001–250 的原文、原图路径、简短意象、审核结论/状态、问题原因、局部修复方向与修订稿路径。
@@ -300,3 +299,11 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - 第 004 组「辰宿列張」记为 `REFINE`：保留远山、构图与留白，后续只将灰黄色天空调整为深黛/靛青，并加强星辰层次；原图 `assets/illustrations/qzw-004.jpg` 不覆盖。修订尚未生成。
 - 其余 248 组明确标为待单幅审核；未用联系表缩略图抽查结果冒充逐张 PASS。
 - 本轮未重绘、替换或删除任何插画，也未修改课程 JSON。
+
+## 第 004 组「辰宿列張」局部修订稿（2026-11-25）
+
+- 以原图为编辑目标，生成深黛/靛青夜空和较清晰的星点；通过天空区域合成保留原图远山、地平线、树木与地景，不重设计整幅构图。
+- 修订稿：`assets/illustrations/revisions/qzw-004-refine-v1.jpg`（1536×1024，286,930 bytes）；并列预览：`assets/illustrations/revisions/qzw-004-original-vs-refine-v1.jpg`（1536×554，160,997 bytes）。
+- CSV 第 004 组已记录原图路径、修订稿路径和对照预览路径；状态为 `REFINE / 待人工确认`。
+- 原图 `assets/illustrations/qzw-004.jpg` SHA-256 前后均为 `95349FD641ACAD7D0ECDA3676305892EE9353D94FA84563604F5F0447A23ED4B`，确认未覆盖；其他 248 组插画未触碰。
+- 本轮仅做图像和路径核验，未运行应用测试；当前等待用户人工确认，不将修订稿设为 PASS，也未更新课程使用路径。
