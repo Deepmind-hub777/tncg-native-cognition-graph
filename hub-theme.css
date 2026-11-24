@@ -34,3 +34,19 @@ a,button,select,input{-webkit-tap-highlight-color:transparent}
 .hub-link-row a[href*="#qz="]{background:#fbefd6;border-color:#c9a26a;color:#5a3a12;font-weight:600}
 
 .hub-links-section{scroll-margin-top:calc(var(--hubbar-h,0px) + 10px)}
+/* 慢速朗讀併入「繁體原文」「拼音」：標題右側朗讀鍵；點字/點拼音讀單字；整句朗讀時正在讀的字高亮 */
+.sec-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px}
+.sec-head h2{margin:0}
+.play-slow{display:inline-flex;align-items:center;gap:6px;flex:none;min-height:44px;padding:6px 14px 6px 11px;border-radius:22px;background:#fbefd6;border-color:#c9a26a;color:#5a3a12;font-weight:600;font-size:.95rem;white-space:nowrap}
+.play-slow svg{width:20px;height:20px;flex:none}
+.play-slow.mini{width:44px;padding:0;justify-content:center}
+.play-slow.is-playing{background:#8a5d2c;border-color:#8a5d2c;color:#fff}
+.traditional-text{display:flex;justify-content:center;flex-wrap:nowrap;gap:clamp(2px,1.6vw,14px);letter-spacing:0;margin:0}
+.traditional-text .read-char{font:inherit;font-family:var(--hz-kai);color:inherit;background:transparent;border:1px solid transparent;border-radius:14px;min-height:0;min-width:1.2em;padding:.02em .06em;line-height:1.2;transition:background .15s,color .15s,box-shadow .15s}
+.pinyin-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(4px,1.6vw,12px);max-width:520px;margin:0 auto}
+.pinyin-list .pinyin-item{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;min-height:64px;padding:6px 2px;background:transparent;border:1px solid transparent;border-radius:12px;color:inherit;transition:background .15s,color .15s,box-shadow .15s}
+.read-char.is-reading,.pinyin-list .pinyin-item.is-reading{background:#fbe3b4;border-color:#c9a26a;color:#7a3c06;box-shadow:0 0 0 3px #f3d48f66}
+.read-char:hover,.pinyin-list .pinyin-item:hover{background:#f6ead2}
+.read-status{font:.82rem/1.4 system-ui,-apple-system,"PingFang SC",sans-serif;color:var(--muted);margin:6px 0 0;text-align:center}
+.read-status:empty{display:none}
+@media(max-width:360px){.play-slow{padding:6px 11px 6px 9px;font-size:.88rem}}
