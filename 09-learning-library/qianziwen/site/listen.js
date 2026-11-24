@@ -1,4 +1,5 @@
 import { playClip } from '../src/audio.js';
+import { markSeen, lastSeen } from '../src/progress.js?v=1';
 
 const $ = (selector) => document.querySelector(selector);
 const TOTAL = 250;
@@ -55,7 +56,7 @@ function render() {
   card.setAttribute('aria-busy', 'true');
   const text = activeLesson.traditionalText.value;
   const characters = [...text];
-  $('#lesson-index').textContent = `第 ${sequence} 组`;
+  $('#lesson-index').textContent = `第 ${sequence} 组`; markSeen(sequence);
   $('#traditional-text').textContent = text;
   $('#character-pinyin').replaceChildren();
   characters.forEach((character, index) => {
@@ -151,7 +152,7 @@ try {
   lessons = await response.json();
   if (lessons.length !== TOTAL) throw new Error(`课程数据数量不正确：当前载入 ${lessons.length} 组。`);
   const pageUrl = new URL(location.href);
-  const initial = Number(pageUrl.searchParams.get('group'));
+  const initial = pageUrl.searchParams.has('group') ? Number(pageUrl.searchParams.get('group')) : (lastSeen() ?? 1);
   sequence = Number.isInteger(initial) && initial >= 1 && initial <= TOTAL ? initial : 1;
   if (pageUrl.searchParams.get('group') !== String(sequence)) {
     pageUrl.searchParams.set('group', String(sequence)); history.replaceState({ sequence }, '', pageUrl);

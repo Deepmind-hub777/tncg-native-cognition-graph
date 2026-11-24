@@ -3,6 +3,7 @@ import { detectAudioEnvironment, playClip } from './audio.js';
 import { createQuiz, answerQuiz } from './quiz.js';
 import { getPageCount, getPageEntries } from './pagination.js';
 import { renderHubLinks } from './hub-links.js?v=3';
+import { markSeen, recordQuiz } from './progress.js?v=1';
 
 const $ = (selector) => document.querySelector(selector);
 const audio = $('#audio-player');
@@ -168,6 +169,7 @@ function renderQuiz() {
       });
       $('#quiz-play').disabled = finished;
       if (finished) {
+        recordQuiz(activePage, score);
         $('#quiz-progress').textContent = `已完成 ${MAX_QUIZ_QUESTIONS} / ${MAX_QUIZ_QUESTIONS} 題`;
         nextButton.textContent = '再來一局'; nextButton.disabled = false; cueButton('#quiz-next');
         quizHint('全部完成，真棒！點「再來一局」可以重新開始。');
@@ -201,7 +203,7 @@ async function renderLesson() {
   $('#lesson').setAttribute('aria-busy', 'true');
   renderLessonTabs();
   $('#traditional-text').textContent = lesson.traditionalText.value;
-  document.title = `千字文 · 第 ${lesson.sequence} 組`;
+  document.title = `千字文 · 第 ${lesson.sequence} 組`; markSeen(lesson.sequence);
   $('#review-badge').textContent = `第 ${lesson.sequence} 組內容待校訂`;
   drawMeaningReading(); drawPinyin();
   void renderHubLinks($('#hub-links'), [...lesson.traditionalText.value], lesson.pinyin.value);
