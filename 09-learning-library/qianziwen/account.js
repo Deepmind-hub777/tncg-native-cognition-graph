@@ -88,10 +88,14 @@
   /* ---------- 界面 ---------- */
   var css = document.createElement('style');
   css.textContent =
-    '.hzac-chip{display:inline-flex;align-items:center;gap:5px;min-height:36px;max-width:42vw;padding:0 12px;border:1px solid #c9b08a;border-radius:18px;background:#fffaf0;color:#5b3f1f;font:600 14px/1 -apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;-webkit-tap-highlight-color:transparent}' +
+    '.hzac-chip{display:inline-flex;align-items:center;gap:5px;min-height:36px;max-width:min(42vw,200px);min-width:0;padding:0 12px;border:1px solid #c9b08a;border-radius:18px;background:#fffaf0;color:#5b3f1f;font:600 14px/1 -apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;-webkit-tap-highlight-color:transparent}' +
+    '.hzac-chip span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}' +
     '.hzac-chip:focus-visible{outline:3px solid #b77f3e;outline-offset:2px}.hzac-chip svg{width:16px;height:16px;flex:none}' +
     '.hzac-chip.in{background:#5b3f1f;color:#fffaf0;border-color:#5b3f1f}' +
-    '.hubbar .hzac-chip{margin-left:8px;flex:none}' +
+    '.hubbar .hzac-chip{margin-left:6px;flex:0 1 auto;min-width:40px;max-width:min(34vw,180px)}' +
+    '@media (max-width:480px){.hubbar .hzac-chip{min-height:34px;padding:0 9px;gap:4px;font-size:13px}.hzac-chip svg{width:15px;height:15px}}' +
+    '@media (max-width:359px){.hubbar .hzac-chip{padding:0 7px;max-width:30vw}}' +
+    '#hzac-slot.flow{position:static;display:flex;justify-content:flex-end;padding:8px 0 0}' +
     '#hzac-slot{position:absolute;z-index:5;top:max(8px,env(safe-area-inset-top,0px));right:max(10px,env(safe-area-inset-right,0px))}' +
     '.acslot{display:flex;justify-content:center;flex:1;min-width:0}' +
     '.hzac-float{position:fixed;z-index:9998;right:max(10px,env(safe-area-inset-right,0px));bottom:max(10px,env(safe-area-inset-bottom,0px));box-shadow:0 3px 12px rgba(80,60,30,.2)}' +
