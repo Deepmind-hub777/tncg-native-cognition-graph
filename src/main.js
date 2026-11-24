@@ -2,8 +2,8 @@ import { createWritingSurface } from './writing.js';
 import { detectAudioEnvironment, playClip } from './audio.js';
 import { createQuiz, answerQuiz } from './quiz.js';
 import { getPageCount, getPageEntries } from './pagination.js';
-import { renderHubLinks } from './hub-links.js?v=3';
-import { markSeen, recordQuiz } from './progress.js?v=1';
+import { renderHubLinks, LINKS_ANCHOR } from './hub-links.js?v=4';
+import { markSeen, recordQuiz, lastSeen } from './progress.js?v=1';
 
 const $ = (selector) => document.querySelector(selector);
 const audio = $('#audio-player');
@@ -206,7 +206,7 @@ async function renderLesson() {
   document.title = `千字文 · 第 ${lesson.sequence} 組`; markSeen(lesson.sequence);
   $('#review-badge').textContent = `第 ${lesson.sequence} 組內容待校訂`;
   drawMeaningReading(); drawPinyin();
-  void renderHubLinks($('#hub-links'), [...lesson.traditionalText.value], lesson.pinyin.value);
+  void renderHubLinks($('#hub-links'), [...lesson.traditionalText.value], lesson.pinyin.value, { page: activePage, group: lesson.sequence }).then(scrollToLinksIfAsked);
   $('#pinyin-status').textContent = lesson.pinyin.status === 'needs_review' ? '拼音待校訂' : '';
   $('#meaning-status').textContent = lesson.simplifiedMeaning.status === 'needs_review' ? '釋義待校訂' : '';
   $('#english-note').textContent = lesson.englishNote.value;
@@ -225,8 +225,15 @@ async function renderLesson() {
   await buildWriting(); renderQuiz(); $('#lesson').setAttribute('aria-busy', 'false');
 }
 
+// 从拼词园回来（网址带 #zi-jiazu）：内容画好后滚到「字的家族」，只滚一次
+let pendingAnchor = location.hash === `#${LINKS_ANCHOR}`;
+function scrollToLinksIfAsked() {
+  if (!pendingAnchor) return; pendingAnchor = false;
+  requestAnimationFrame(() => document.getElementById(LINKS_ANCHOR)?.scrollIntoView({ block: 'start' }));
+}
+
 function updateLocation(push = true) {
-  const url = new URL(location.href); url.searchParams.set('page', String(activePage)); url.searchParams.set('group', String(lesson.sequence));
+  const url = new URL(location.href); url.hash = ''; url.searchParams.set('page', String(activePage)); url.searchParams.set('group', String(lesson.sequence));
   if (push) history.pushState({ page: activePage, group: lesson.sequence }, '', url);
   else history.replaceState({ page: activePage, group: lesson.sequence }, '', url);
 }
@@ -243,6 +250,7 @@ function restoreLocation() {
   activePage = Math.max(1, Math.min(pageCount, Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1));
   const pageLessons = getPageEntries(lessons, activePage);
   lesson = pageLessons.find((entry) => entry.sequence === requestedSequence) ?? pageLessons[0];
+  pendingAnchor = location.hash === `#${LINKS_ANCHOR}`;
   void renderLesson();
 }
 
@@ -253,7 +261,12 @@ try {
   if (Number.isInteger(requestedPage) && requestedPage > 0) {
     activePage = Math.min(getPageCount(lessons.length), requestedPage);
     lesson = getPageEntries(lessons, activePage).find((entry) => entry.sequence === requestedGroup) ?? getPageEntries(lessons, activePage)[0];
-  } else updateLocation(false);
+  } else {
+    // 正常进入（没带页码）：回到上次看到的那一组
+    const last = lastSeen(); const at = last ? lessons.findIndex((entry) => entry.sequence === last) : -1;
+    if (at >= 0) { activePage = Math.floor(at / 4) + 1; lesson = lessons[at]; }
+    updateLocation(false);
+  }
   renderPageSelect(); window.addEventListener('popstate', restoreLocation);
   $('#page-first').addEventListener('click', () => changePage(1)); $('#page-prev').addEventListener('click', () => changePage(activePage - 1));
   $('#page-next').addEventListener('click', () => changePage(activePage + 1)); $('#page-last').addEventListener('click', () => changePage(getPageCount(lessons.length)));

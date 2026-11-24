@@ -3,10 +3,27 @@
 let linksPromise;
 const loadLinks = () => (linksPromise ??= fetch('data/pinci-links.json?v=3').then((r) => (r.ok ? r.json() : { chars: {} })).catch(() => ({ chars: {} })));
 const PINCI = 'https://deepmind-hub777.github.io/hanzi-xueyuan/modules/pinci/';
+export const LINKS_ANCHOR = 'zi-jiazu';
+// 带上回程：拼词园顶栏会显示「‹ 返回千字文 第N页」，点了回到这一页这一组的「字的家族」
+function returnUrl() { const u = new URL(location.href); u.hash = LINKS_ANCHOR; return u.pathname + u.search + u.hash; }
+function pinciHref(kind, n, ctx) {
+  const q = new URLSearchParams({ from: 'qzw', p: String(ctx.page ?? ''), g: String(ctx.group ?? ''), ret: returnUrl() });
+  return `${PINCI}?${q}#${kind}=${n}`;
+}
+let clickBound = false;
 
-export async function renderHubLinks(root, characters, pinyins) {
+export async function renderHubLinks(root, characters, pinyins, ctx = {}) {
   const { chars } = await loadLinks();
   root.replaceChildren();
+  if (!clickBound) {
+    clickBound = true;
+    root.addEventListener('click', (event) => {
+      const a = event.target.closest('a[data-kind]'); if (!a) return;
+      a.href = pinciHref(a.dataset.kind, a.dataset.n, { page: a.dataset.p, group: a.dataset.g });
+      // 当前历史记录也记下「字的家族」锚点：安卓返回键回来时（若页面被重新载入）也能直接回到这里
+      try { const u = new URL(location.href); u.hash = LINKS_ANCHOR; history.replaceState(history.state, '', u); } catch { /* 忽略 */ }
+    });
+  }
   characters.forEach((character, index) => {
     const info = chars[character];
     const card = document.createElement('article'); card.className = 'hub-link-card';
@@ -29,9 +46,9 @@ export async function renderHubLinks(root, characters, pinyins) {
     } else facts.textContent = '部首与结构资料暂缺';
     card.append(facts);
     const row = document.createElement('p'); row.className = 'hub-link-row';
-    if (info?.qz) { const a = document.createElement('a'); a.href = `${PINCI}#qz=${info.qz}`; a.textContent = `千字文园 第 ${info.qz} 关`; a.title = `去天天拼词园·千字文园，在「${info.s}」里找字`; row.append(a); }
-    if (info?.lv) { const a = document.createElement('a'); a.href = `${PINCI}#lv=${info.lv}`; a.textContent = `主园 第 ${info.lv} 关`; a.title = `去天天拼词园，看「${info.s}」里藏着哪些字`; row.append(a); }
-    if (info?.bs) { const a = document.createElement('a'); a.href = `${PINCI}#bs=${info.bs}`; a.textContent = `后花园 第 ${info.bs} 关`; a.title = '去后花园练部首与结构'; row.append(a); }
+    if (info?.qz) { const a = document.createElement('a'); a.dataset.kind = 'qz'; a.dataset.n = String(info.qz); a.dataset.p = String(ctx.page ?? ''); a.dataset.g = String(ctx.group ?? ''); a.href = pinciHref('qz', info.qz, ctx); a.textContent = `千字文园 第 ${info.qz} 关`; a.title = `去天天拼词园·千字文园，在「${info.s}」里找字`; row.append(a); }
+    if (info?.lv) { const a = document.createElement('a'); a.dataset.kind = 'lv'; a.dataset.n = String(info.lv); a.dataset.p = String(ctx.page ?? ''); a.dataset.g = String(ctx.group ?? ''); a.href = pinciHref('lv', info.lv, ctx); a.textContent = `主园 第 ${info.lv} 关`; a.title = `去天天拼词园，看「${info.s}」里藏着哪些字`; row.append(a); }
+    if (info?.bs) { const a = document.createElement('a'); a.dataset.kind = 'bs'; a.dataset.n = String(info.bs); a.dataset.p = String(ctx.page ?? ''); a.dataset.g = String(ctx.group ?? ''); a.href = pinciHref('bs', info.bs, ctx); a.textContent = `后花园 第 ${info.bs} 关`; a.title = '去后花园练部首与结构'; row.append(a); }
     if (row.childElementCount) card.append(row);
     root.append(card);
   });
