@@ -294,7 +294,7 @@ function restoreLocation() {
 }
 
 try {
-  const response = await fetch('data/lessons.json'); if (!response.ok) throw new Error('教學內容無法載入。');
+  const response = await fetch('data/lessons.json?v=2'); if (!response.ok) throw new Error('教學內容無法載入。');
   lessons = await response.json(); lesson = lessons[0];
   const initialUrl = new URL(location.href); const requestedPage = Number(initialUrl.searchParams.get('page')); const requestedGroup = Number(initialUrl.searchParams.get('group'));
   if (Number.isInteger(requestedPage) && requestedPage > 0) {
