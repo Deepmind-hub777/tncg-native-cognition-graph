@@ -305,3 +305,21 @@ img[hidden]{display:none!important}
   .lesson-content { padding-block: 14px; }
   .meaning-reading { line-height: 1.9; }
 }
+
+/* 意境插画：所有设备都显示整张图，不再裁切（主体常在画面下部，如第18组的鱼）。 */
+.artwork img { height: auto; aspect-ratio: 3 / 2; object-fit: contain; object-position: center; }
+@media (max-width: 720px) {
+  .artwork img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; }
+}
+@media (min-width: 721px) {
+  .artwork { background: #eee3cf; }
+  .artwork img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: min(58vh, 620px);
+    margin: 0 auto;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
+  }
+}
