@@ -94,8 +94,8 @@ function render() {
   $('#jump-message').textContent = '';
   $('#previous-lesson').disabled = sequence <= 1;
   $('#next-lesson').disabled = sequence >= TOTAL;
-  $('#play-audio').disabled = !activeLesson.audio.value.normal;
-  $('#audio-state').textContent = activeLesson.audio.value.normal ? '点按按钮收听' : '本组录音暂不可用';
+  $('#play-audio').disabled = !activeLesson.audio.value.slow;
+  $('#audio-state').textContent = activeLesson.audio.value.slow ? '点按按钮收听' : '本组录音暂不可用';
   document.title = `第 ${sequence} 组 · 千字文听读`;
   card.setAttribute('aria-busy', 'false');
 }
@@ -133,9 +133,9 @@ $('#play-audio').addEventListener('click', () => {
   if (!activeLesson) return;
   void playClip({
     audioElement: audio,
-    assetUrl: resolveAsset(activeLesson.audio.value.normal),
+    assetUrl: resolveAsset(activeLesson.audio.value.slow),
     fallbackText: activeLesson.traditionalText.value,
-    speakingRate: 1,
+    speakingRate: 0.6,
     speechApi: window.speechSynthesis,
     onState: setAudioState,
   }).catch((error) => setAudioState('error', { message: error.message }));

@@ -2,6 +2,7 @@ import { createWritingSurface } from './writing.js';
 import { detectAudioEnvironment, playClip } from './audio.js';
 import { createQuiz, answerQuiz } from './quiz.js';
 import { getPageCount, getPageEntries } from './pagination.js';
+import { renderHubLinks } from './hub-links.js?v=3';
 
 const $ = (selector) => document.querySelector(selector);
 const audio = $('#audio-player');
@@ -9,17 +10,20 @@ const MAX_QUIZ_QUESTIONS = 10;
 let lessons = []; let lesson; let activePage = 1;
 let score = 0; let quizAttempts = 0; let quizAnswered = false; let quizRound;
 const writers = new Map();
+let strokeGaps = new Set();
+const strokeGapsReady = fetch('data/stroke-gaps.json').then((r) => (r.ok ? r.json() : {})).then((d) => { strokeGaps = new Set(d.codepoints ?? []); }).catch(() => {});
 
 const setAudioState = (state, details = {}) => {
-  const messages = { idle: '點擊按鈕播放', loading: '正在啟動語音…', playing: '正在播放', ended: '播放完成；再次點擊普通話語音可重播', error: '播放失敗，請檢查音量或重試。' };
+  const messages = { idle: '點擊按鈕播放', loading: '正在啟動語音…', playing: '正在播放', ended: '播放完成；再次點擊慢速朗讀可重播', error: '播放失敗，請檢查音量或重試。' };
   const source = details.source === 'browser-tts' ? '（設備普通話語音）' : details.source === 'recorded-audio' ? '（標準錄音）' : '';
   $('#audio-status').textContent = state === 'error' ? `語音錯誤：${details.message ?? messages.error}` : `${messages[state] ?? state}${state === 'playing' ? source : ''}`;
 };
 
 function speak(text, mode, index = null) {
+  chainToken += 1;
   const value = lesson.audio.value;
   const url = mode === 'character' || mode === 'quiz' ? value.characters?.[index] : value.slow;
-  void playClip({ audioElement: audio, assetUrl: url, fallbackText: text, speakingRate: 0.72, speechApi: window.speechSynthesis, onState: setAudioState })
+  void playClip({ audioElement: audio, assetUrl: url, fallbackText: text, speakingRate: 0.6, speechApi: window.speechSynthesis, onState: setAudioState })
     .catch((error) => { $('#audio-status').textContent = error.message; });
 }
 
@@ -75,7 +79,8 @@ async function buildWriting() {
   const characters = [...lesson.traditionalText.value]; const missing = [];
   for (let i = 0; i < characters.length; i++) {
     const character = characters[i], code = character.codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
-    const response = await fetch(`data/strokes/${code}.json`);
+    await strokeGapsReady;
+    const response = strokeGaps.has(code) ? { ok: false } : await fetch(`data/strokes/${code}.json`);
     if (!response.ok) {
       missing.push(character);
       const card = document.createElement('article'); card.className = 'writing-card writing-placeholder';
@@ -107,31 +112,89 @@ async function buildWriting() {
     : '標準筆順資料待校訂';
 }
 
+/* 聽音辨字的聲音提示（汉字学园）：所有聲音都由點擊觸發，並與朗讀共用同一個 <audio>，手機上不會被自動播放策略擋住。 */
+const CUE = (name) => `assets/audio/cues/${name}.mp3`;
+let chainToken = 0; let quizHeard = false; let promptPlayed = false;
+function playChain(urls, then) {
+  const token = ++chainToken; window.speechSynthesis?.cancel?.();
+  let i = 0;
+  const next = () => {
+    if (token !== chainToken) return;
+    if (i >= urls.length) { audio.onended = null; audio.onerror = null; then?.(); return; }
+    audio.onended = next; audio.onerror = next;
+    audio.src = urls[i++]; audio.currentTime = 0;
+    audio.play().catch(() => { if (token === chainToken) next(); });
+  };
+  next();
+}
+function playQuizAnswer() {
+  const index = [...lesson.traditionalText.value].indexOf(quizRound.answer.character);
+  quizHeard = true; speak(quizRound.answer.character, 'quiz', index);
+}
+function cueButton(id) {
+  ['#quiz-play', '#quiz-next'].forEach((sel) => $(sel).classList.toggle('cue-pulse', sel === id));
+}
+function quizHint(text) { $('#quiz-hint').textContent = text; }
+
 function renderQuiz() {
-  if (quizAttempts >= MAX_QUIZ_QUESTIONS) {
+  const finishedAll = quizAttempts >= MAX_QUIZ_QUESTIONS;
+  const nextButton = $('#quiz-next');
+  if (finishedAll) {
     $('#quiz-progress').textContent = `已完成 ${MAX_QUIZ_QUESTIONS} / ${MAX_QUIZ_QUESTIONS} 題`;
-    $('#quiz-play').disabled = true; $('#quiz-next').disabled = true; return;
+    $('#quiz-play').disabled = true; nextButton.disabled = false; nextButton.textContent = '再來一局'; cueButton('#quiz-next');
+    return;
   }
-  quizRound = createQuiz([lesson], 'page'); quizAnswered = false;
+  nextButton.textContent = '下一題';
+  quizRound = createQuiz([lesson], 'page'); quizAnswered = false; quizHeard = false;
   $('#quiz-progress').textContent = `第 ${quizAttempts + 1} / ${MAX_QUIZ_QUESTIONS} 題`;
-  $('#quiz-feedback').textContent = ''; $('#quiz-play').disabled = false; $('#quiz-next').disabled = true;
+  $('#quiz-feedback').textContent = ''; $('#quiz-play').disabled = false; nextButton.disabled = true;
+  cueButton('#quiz-play'); quizHint('點「播放題目」，聽一聽，再選出你聽到的字。');
   const options = $('#quiz-options'); options.replaceChildren();
   quizRound.options.forEach((option) => {
     const button = document.createElement('button'); button.type = 'button'; button.textContent = option.character;
-    button.setAttribute('aria-label', `選擇${option.character}`);
+    button.setAttribute('aria-label', `選擇${option.character}`); button.dataset.id = option.id;
     button.addEventListener('click', () => {
       if (quizAnswered || quizAttempts >= MAX_QUIZ_QUESTIONS) return;
+      if (!quizHeard) { cueButton('#quiz-play'); quizHint('先點「播放題目」聽一聽。'); playChain([CUE('vo-play')]); return; }
       quizAnswered = true; quizAttempts += 1;
       const result = answerQuiz(quizRound, option.id, score); score = result.score;
       const finished = quizAttempts >= MAX_QUIZ_QUESTIONS; $('#score').textContent = String(score);
       const finalFeedback = result.correct ? '答對了。' : `答錯了，正確答案是「${quizRound.answer.character}」。`;
       $('#quiz-feedback').textContent = finished ? `${finalFeedback}本局 ${MAX_QUIZ_QUESTIONS} 題已完成，最終積分：${score}。` : result.feedback;
-      if (finished) $('#quiz-progress').textContent = `已完成 ${MAX_QUIZ_QUESTIONS} / ${MAX_QUIZ_QUESTIONS} 題`;
-      [...options.children].forEach((item) => { item.disabled = true; });
-      $('#quiz-next').disabled = finished; $('#quiz-play').disabled = finished;
+      [...options.children].forEach((item) => {
+        item.disabled = true;
+        if (item.dataset.id === quizRound.answer.id) item.classList.add('is-correct');
+        else if (item === button) item.classList.add('is-wrong');
+      });
+      $('#quiz-play').disabled = finished;
+      if (finished) {
+        $('#quiz-progress').textContent = `已完成 ${MAX_QUIZ_QUESTIONS} / ${MAX_QUIZ_QUESTIONS} 題`;
+        nextButton.textContent = '再來一局'; nextButton.disabled = false; cueButton('#quiz-next');
+        quizHint('全部完成，真棒！點「再來一局」可以重新開始。');
+        playChain([CUE(result.correct ? 'correct' : 'wrong'), CUE('vo-done')]);
+      } else if (result.correct) {
+        nextButton.disabled = false; cueButton('#quiz-next'); quizHint('答對了！點「下一題」繼續。');
+        playChain([CUE('correct'), CUE('vo-correct')]);
+      } else {
+        nextButton.disabled = false; cueButton('#quiz-next'); quizHint(`再聽一次：正確答案是「${quizRound.answer.character}」。記住它，再點「下一題」。`);
+        playChain([CUE('wrong'), CUE('vo-wrong')], playQuizAnswer);
+      }
     });
     options.append(button);
   });
+}
+
+function onQuizPlay() {
+  if (!quizRound || $('#quiz-play').disabled) return;
+  if (!quizAnswered) { cueButton(null); quizHint('選出你聽到的字；沒聽清楚可以再點「播放題目」。'); }
+  if (!promptPlayed) { promptPlayed = true; playChain([CUE('vo-prompt')], playQuizAnswer); }
+  else playQuizAnswer();
+}
+
+function onQuizNext() {
+  if (quizAttempts >= MAX_QUIZ_QUESTIONS) { score = 0; quizAttempts = 0; $('#score').textContent = '0'; renderQuiz(); cueButton(null); playChain([CUE('page'), CUE('vo-prompt')], playQuizAnswer); quizHint('選出你聽到的字；沒聽清楚可以再點「播放題目」。'); return; }
+  renderQuiz(); cueButton(null); quizHint('選出你聽到的字；沒聽清楚可以再點「播放題目」。');
+  playChain([CUE('page')], playQuizAnswer);
 }
 
 async function renderLesson() {
@@ -141,6 +204,7 @@ async function renderLesson() {
   document.title = `千字文 · 第 ${lesson.sequence} 組`;
   $('#review-badge').textContent = `第 ${lesson.sequence} 組內容待校訂`;
   drawMeaningReading(); drawPinyin();
+  void renderHubLinks($('#hub-links'), [...lesson.traditionalText.value], lesson.pinyin.value);
   $('#pinyin-status').textContent = lesson.pinyin.status === 'needs_review' ? '拼音待校訂' : '';
   $('#meaning-status').textContent = lesson.simplifiedMeaning.status === 'needs_review' ? '釋義待校訂' : '';
   $('#english-note').textContent = lesson.englishNote.value;
@@ -195,11 +259,11 @@ try {
   $('#mode-trace').addEventListener('click', (event) => { writers.forEach((writer) => writer.setMode('trace')); event.currentTarget.setAttribute('aria-pressed','true'); $('#mode-free').setAttribute('aria-pressed','false'); });
   $('#mode-free').addEventListener('click', (event) => { writers.forEach((writer) => writer.setMode('free')); event.currentTarget.setAttribute('aria-pressed','true'); $('#mode-free').setAttribute('aria-pressed','true'); $('#mode-trace').setAttribute('aria-pressed','false'); });
   $('#clear-writing').addEventListener('click', () => writers.forEach((writer) => writer.clear()));
-  $('#quiz-play').addEventListener('click', () => { const index = [...lesson.traditionalText.value].indexOf(quizRound.answer.character); speak(quizRound.answer.character, 'quiz', index); });
-  $('#quiz-next').addEventListener('click', renderQuiz);
+  $('#quiz-play').addEventListener('click', onQuizPlay);
+  $('#quiz-next').addEventListener('click', onQuizNext);
   await renderLesson();
   const env = detectAudioEnvironment({ userAgent: navigator.userAgent, protocol: location.protocol, speechApi: window.speechSynthesis });
-  if (env.androidChrome && lessons.length > 1) $('#audio-status').textContent = '點擊普通話語音播放；尚未製作的錄音會使用手機普通話語音。';
+  if (env.androidChrome && lessons.length > 1) $('#audio-status').textContent = '點擊慢速朗讀播放；尚未製作的錄音會使用手機普通話語音。';
 } catch (error) {
   $('#lesson').setAttribute('aria-busy', 'false'); $('#audio-status').textContent = error.message;
   $('#writing-status').textContent = '描紅資料載入失敗，請重新整理頁面。'; console.error(error);

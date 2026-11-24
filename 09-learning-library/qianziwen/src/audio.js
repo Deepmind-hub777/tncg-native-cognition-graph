@@ -8,7 +8,7 @@ export function detectAudioEnvironment({ userAgent = '', protocol = '', speechAp
 
 export function resolveAudioClip(sequence, mode = 'normal', characterIndex = null, codePoints = ['5929','5730','7384','9EC3']) {
   const id = `qzw-${String(sequence).padStart(3, '0')}`;
-  if (mode === 'normal' || mode === 'slow') return `assets/audio/${id}-${mode}.mp3`;
+  if (mode === 'normal' || mode === 'slow') return `assets/audio/${id}-slow.mp3`;
   if (mode === 'character' && Number.isInteger(characterIndex) && codePoints[characterIndex]) return `assets/audio/chars/${String(codePoints[characterIndex]).toUpperCase()}.mp3`;
   throw new RangeError('Unknown audio clip mode or character index');
 }
