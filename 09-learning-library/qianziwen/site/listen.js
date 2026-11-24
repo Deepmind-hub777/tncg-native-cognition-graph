@@ -9,18 +9,43 @@ let lessons = [];
 let sequence = 1;
 let activeLesson;
 
+// 状态只在出错或改用设备语音时显示一行小字
 function setAudioState(state, details = {}) {
-  const labels = {
-    idle: '点按按钮收听',
-    loading: '正在准备语音…',
-    playing: '正在播放',
-    ended: '播放完成；再次点按可重听',
-    error: '语音播放失败。',
+  const el = $('#audio-state');
+  if (state === 'error') { el.textContent = `播放失败：${details.message ?? '语音播放失败。'}`; stopReading(); return; }
+  if (state === 'ended') { el.textContent = ''; stopReading(); return; }
+  el.textContent = state === 'playing' && details.source === 'browser-tts' ? '（使用设备普通话语音）' : '';
+}
+
+// 慢速朗读时逐字高亮（每字起始秒数见 data/slow-timing.json；缺资料时平均分）
+let slowTiming = {};
+fetch(new URL('../data/slow-timing.json?v=1', import.meta.url)).then((r) => (r.ok ? r.json() : {})).then((d) => { slowTiming = d; }).catch(() => {});
+let readingRaf = 0;
+function markReading(index) {
+  document.querySelectorAll('#character-pinyin [data-ci]').forEach((el) => el.classList.toggle('is-reading', Number(el.dataset.ci) === index));
+}
+function stopReading() { cancelAnimationFrame(readingRaf); readingRaf = 0; markReading(-1); $('#play-audio').classList.remove('is-playing'); }
+function followLine(url) {
+  const marks = slowTiming[String(sequence)]; const count = [...activeLesson.traditionalText.value].length;
+  const tick = () => {
+    if (audio.src !== url) { stopReading(); return; }
+    const t = audio.currentTime; let index = 0;
+    if (Array.isArray(marks) && marks.length === count + 1) { for (let k = 0; k < count; k += 1) if (t >= marks[k] - 0.04) index = k; }
+    else if (audio.duration > 0) index = Math.min(count - 1, Math.floor((t / audio.duration) * count));
+    markReading(index); readingRaf = requestAnimationFrame(tick);
   };
-  const source = details.source === 'browser-tts' ? '（设备普通话语音）' : details.source === 'recorded-audio' ? '（标准录音）' : '';
-  $('#audio-state').textContent = state === 'error'
-    ? `播放失败：${details.message ?? labels.error}`
-    : `${labels[state] ?? state}${state === 'playing' ? source : ''}`;
+  tick();
+}
+function play(mode, index = null) {
+  if (!activeLesson) return;
+  stopReading();
+  const value = activeLesson.audio.value;
+  const url = resolveAsset(mode === 'slow' ? value.slow : value.characters?.[index]);
+  const text = mode === 'slow' ? activeLesson.traditionalText.value : [...activeLesson.traditionalText.value][index];
+  const playing = playClip({ audioElement: audio, assetUrl: url, fallbackText: text, speakingRate: 0.6, speechApi: window.speechSynthesis, onState: setAudioState });
+  if (mode === 'slow') { $('#play-audio').classList.add('is-playing'); if (url) followLine(url); }
+  else markReading(index);
+  void playing.catch((error) => setAudioState('error', { message: error.message }));
 }
 
 function resolveAsset(path) {
@@ -58,9 +83,11 @@ function render() {
   const characters = [...text];
   $('#lesson-index').textContent = `第 ${sequence} 组`; markSeen(sequence);
   $('#traditional-text').textContent = text;
-  $('#character-pinyin').replaceChildren();
+  $('#character-pinyin').replaceChildren(); stopReading();
   characters.forEach((character, index) => {
-    const pair = document.createElement('span'); pair.className = 'pinyin-pair';
+    const pair = document.createElement('button'); pair.type = 'button'; pair.className = 'pinyin-pair'; pair.dataset.ci = String(index);
+    pair.setAttribute('aria-label', `朗读「${character}」${activeLesson.pinyin.value[index] ?? ''}`);
+    pair.addEventListener('click', () => play('character', index));
     const hanzi = document.createElement('span'); hanzi.className = 'pinyin-hanzi'; hanzi.textContent = character;
     const syllable = document.createElement('span'); syllable.className = 'pinyin-syllable'; syllable.textContent = activeLesson.pinyin.value[index] ?? '';
     pair.append(hanzi, syllable); $('#character-pinyin').append(pair);
@@ -90,13 +117,14 @@ function render() {
   progress.value = sequence;
   progress.setAttribute('aria-valuetext', `第 ${sequence} 组，共 ${TOTAL} 组`);
   $('#progress-label').textContent = `第 ${sequence} / ${TOTAL} 组`;
+  $('#control-counter').setAttribute('aria-label', `第 ${sequence} 组，共 ${TOTAL} 组；点按跳至其他组`);
   $('#control-counter').textContent = `${sequence} / ${TOTAL}`;
   $('#lesson-jump').value = String(sequence);
   $('#jump-message').textContent = '';
   $('#previous-lesson').disabled = sequence <= 1;
   $('#next-lesson').disabled = sequence >= TOTAL;
   $('#play-audio').disabled = !activeLesson.audio.value.slow;
-  $('#audio-state').textContent = activeLesson.audio.value.slow ? '点按按钮收听' : '本组录音暂不可用';
+  $('#audio-state').textContent = activeLesson.audio.value.slow ? '' : '本组录音暂不可用';
   document.title = `第 ${sequence} 组 · 千字文听读`;
   card.setAttribute('aria-busy', 'false');
 }
@@ -112,7 +140,7 @@ function navigateTo(nextSequence, { focusCard = true, push = true } = {}) {
   if (push) updateAddress();
   render();
   if (focusCard) card.focus({ preventScroll: true });
-  window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  window.scrollTo({ top: 0 });
   return true;
 }
 
@@ -127,20 +155,20 @@ $('#jump-form').addEventListener('submit', (event) => {
     return;
   }
   $('#lesson-jump').removeAttribute('aria-invalid');
-  navigateTo(requested);
+  closeJump(); navigateTo(requested);
 });
 $('#lesson-jump').addEventListener('input', (event) => event.currentTarget.removeAttribute('aria-invalid'));
-$('#play-audio').addEventListener('click', () => {
-  if (!activeLesson) return;
-  void playClip({
-    audioElement: audio,
-    assetUrl: resolveAsset(activeLesson.audio.value.slow),
-    fallbackText: activeLesson.traditionalText.value,
-    speakingRate: 0.6,
-    speechApi: window.speechSynthesis,
-    onState: setAudioState,
-  }).catch((error) => setAudioState('error', { message: error.message }));
+$('#play-audio').addEventListener('click', () => play('slow'));
+// 点底栏「N / 250」打开跳组小窗
+const jumpDialog = $('#jump-dialog');
+function closeJump() { if (jumpDialog.open) jumpDialog.close(); }
+$('#control-counter').addEventListener('click', () => {
+  $('#lesson-jump').value = String(sequence); $('#jump-message').textContent = '';
+  if (typeof jumpDialog.showModal === 'function') jumpDialog.showModal(); else jumpDialog.setAttribute('open', '');
+  $('#lesson-jump').focus(); $('#lesson-jump').select();
 });
+$('#jump-close').addEventListener('click', closeJump);
+jumpDialog.addEventListener('click', (event) => { if (event.target === jumpDialog) closeJump(); });
 window.addEventListener('popstate', () => {
   const requested = Number(new URL(location.href).searchParams.get('group'));
   navigateTo(Number.isInteger(requested) ? requested : 1, { focusCard: false, push: false });
