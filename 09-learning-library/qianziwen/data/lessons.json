@@ -282,7 +282,7 @@
     },
     "illustration": {
       "value": {
-        "path": "assets/illustrations/qzw-004.jpg",
+        "path": "assets/illustrations/qzw-004.jpg?v=2",
         "prompt": "Create a quiet, text-free ink-wash scene expressing the imagery of 辰宿列張."
       },
       "status": "needs_review",

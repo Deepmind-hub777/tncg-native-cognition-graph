@@ -175,7 +175,7 @@ window.addEventListener('popstate', () => {
 });
 
 try {
-  const response = await fetch('../data/lessons.json');
+  const response = await fetch('../data/lessons.json?v=2');
   if (!response.ok) throw new Error('课程内容暂时无法载入，请刷新页面重试。');
   lessons = await response.json();
   if (lessons.length !== TOTAL) throw new Error(`课程数据数量不正确：当前载入 ${lessons.length} 组。`);

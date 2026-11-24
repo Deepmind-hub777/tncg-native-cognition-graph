@@ -307,3 +307,11 @@ npm run serve                            # 默认 4173；局域网访问用电�
 - CSV 第 004 组已记录原图路径、修订稿路径和对照预览路径；状态为 `REFINE / 待人工确认`。
 - 原图 `assets/illustrations/qzw-004.jpg` SHA-256 前后均为 `95349FD641ACAD7D0ECDA3676305892EE9353D94FA84563604F5F0447A23ED4B`，确认未覆盖；其他 248 组插画未触碰。
 - 本轮仅做图像和路径核验，未运行应用测试；当前等待用户人工确认，不将修订稿设为 PASS，也未更新课程使用路径。
+
+## 第 004 组「辰宿列張」修订稿确认上线（2026-11-25）
+
+- 经 Milo 确认：修订稿通过，状态由 `REFINE / 待人工确认` 改为 `PASS`（CSV 与 `data/illustration-review.md` 已同步）。
+- 上线文件 `assets/illustrations/qzw-004.jpg` 已替换为修订稿（与 `revisions/qzw-004-refine-v1.jpg` 相同，SHA-256 `6B961D35…31BD171E`，1536×1024）。
+- 原图存档：`assets/illustrations/revisions/qzw-004-original.jpg`（SHA-256 `95349FD6…23ED4B`，与原 `qzw-004.jpg` 相同）；并列对照图保持不变。
+- `data/lessons.json` 第 4 组插图路径改为 `assets/illustrations/qzw-004.jpg?v=2`，让手机和浏览器刷新缓存；其他 249 组未改动。
+- 已同步到 tncg `gh-pages`（站点根目录）和 hanzi-xueyuan `modules/qianziwen`，并在 390×844 线上核验循序听读第 4 组与主页面第 4 组均显示新星空图且不裁切。
