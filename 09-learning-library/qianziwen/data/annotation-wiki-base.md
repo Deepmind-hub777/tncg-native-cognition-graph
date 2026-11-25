@@ -115,3 +115,14 @@
 - 更正：第 46 组拼音由 `mí shì jǐ zhǎng` 改为 `mí shì jǐ cháng`；`tools/build-corpus.py` 加入组号覆盖，避免重新构建时回退。
 - 音频：整组常速、慢速与单字「長」均已按 cháng 重新提交 TTS 合成；常速/慢速 MP3 内容哈希已变化，单字 MP3 哈希与原文件相同。manifest 记录三项 `pinyin: cháng`/整句拼音和 `pronunciationOverride: true`，音频状态仍为 `needs_review`，未宣称通过听审。
 - 状态：此条依据已核对，但该组拼音与音频字段仍保持 `needs_review`，等待完整教学终审。
+
+## 2026-11-25 外部评测修订（仍为 needs_review）
+| 序号 | 原文 | 字段 | 原值 | 新值 | 依据 |
+| --- | --- | --- | --- | --- | --- |
+| 004 | 辰宿列張 | 拼音 第2字 | sù | xiù | 宿指星宿；教育部《国语辞典简编本》「星宿、二十八宿」读 xiù。单字与整组慢速音频已重制（宿用同音字「秀」合成） |
+| 028 | 垂拱平章 | 释义 / 英文 | 垂衣拱手，天下太平章明。 / Rule at ease; all is ordered and bright. | 垂衣拱手而治，政事平正清明。 / Rule with folded hands; governance is fair and clear. | ctext《千字文释义》：平章＝政事平正清明 |
+| 106 | 浮渭據涇 | 释义 / 英文 | 浮舟渭水，据守泾水。 / Float on the Wei, hold the Jing. | 长安临渭水，依傍泾水。 / Chang’an lies by the Wei and Jing rivers. | 此句写长安地理位置，非泛舟、据守 |
+| 192 | 梧桐早凋 | 英文 | The paulownia sheds its leaves early. | The Chinese parasol tree sheds its leaves early. | 梧桐＝Firmiana simplex（Chinese parasol tree），非泡桐 |
+
+同时：页面插画下不再显示 AI 生成提示词（`illustration.prompt` 保留在数据中作制作记录）；`data/pinyin-review.md` 已与课程数据同步。
+

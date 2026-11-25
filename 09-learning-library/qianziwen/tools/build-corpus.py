@@ -14,6 +14,8 @@ from pypinyin import Style, lazy_pinyin
 ROOT = Path(__file__).resolve().parents[1]
 PINYIN_DRAFT_OVERRIDES = {
     # In 「露結為霜」, 為 means “become/as” and is wéi, not the default wèi.
+    # In 「辰宿列張」, 宿 means 星宿 (constellation) and is xiù (MOE 國語辭典簡編本: 星宿、二十八宿 讀 xiù).
+    4: ["chén", "xiù", "liè", "zhāng"],
     10: ["lù", "jié", "wéi", "shuāng"],
     # In 「靡恃己長」, 長 means “strength/merit” and is cháng (as in 長處), not zhǎng.
     46: ["mǐ", "shì", "jǐ", "cháng"],

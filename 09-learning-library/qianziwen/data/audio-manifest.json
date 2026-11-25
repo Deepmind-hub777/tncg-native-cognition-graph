@@ -132,12 +132,13 @@
    "status": "needs_review"
   },
   "004-char-2": {
-   "path": "assets/audio/chars/5BBF-su4.mp3",
+   "path": "assets/audio/chars/5BBF-xiu4.mp3",
    "text": "宿",
-   "pinyin": "sù",
-   "spokenText": "速",
+   "pinyin": "xiù",
+   "spokenText": "秀",
    "method": "homophone",
-   "status": "needs_review"
+   "status": "needs_review",
+   "regeneratedAt": "2026-11-25"
   },
   "004-char-3": {
    "path": "assets/audio/chars/5217-lie4.mp3",
@@ -158,9 +159,10 @@
   "004-group": {
    "path": "assets/audio/qzw-004-slow.mp3",
    "text": "辰宿列張",
-   "pinyin": "chén sù liè zhāng",
+   "pinyin": "chén xiù liè zhāng",
    "method": "4 slow character clips joined with 0.45 s pauses",
-   "status": "needs_review"
+   "status": "needs_review",
+   "regeneratedAt": "2026-11-25"
   },
   "005-char-1": {
    "path": "assets/audio/chars/5BD2-han2.mp3",

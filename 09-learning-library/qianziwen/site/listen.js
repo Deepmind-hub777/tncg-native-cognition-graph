@@ -19,7 +19,7 @@ function setAudioState(state, details = {}) {
 
 // 慢速朗读时逐字高亮（每字起始秒数见 data/slow-timing.json；缺资料时平均分）
 let slowTiming = {};
-fetch(new URL('../data/slow-timing.json?v=1', import.meta.url)).then((r) => (r.ok ? r.json() : {})).then((d) => { slowTiming = d; }).catch(() => {});
+fetch(new URL('../data/slow-timing.json?v=2', import.meta.url)).then((r) => (r.ok ? r.json() : {})).then((d) => { slowTiming = d; }).catch(() => {});
 let readingRaf = 0;
 function markReading(index) {
   document.querySelectorAll('#character-pinyin [data-ci]').forEach((el) => el.classList.toggle('is-reading', Number(el.dataset.ci) === index));
@@ -175,7 +175,7 @@ window.addEventListener('popstate', () => {
 });
 
 try {
-  const response = await fetch('../data/lessons.json?v=2');
+  const response = await fetch('../data/lessons.json?v=3');
   if (!response.ok) throw new Error('课程内容暂时无法载入，请刷新页面重试。');
   lessons = await response.json();
   if (lessons.length !== TOTAL) throw new Error(`课程数据数量不正确：当前载入 ${lessons.length} 组。`);

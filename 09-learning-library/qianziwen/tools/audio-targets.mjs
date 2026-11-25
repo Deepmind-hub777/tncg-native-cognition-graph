@@ -36,6 +36,7 @@ export function buildAudioTargets(lessons, { start = 2, end = lessons.length } =
 // 明细见 data/annotation-wiki-base.md；新增修正组必须同步加入此集合，否则音频会按默认读音朗读。
 const pinyinOverrides = new Set([
   10, 37, 188, // 露結爲霜 / 蓋此身髮 / 慼謝歡招：早期上下文多音字
+  4, // 辰宿列張：宿=星宿，讀 xiù（2026-11-25 外部評測修訂）
   8, 22, 32, 46, 65, 67, 81, 88, 91, 92, 103, 108, // 2026-11-23 基线核对
   132, 140, 143, 156, 157, 171, 177, 187, 189, 200, 219, 232,
 ]);

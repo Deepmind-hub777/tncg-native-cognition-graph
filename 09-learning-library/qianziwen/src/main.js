@@ -24,7 +24,7 @@ const setAudioState = (state, details = {}) => {
 
 // 慢速朗讀時，繁體原文和拼音裏「正在讀的字」一起高亮（字的起始時間見 data/slow-timing.json，缺資料時平均分）
 let slowTiming = {};
-fetch('data/slow-timing.json?v=1').then((r) => (r.ok ? r.json() : {})).then((d) => { slowTiming = d; }).catch(() => {});
+fetch('data/slow-timing.json?v=2').then((r) => (r.ok ? r.json() : {})).then((d) => { slowTiming = d; }).catch(() => {});
 let readingRaf = 0;
 function markReading(index) {
   document.querySelectorAll('#traditional-text [data-ci], #pinyin-list [data-ci]').forEach((el) => {
@@ -256,8 +256,10 @@ async function renderLesson() {
   $('#english-status').textContent = lesson.englishNote.status === 'needs_review' ? '英文注解待校訂' : '';
   const illustration = lesson.illustration.value;
   const image = $('#illustration'); const caption = $('#illustration-caption');
-  if (illustration.path) { image.hidden = false; image.src = illustration.path; image.alt = `${lesson.traditionalText.value}意境插畫`; caption.textContent = illustration.prompt; }
-  else { image.hidden = true; image.removeAttribute('src'); caption.textContent = '意境插畫待製作。'; }
+  // 插畫下不再顯示生成提示詞（製作資訊，不給學員看）
+  caption.textContent = ''; caption.hidden = true;
+  if (illustration.path) { image.hidden = false; image.src = illustration.path; image.alt = `${lesson.traditionalText.value}意境插畫`; }
+  else { image.hidden = true; image.removeAttribute('src'); caption.textContent = '意境插畫待製作。'; caption.hidden = false; }
   const playLine = () => speak(lesson.traditionalText.value, 'slow');
   $('#play-slow').onclick = playLine; $('#play-slow-py').onclick = playLine; $('#audio-status').textContent = '';
   const tabs = $('#page-groups'); [...tabs.children].forEach((button, index) => { button.setAttribute('aria-current', String(getPageEntries(lessons, activePage)[index].id === lesson.id)); });
@@ -294,7 +296,7 @@ function restoreLocation() {
 }
 
 try {
-  const response = await fetch('data/lessons.json?v=2'); if (!response.ok) throw new Error('教學內容無法載入。');
+  const response = await fetch('data/lessons.json?v=3'); if (!response.ok) throw new Error('教學內容無法載入。');
   lessons = await response.json(); lesson = lessons[0];
   const initialUrl = new URL(location.href); const requestedPage = Number(initialUrl.searchParams.get('page')); const requestedGroup = Number(initialUrl.searchParams.get('group'));
   if (Number.isInteger(requestedPage) && requestedPage > 0) {

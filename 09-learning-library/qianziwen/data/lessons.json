@@ -247,12 +247,12 @@
     "pinyin": {
       "value": [
         "chén",
-        "sù",
+        "xiù",
         "liè",
         "zhāng"
       ],
       "status": "needs_review",
-      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
+      "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context.; 2026-11-25: 宿 in 星宿 reads xiù (MOE 国语辞典简编本 宿 xiù: 星宿、二十八宿)"
     },
     "simplifiedMeaning": {
       "value": "星辰布列，张满天空。",
@@ -290,11 +290,11 @@
     },
     "audio": {
       "value": {
-        "normal": "assets/audio/qzw-004-slow.mp3",
-        "slow": "assets/audio/qzw-004-slow.mp3",
+        "normal": "assets/audio/qzw-004-slow.mp3?v=2",
+        "slow": "assets/audio/qzw-004-slow.mp3?v=2",
         "characters": [
           "assets/audio/chars/8FB0-chen2.mp3",
-          "assets/audio/chars/5BBF-su4.mp3",
+          "assets/audio/chars/5BBF-xiu4.mp3",
           "assets/audio/chars/5217-lie4.mp3",
           "assets/audio/chars/5F35-zhang1.mp3"
         ]
@@ -2114,9 +2114,9 @@
       "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
     },
     "simplifiedMeaning": {
-      "value": "垂衣拱手，天下太平章明。",
+      "value": "垂衣拱手而治，政事平正清明。",
       "status": "needs_review",
-      "source": "Doubao-authored teaching draft (2026-11-22); pending Codex/human review against primary sources."
+      "source": "Doubao-authored teaching draft (2026-11-22); pending Codex/human review against primary sources.; 2026-11-25 revised per evaluation (ctext 千字文释义: 垂衣拱手而治，平章=政事平正清明)"
     },
     "simplifiedMeaningPinyin": {
       "value": [
@@ -2124,22 +2124,24 @@
         "yī",
         "gǒng",
         "shǒu",
+        "ér",
+        "zhì",
         "",
-        "tiān",
-        "xià",
-        "tài",
+        "zhèng",
+        "shì",
         "píng",
-        "zhāng",
+        "zhèng",
+        "qīng",
         "míng",
         ""
       ],
       "status": "needs_review",
-      "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review."
+      "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review.; 2026-11-25 revised per external evaluation (pending human review)"
     },
     "englishNote": {
-      "value": "Rule at ease; all is ordered and bright.",
+      "value": "Rule with folded hands; governance is fair and clear.",
       "status": "needs_review",
-      "source": "Doubao-authored English gloss draft (2026-11-22); pending review."
+      "source": "Doubao-authored English gloss draft (2026-11-22); pending review.; 2026-11-25 revised per external evaluation (pending human review)"
     },
     "illustration": {
       "value": {
@@ -8126,30 +8128,31 @@
       "source": "Draft generated with pypinyin 0.55.0 plus sequence-specific reading overrides in build-corpus.py; verify against Xinhua Dictionary 13th edition and sentence context."
     },
     "simplifiedMeaning": {
-      "value": "浮舟渭水，据守泾水。",
+      "value": "长安临渭水，依傍泾水。",
       "status": "needs_review",
-      "source": "Doubao-authored teaching draft (2026-11-22); pending Codex/human review against primary sources."
+      "source": "Doubao-authored teaching draft (2026-11-22); pending Codex/human review against primary sources.; 2026-11-25 revised per evaluation: 浮渭据泾 describes Chang’an’s site by the Wei and Jing rivers"
     },
     "simplifiedMeaningPinyin": {
       "value": [
-        "fú",
-        "zhōu",
+        "cháng",
+        "ān",
+        "lín",
         "wèi",
         "shuǐ",
         "",
-        "jù",
-        "shǒu",
+        "yī",
+        "bàng",
         "jīng",
         "shuǐ",
         ""
       ],
       "status": "needs_review",
-      "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review."
+      "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review.; 2026-11-25 revised per external evaluation (pending human review)"
     },
     "englishNote": {
-      "value": "Float on the Wei, hold the Jing.",
+      "value": "Chang’an lies by the Wei and Jing rivers.",
       "status": "needs_review",
-      "source": "Doubao-authored English gloss draft (2026-11-22); pending review."
+      "source": "Doubao-authored English gloss draft (2026-11-22); pending review.; 2026-11-25 revised per external evaluation (pending human review)"
     },
     "illustration": {
       "value": {
@@ -14729,9 +14732,9 @@
       "source": "Char-aligned pinyin generated with pypinyin 0.55.0 over the Doubao-authored explanation draft; pending review."
     },
     "englishNote": {
-      "value": "The paulownia sheds its leaves early.",
+      "value": "The Chinese parasol tree sheds its leaves early.",
       "status": "needs_review",
-      "source": "Doubao-authored English gloss draft (2026-11-22); pending review."
+      "source": "Doubao-authored English gloss draft (2026-11-22); pending review.; 2026-11-25: 梧桐 = Firmiana simplex (Chinese parasol tree), not paulownia"
     },
     "illustration": {
       "value": {
