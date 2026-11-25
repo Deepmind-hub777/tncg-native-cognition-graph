@@ -13,14 +13,21 @@ from pypinyin import Style, lazy_pinyin
 
 ROOT = Path(__file__).resolve().parents[1]
 PINYIN_DRAFT_OVERRIDES = {
-    # In 「露結為霜」, 為 means “become/as” and is wéi, not the default wèi.
     # In 「辰宿列張」, 宿 means 星宿 (constellation) and is xiù (MOE 國語辭典簡編本: 星宿、二十八宿 讀 xiù).
     4: ["chén", "xiù", "liè", "zhāng"],
+    # In 「露結為霜」, 為 means “become/as” and is wéi, not the default wèi.
     10: ["lù", "jié", "wéi", "shuāng"],
     # In 「靡恃己長」, 長 means “strength/merit” and is cháng (as in 長處), not zhǎng.
     46: ["mǐ", "shì", "jǐ", "cháng"],
     37: ["gài", "cǐ", "shēn", "fà"],
     188: ["qī", "xiè", "huān", "zhāo"],
+    # 經 Milo 確認（2026-11-25）：pypinyin 默認讀音在以下三組有誤。
+    # 「晉楚更霸」更＝更替、輪流，讀 gēng（非副詞「更加」gèng）。
+    143: ["jìn", "chǔ", "gēng", "bà"],
+    # 「欣奏累遣」累＝名詞「憂累/負累」，與「慼謝歡招」對舉，讀 lěi（非疲累義 lèi）。
+    187: ["xīn", "zòu", "lěi", "qiǎn"],
+    # 「永綏吉劭」綏 單音字，讀 suí（無 suī 讀法）。
+    242: ["yǒng", "suí", "jí", "shào"],
 }
 TRADITIONAL_TEXT_OVERRIDES = {
     12: "玉出崑岡",      # Distinguish 崑 from 昆 in 「昆池碣石」.

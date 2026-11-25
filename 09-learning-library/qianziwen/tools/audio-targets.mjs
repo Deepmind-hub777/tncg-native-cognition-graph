@@ -39,6 +39,7 @@ const pinyinOverrides = new Set([
   4, // 辰宿列張：宿=星宿，讀 xiù（2026-11-25 外部評測修訂）
   8, 22, 32, 46, 65, 67, 81, 88, 91, 92, 103, 108, // 2026-11-23 基线核对
   132, 140, 143, 156, 157, 171, 177, 187, 189, 200, 219, 232,
+  242, // 永綏吉劭：綏 讀 suí（pypinyin 默認 suī；經 Milo 確認 2026-11-25）
 ]);
 const characterPinyinOverrides = new Map([
   ['9577', 'cháng'], // 長 in qzw-046, meaning “strength/merit”.
